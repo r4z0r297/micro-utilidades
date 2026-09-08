@@ -17,28 +17,30 @@
     <!-- Header / Navbar adaptable de extremo a extremo -->
     <header class="border-b border-slate-800/80 bg-slate-900/70 backdrop-blur-md sticky top-0 z-40 w-full">
         <div class="w-full px-4 sm:px-6 md:px-10 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center shadow-lg shadow-emerald-500/20 text-slate-950 font-bold text-xl sm:text-2xl flex-shrink-0">
+            <a href="../" class="flex items-center gap-3 group cursor-pointer">
+                <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center shadow-lg shadow-emerald-500/20 text-slate-950 font-bold text-xl sm:text-2xl flex-shrink-0 group-hover:scale-105 transition-transform">
                     <i class="fa-solid fa-compress"></i>
                 </div>
                 <div>
-                    <span class="text-lg sm:text-2xl font-black tracking-tight text-white">SmartText<span class="text-emerald-400">Pro</span></span>
+                    <span class="text-lg sm:text-2xl font-black tracking-tight text-white group-hover:text-emerald-400 transition-colors">SmartText<span class="text-emerald-400">Pro</span></span>
                     <span class="block text-[10px] sm:text-xs text-slate-400 uppercase tracking-widest font-bold">Resumidor Inteligente</span>
                 </div>
-            </div>
+            </a>
             <nav class="hidden md:flex items-center gap-8 text-base font-semibold text-slate-300">
+                <a href="../" class="hover:text-emerald-400 transition-colors">Directorio</a>
                 <a href="#herramienta" class="hover:text-emerald-400 transition-colors">Herramienta</a>
                 <a href="#info" class="hover:text-emerald-400 transition-colors">Cómo funciona</a>
-                <button onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition-colors">Privacidad</button>
+                <button onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition-colors cursor-pointer">Privacidad</button>
             </nav>
-            <button onclick="toggleMobileMenu()" class="md:hidden text-slate-300 hover:text-white text-2xl p-2 focus:outline-none">
+            <button onclick="toggleMobileMenu()" class="md:hidden text-slate-300 hover:text-white text-2xl p-2 focus:outline-none cursor-pointer">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
         <div id="mobileMenu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-6 py-4 flex flex-col gap-4 text-base font-medium">
+            <a href="../" class="text-slate-300 hover:text-emerald-400">Directorio</a>
             <a href="#herramienta" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-emerald-400">Herramienta</a>
             <a href="#info" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-emerald-400">Cómo funciona</a>
-            <button onclick="openModal('privacyModal'); toggleMobileMenu();" class="text-left text-slate-300 hover:text-emerald-400">Privacidad</button>
+            <button onclick="openModal('privacyModal'); toggleMobileMenu();" class="text-left text-slate-300 hover:text-emerald-400 cursor-pointer">Privacidad</button>
         </div>
     </header>
 
@@ -70,10 +72,10 @@
                     class="w-full h-80 sm:h-96 md:h-[450px] p-3 sm:p-4 bg-slate-950/70 border border-slate-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 text-slate-100 placeholder-slate-600 resize-y text-sm sm:text-base leading-relaxed"></textarea>
                 
                 <div class="flex flex-wrap justify-between items-center gap-3 pt-1">
-                    <button onclick="clearText()" class="px-4 py-2 bg-rose-600/20 hover:bg-rose-600/30 text-rose-400 border border-rose-500/30 font-semibold rounded-xl text-xs sm:text-sm transition-all flex items-center gap-1.5 flex-1 sm:flex-initial justify-center">
+                    <button onclick="clearText()" class="px-4 py-2 bg-rose-600/20 hover:bg-rose-600/30 text-rose-400 border border-rose-500/30 font-semibold rounded-xl text-xs sm:text-sm transition-all flex items-center gap-1.5 flex-1 sm:flex-initial justify-center cursor-pointer">
                         <i class="fa-solid fa-trash-can"></i> Limpiar
                     </button>
-                    <button onclick="summarizeText()" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold rounded-xl text-sm transition-all shadow-lg shadow-emerald-600/20 flex items-center gap-2 flex-1 sm:flex-initial justify-center">
+                    <button onclick="summarizeText()" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold rounded-xl text-sm transition-all shadow-lg shadow-emerald-600/20 flex items-center gap-2 flex-1 sm:flex-initial justify-center cursor-pointer">
                         <i class="fa-solid fa-wand-magic-sparkles"></i> Resumir Texto
                     </button>
                 </div>
@@ -92,7 +94,7 @@
                 
                 <div class="flex flex-wrap justify-between items-center gap-3 pt-1">
                     <span id="reductionBadge" class="text-xs font-semibold text-slate-400 bg-slate-800/80 px-3 py-2 rounded-lg border border-slate-700 w-full sm:w-auto text-center">Reducción: 0%</span>
-                    <button onclick="copySummary()" class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white font-bold rounded-xl text-sm transition-all border border-slate-700 flex items-center gap-2 w-full sm:w-auto justify-center">
+                    <button onclick="copySummary()" class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white font-bold rounded-xl text-sm transition-all border border-slate-700 flex items-center gap-2 w-full sm:w-auto justify-center cursor-pointer">
                         <i class="fa-solid fa-copy"></i> Copiar Resumen
                     </button>
                 </div>
@@ -106,7 +108,7 @@
                 <i class="fa-solid fa-circle-info text-emerald-400"></i> ¿Cómo funciona este resumidor automático?
             </h2>
             <p class="text-xs sm:text-sm leading-relaxed text-slate-400">
-                Esta herramienta analiza la estructura de las frases de tu texto, seleccionando aquellas oraciones que contienen información clave o mayor extensión informativa para condensar el documento sin perder el sentido general. Todo el procesamiento se ejecuta localmente en tu navegador de manera privada y segura.
+                Esta herramienta analiza la frecuencia de las palabras clave de tu texto y valora la posición estratégica de cada frase (como el principio de los párrafos) para seleccionar de manera inteligente los fragmentos de mayor relevancia informativa. Todo el procesamiento se ejecuta de forma local en tu navegador con total privacidad.
             </p>
         </section>
 
@@ -123,9 +125,9 @@
         <div class="w-full flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
             <p>&copy; 2026 SmartText Pro. Todos los derechos reservados.</p>
             <div class="flex flex-wrap justify-center gap-6 font-medium">
-                <button onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition-colors">Política de Privacidad</button>
-                <button onclick="openModal('termsModal')" class="hover:text-emerald-400 transition-colors">Aviso Legal</button>
-                <button onclick="openModal('cookiesModal')" class="hover:text-emerald-400 transition-colors">Política de Cookies</button>
+                <button onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition-colors cursor-pointer">Política de Privacidad</button>
+                <button onclick="openModal('termsModal')" class="hover:text-emerald-400 transition-colors cursor-pointer">Aviso Legal</button>
+                <button onclick="openModal('cookiesModal')" class="hover:text-emerald-400 transition-colors cursor-pointer">Política de Cookies</button>
             </div>
         </div>
     </footer>
@@ -140,8 +142,8 @@
             </div>
         </div>
         <div class="flex gap-2 justify-end pt-1">
-            <button onclick="rejectCookies()" class="px-3.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-lg transition-colors">Rechazar</button>
-            <button onclick="acceptCookies()" class="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-xs rounded-lg transition-colors">Aceptar</button>
+            <button onclick="rejectCookies()" class="px-3.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-lg transition-colors cursor-pointer">Rechazar</button>
+            <button onclick="acceptCookies()" class="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-xs rounded-lg transition-colors cursor-pointer">Aceptar</button>
         </div>
     </div>
 
@@ -150,7 +152,7 @@
         <div class="bg-slate-900 border border-slate-800 max-w-xl w-full p-6 rounded-2xl space-y-4 max-h-[80vh] overflow-y-auto">
             <div class="flex justify-between items-center border-b border-slate-800 pb-3">
                 <h3 class="text-lg font-bold text-white">Política de Privacidad</h3>
-                <button onclick="closeModal('privacyModal')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+                <button onclick="closeModal('privacyModal')" class="text-slate-400 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
             <div class="text-xs md:text-sm text-slate-400 space-y-3 leading-relaxed">
                 <p><strong>1. Privacidad de los textos:</strong> SmartText Pro no almacena, recopila ni transmite a servidores externos ninguno de los textos introducidos para su resumen. Todo el procesamiento computacional ocurre íntegramente en tu navegador web.</p>
@@ -162,7 +164,7 @@
         <div class="bg-slate-900 border border-slate-800 max-w-xl w-full p-6 rounded-2xl space-y-4 max-h-[80vh] overflow-y-auto">
             <div class="flex justify-between items-center border-b border-slate-800 pb-3">
                 <h3 class="text-lg font-bold text-white">Aviso Legal y Términos de Uso</h3>
-                <button onclick="closeModal('termsModal')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+                <button onclick="closeModal('termsModal')" class="text-slate-400 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
             <div class="text-xs md:text-sm text-slate-400 space-y-3 leading-relaxed">
                 <p>Herramienta web de libre uso orientada al resumen extractivo automatizado de textos. Los creadores no se responsabilizan del uso indebido de los resúmenes generados.</p>
@@ -174,7 +176,7 @@
         <div class="bg-slate-900 border border-slate-800 max-w-xl w-full p-6 rounded-2xl space-y-4 max-h-[80vh] overflow-y-auto">
             <div class="flex justify-between items-center border-b border-slate-800 pb-3">
                 <h3 class="text-lg font-bold text-white">Política de Cookies</h3>
-                <button onclick="closeModal('cookiesModal')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+                <button onclick="closeModal('cookiesModal')" class="text-slate-400 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
             <div class="text-xs md:text-sm text-slate-400 space-y-3 leading-relaxed">
                 <p>Utilizamos almacenamiento local exclusivamente para registrar tu preferencia con el banner de cookies técnico.</p>
@@ -182,7 +184,7 @@
         </div>
     </div>
 
-    <!-- JavaScript Lógica de Resumen -->
+    <!-- JavaScript Lógica de Resumen Mejorada -->
     <script>
         const textInput = document.getElementById('textInput');
         const textOutput = document.getElementById('textOutput');
@@ -205,24 +207,74 @@
                 return;
             }
 
-            let sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
-            
+            // Dividir en oraciones de manera más robusta
+            let rawSentences = text.match(/[^.!?]+[.!?]+["']?(\s|$)/g) || [text];
+            let sentences = rawSentences.map(s => s.trim()).filter(s => s.length > 5);
+
             if (sentences.length <= 2) {
                 textOutput.value = text;
                 updateSummaryStats(text, text);
                 return;
             }
 
-            let targetCount = Math.max(2, Math.ceil(sentences.length * 0.4));
-            
-            let scoredSentences = sentences.map((s, index) => ({
-                sentence: s.trim(),
-                score: s.length,
-                index: index
-            }));
+            // Lista de palabras vacías (stop words) en español para filtrar frecuencias
+            const stopWords = new Set([
+                'de', 'la', 'que', 'el', 'en', 'y', 'a', 'los', 'del', 'se', 'las', 'por', 'un', 'para', 'con', 
+                'no', 'una', 'su', 'sur', 'lo', 'como', 'más', 'pero', 'sus', 'le', 'ya', 'o', 'este', 'sí', 
+                'porque', 'esta', 'entre', 'cuando', 'muy', 'sin', 'sobre', 'también', 'me', 'hasta', 'hay', 
+                'donde', 'quien', 'desde', 'todo', 'nos', 'durante', 'todos', 'uno', 'les', 'ni', 'contra', 
+                'otros', 'ese', 'eso', 'ante', 'ellos', 'e', 'esto', 'mí', 'antes', 'algunos', 'qué', 'unos', 
+                'yo', 'otro', 'otras', 'otra', 'él', 'tanto', 'esa', 'estos', 'mucho', 'quienes', 'nada', 'muchos', 
+                'cual', 'sea', 'poco', 'ella', 'estar', 'estas', 'algunas', 'algo', 'nosotros', 'mi', 'mis', 'tú', 
+                'te', 'ti', 'tu', 'tus', 'ellas', 'nosotras', 'vosostros', 'vosostras', 'os', ' mío', ' mía', 'mios', 'mías'
+            ]);
 
+            // 1. Calcular frecuencia de palabras significativas en todo el texto
+            let wordsList = text.toLowerCase().match(/\b[a-záéíóúüñ]{3,}\b/g) || [];
+            let freqMap = {};
+            wordsList.forEach(w => {
+                if (!stopWords.has(w)) {
+                    freqMap[w] = (freqMap[w] || 0) + 1;
+                }
+            });
+
+            // 2. Asignar puntuación a cada oración en base a frecuencia de términos y posición
+            let scoredSentences = sentences.map((sentence, index) => {
+                let sWords = sentence.toLowerCase().match(/\b[a-záéíóúüñ]{3,}\b/g) || [];
+                let score = 0;
+                
+                // Sumar puntuación basada en las frecuencias de las palabras clave
+                sWords.forEach(w => {
+                    if (freqMap[w]) {
+                        score += freqMap[w];
+                    }
+                });
+
+                // Normalizar por longitud para no favorecer excesivamente oraciones gigantescas
+                if (sWords.length > 0) {
+                    score = score / sWords.length;
+                }
+
+                // Bonificación por posición: Las primeras y últimas frases de los textos suelen contener más valor resumen
+                if (index === 0 || index === sentences.length - 1) {
+                    score *= 1.5;
+                }
+
+                return {
+                    sentence: sentence,
+                    score: score,
+                    index: index
+                };
+            });
+
+            // Determinar cuántas oraciones extraer (aprox. 35% a 40% del total, mínimo 2)
+            let targetCount = Math.max(2, Math.ceil(sentences.length * 0.35));
+
+            // Ordenar por puntuación descendente para extraer las mejores
             scoredSentences.sort((a, b) => b.score - a.score);
             let selected = scoredSentences.slice(0, targetCount);
+
+            // Reordenar las oraciones seleccionadas según su orden de aparición original en el texto
             selected.sort((a, b) => a.index - b.index);
 
             let summary = selected.map(item => item.sentence).join(' ');
