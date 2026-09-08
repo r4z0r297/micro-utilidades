@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UtilidadesPro | Directorio de Herramientas</title>
-    <meta name="description" content="Plataforma de micro-utilidades web rápidas, gratuitas y sin registro.">
-    <!-- Favicon -->
+    <title>EstudioIA - Generador de Test y Flashcards | UtilidadesPro</title>
+    <meta name="description" content="Crea tarjetas de memoria y tests interactivos a partir de tus apuntes o textos de clase al instante.">
+    <!-- Favicon seguro integrado en base64 -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22%2334d399%22><path d=%22M4 4h6v6H4V4zm10 0h6v6h-6V4zM4 14h6v6H4v-6zm10 0h6v6h-6v-6z%22/></svg>">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -14,201 +14,143 @@
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between font-sans selection:bg-emerald-500 selection:text-white">
 
-    <!-- Header / Navbar Principal -->
+    <!-- Header / Navbar adaptable de extremo a extremo -->
     <header class="border-b border-slate-800/80 bg-slate-900/70 backdrop-blur-md sticky top-0 z-40 w-full">
-        <div class="w-full px-6 md:px-12 h-20 flex items-center justify-between">
+        <div class="w-full px-4 sm:px-6 md:px-10 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center shadow-lg shadow-emerald-500/25 text-slate-950 font-black text-xl">
-                    <i class="fa-solid fa-layer-group"></i>
-                </div>
+                <a href="../" class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center shadow-lg shadow-emerald-500/20 text-slate-950 font-bold text-xl sm:text-2xl flex-shrink-0 hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </a>
                 <div>
-                    <span class="text-xl font-black tracking-tight text-white">Utilidades<span class="text-emerald-400">Pro</span></span>
-                    <span class="block text-[10px] text-slate-400 uppercase tracking-widest font-bold">Directorio Oficial</span>
+                    <span class="text-lg sm:text-2xl font-black tracking-tight text-white">Estudio<span class="text-emerald-400">IA</span></span>
+                    <span class="block text-[10px] sm:text-xs text-slate-400 uppercase tracking-widest font-bold">Generador Inteligente</span>
                 </div>
             </div>
-            <nav class="hidden md:flex items-center gap-6 text-base font-semibold text-slate-300">
-                <a href="#herramientas" class="hover:text-emerald-400 transition-colors">Herramientas</a>
-                <a href="#faq" class="hover:text-emerald-400 transition-colors">FAQ</a>
+            <nav class="hidden md:flex items-center gap-8 text-base font-semibold text-slate-300">
+                <a href="../" class="hover:text-emerald-400 transition-colors">Directorio</a>
+                <a href="#herramienta" class="hover:text-emerald-400 transition-colors">Herramienta</a>
                 <button onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition-colors">Privacidad</button>
             </nav>
+            <button onclick="toggleMobileMenu()" class="md:hidden text-slate-300 hover:text-white text-2xl p-2 focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-6 py-4 flex flex-col gap-4 text-base font-medium">
+            <a href="../" class="text-slate-300 hover:text-emerald-400">Directorio</a>
+            <a href="#herramienta" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-emerald-400">Herramienta</a>
+            <button onclick="openModal('privacyModal'); toggleMobileMenu();" class="text-left text-slate-300 hover:text-emerald-400">Privacidad</button>
         </div>
     </header>
 
-    <!-- Contenido Principal -->
-    <main class="w-full px-6 md:px-12 py-12 flex-grow flex flex-col gap-16 max-w-7xl mx-auto">
+    <!-- Main Content -->
+    <main id="herramienta" class="w-full px-4 sm:px-6 md:px-10 py-10 flex-grow flex flex-col gap-10 max-w-5xl mx-auto">
         
         <!-- Hero Section -->
-        <div class="text-center space-y-4 max-w-3xl mx-auto">
-            <span class="px-3.5 py-1.5 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm font-bold rounded-full uppercase tracking-wider">
-                100% Gratis & Locales
+        <div class="text-center space-y-3 max-w-3xl mx-auto">
+            <span class="px-3.5 py-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold rounded-full uppercase tracking-wider">
+                Utilidad Académica
             </span>
-            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
-                Tus herramientas web favoritas, <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">en un solo lugar</span>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
+                Generador de Test y <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">Flashcards</span>
             </h1>
-            <p class="text-slate-400 text-base sm:text-lg leading-relaxed">
-                Accede instantáneamente a tu colección de micro-utilidades optimizadas para velocidad y privacidad en tu navegador.
+            <p class="text-slate-400 text-sm sm:text-base md:text-lg">
+                Pega tus apuntes de clase para transformar el texto en tarjetas de memoria interactivas y exámenes de autoevaluación al instante.
             </p>
         </div>
 
-        <!-- Cuadrícula de Herramientas -->
-        <div id="herramientas" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+        <!-- Panel de Entrada de Apuntes -->
+        <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl space-y-6 w-full">
+            <div class="space-y-3">
+                <label for="apuntesInput" class="block text-sm sm:text-base font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-file-pen text-emerald-400"></i> Pega tu temario o apuntes aquí:
+                </label>
+                <textarea id="apuntesInput" rows="6" placeholder="Ejemplo: La célula es la unidad morfológica y funcional de todo ser vivo. De hecho, la célula es el elemento de menor tamaño que puede considerarse vivo..." 
+                    class="w-full p-4 bg-slate-950/75 border border-slate-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 text-slate-100 placeholder-slate-600 resize-y text-sm sm:text-base leading-relaxed"></textarea>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-between gap-4 pt-1">
+                <span class="text-xs text-slate-400 flex items-center gap-1.5 font-medium">
+                    <i class="fa-solid fa-circle-info text-emerald-400"></i> Cuanto más texto e información contenga, más preguntas detalladas se generarán.
+                </span>
+                <button onclick="generarMaterialEstudio()" class="px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-sm rounded-xl transition-all shadow-lg shadow-emerald-600/20 flex items-center gap-2 w-full sm:w-auto justify-center">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Generar Material de Estudio
+                </button>
+            </div>
+        </div>
+
+        <!-- Resultados (Oculto inicialmente) -->
+        <div id="resultadosEstudio" class="space-y-8 hidden">
             
-            <!-- Tarjeta 1: Generador QR -->
-            <a href="generador-qr/" class="group bg-slate-900/80 border border-slate-800 hover:border-emerald-500/50 rounded-2xl p-7 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/5 flex flex-col justify-between gap-6">
-                <div class="space-y-4">
-                    <div class="w-14 h-14 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 text-2xl group-hover:scale-110 transition-transform">
-                        <i class="fa-solid fa-qrcode"></i>
-                    </div>
-                    <div class="space-y-2">
-                        <h3 class="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">Generador de QR</h3>
-                        <p class="text-sm text-slate-400 leading-relaxed">Crea códigos QR personalizados para enlaces o textos al instante.</p>
-                    </div>
-                </div>
-                <div class="flex items-center justify-between text-sm font-bold text-emerald-400 pt-4 border-t border-slate-800/60">
-                    <span>Abrir herramienta</span>
-                    <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                </div>
-            </a>
+            <!-- Pestañas de Navegación -->
+            <div class="flex border-b border-slate-800 gap-6">
+                <button onclick="cambiarPestana('flashcards')" id="tabFlashcards" class="pb-3 px-2 font-bold text-sm sm:text-base border-b-2 border-emerald-400 text-emerald-400 transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-clone"></i> Tarjetas de Memoria (<span id="countFlash">0</span>)
+                </button>
+                <button onclick="cambiarPestana('test')" id="tabTest" class="pb-3 px-2 font-bold text-sm sm:text-base border-b-2 border-transparent text-slate-400 hover:text-white transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-list-check"></i> Test de Autoevaluación (<span id="countTest">0</span>)
+                </button>
+            </div>
 
-            <!-- Tarjeta 2: Generador de Contraseñas -->
-            <a href="generador-pass/" class="group bg-slate-900/80 border border-slate-800 hover:border-amber-500/50 rounded-2xl p-7 transition-all duration-300 hover:shadow-xl hover:shadow-amber-500/5 flex flex-col justify-between gap-6">
-                <div class="space-y-4">
-                    <div class="w-14 h-14 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 text-2xl group-hover:scale-110 transition-transform">
-                        <i class="fa-solid fa-key"></i>
-                    </div>
-                    <div class="space-y-2">
-                        <h3 class="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">Generador de Pass</h3>
-                        <p class="text-sm text-slate-400 leading-relaxed">Crea contraseñas ultra seguras y aleatorias con opciones personalizadas.</p>
-                    </div>
+            <!-- Sección Flashcards -->
+            <div id="seccionFlashcards" class="space-y-6">
+                <div class="flex items-center justify-between">
+                    <h3 class="font-bold text-sm sm:text-base text-slate-300">Haz clic en la tarjeta para revelar la respuesta</h3>
+                    <div class="text-xs sm:text-sm text-emerald-400 font-bold bg-emerald-500/10 px-3 py-1 rounded-lg border border-emerald-500/20" id="contadorFlashcard">Tarjeta 1 de 1</div>
                 </div>
-                <div class="flex items-center justify-between text-sm font-bold text-amber-400 pt-4 border-t border-slate-800/60">
-                    <span>Abrir herramienta</span>
-                    <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                </div>
-            </a>
 
-            <!-- Tarjeta 3: Contador de Palabras -->
-            <a href="contador-palabras/" class="group bg-slate-900/80 border border-slate-800 hover:border-teal-500/50 rounded-2xl p-7 transition-all duration-300 hover:shadow-xl hover:shadow-teal-500/5 flex flex-col justify-between gap-6">
-                <div class="space-y-4">
-                    <div class="w-14 h-14 rounded-xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-400 text-2xl group-hover:scale-110 transition-transform">
-                        <i class="fa-solid fa-calculator"></i>
+                <div class="flex flex-col items-center justify-center gap-6">
+                    <div id="flashcardContainer" onclick="girarFlashcard()" class="w-full max-w-3xl h-72 sm:h-80 bg-slate-900 border border-slate-800 hover:border-emerald-500/50 rounded-2xl p-8 sm:p-10 cursor-pointer flex flex-col items-center justify-center text-center transition-all shadow-2xl relative select-none">
+                        <span class="absolute top-4 left-4 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-md" id="flashcardTipo">Pregunta</span>
+                        <p id="flashcardTexto" class="text-base sm:text-xl font-medium text-white mt-4 leading-relaxed">Aquí aparecerá la pregunta...</p>
+                        <span class="absolute bottom-4 text-xs text-slate-500 flex items-center gap-1.5"><i class="fa-solid fa-rotate"></i> Haz clic para voltear tarjeta</span>
                     </div>
-                    <div class="space-y-2">
-                        <h3 class="text-xl font-bold text-white group-hover:text-teal-400 transition-colors">Contador de Palabras</h3>
-                        <p class="text-sm text-slate-400 leading-relaxed">Analiza textos calculando palabras, caracteres y tiempo de lectura.</p>
-                    </div>
-                </div>
-                <div class="flex items-center justify-between text-sm font-bold text-teal-400 pt-4 border-t border-slate-800/60">
-                    <span>Abrir herramienta</span>
-                    <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                </div>
-            </a>
 
-            <!-- Tarjeta 4: Resumidor de Textos -->
-            <a href="resumidor-textos/" class="group bg-slate-900/80 border border-slate-800 hover:border-cyan-500/50 rounded-2xl p-7 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/5 flex flex-col justify-between gap-6">
-                <div class="space-y-4">
-                    <div class="w-14 h-14 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 text-2xl group-hover:scale-110 transition-transform">
-                        <i class="fa-solid fa-file-lines"></i>
-                    </div>
-                    <div class="space-y-2">
-                        <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">Resumidor de Textos</h3>
-                        <p class="text-sm text-slate-400 leading-relaxed">Extrae las ideas principales y sintetiza textos largos de forma rápida.</p>
+                    <div class="flex items-center gap-4 pt-2">
+                        <button onclick="anteriorFlashcard()" class="px-5 py-2.5 bg-slate-900 border border-slate-800 hover:bg-slate-800 text-sm font-semibold rounded-xl transition-colors flex items-center gap-2">
+                            <i class="fa-solid fa-arrow-left"></i> Anterior
+                        </button>
+                        <button onclick="siguienteFlashcard()" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-slate-950 text-sm font-bold rounded-xl transition-colors flex items-center gap-2">
+                            Siguiente <i class="fa-solid fa-arrow-right"></i>
+                        </button>
                     </div>
                 </div>
-                <div class="flex items-center justify-between text-sm font-bold text-cyan-400 pt-4 border-t border-slate-800/60">
-                    <span>Abrir herramienta</span>
-                    <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                </div>
-            </a>
+            </div>
 
-            <!-- Tarjeta 5: EstudioIA (Generador de Test y Flashcards) -->
-            <a href="estudio-ia/" class="group bg-slate-900/80 border border-slate-800 hover:border-emerald-500/50 rounded-2xl p-7 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/5 flex flex-col justify-between gap-6">
-                <div class="space-y-4">
-                    <div class="w-14 h-14 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 text-2xl group-hover:scale-110 transition-transform">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                    </div>
-                    <div class="space-y-2">
-                        <h3 class="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">EstudioIA</h3>
-                        <p class="text-sm text-slate-400 leading-relaxed">Crea tarjetas de memoria y tests interactivos autocorregibles a partir de tus apuntes.</p>
-                    </div>
+            <!-- Sección Test -->
+            <div id="seccionTest" class="space-y-6 hidden">
+                <div class="flex flex-wrap items-center justify-between gap-3">
+                    <h3 class="font-bold text-base sm:text-lg text-white">Cuestionario interactivo de opción múltiple</h3>
+                    <span class="text-xs sm:text-sm font-bold" id="puntuacionActual"></span>
                 </div>
-                <div class="flex items-center justify-between text-sm font-bold text-emerald-400 pt-4 border-t border-slate-800/60">
-                    <span>Abrir herramienta</span>
-                    <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+
+                <div id="cuestionarioContainer" class="space-y-6 w-full">
+                    <!-- Las preguntas generadas se inyectarán aquí -->
                 </div>
-            </a>
+
+                <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+                    <button onclick="corregirTest()" id="btnCorregir" class="px-8 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-sm sm:text-base rounded-xl transition-all shadow-xl shadow-emerald-600/20 flex items-center gap-2">
+                        <i class="fa-solid fa-check-double"></i> Corregir Test y Ver Nota
+                    </button>
+                    <button onclick="reiniciarTest()" id="btnReintentar" class="px-8 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-sm sm:text-base rounded-xl transition-all border border-slate-700 flex items-center gap-2 hidden">
+                        <i class="fa-solid fa-rotate-right"></i> Generar Nuevas Preguntas / Reintentar
+                    </button>
+                </div>
+            </div>
 
         </div>
 
-        <!-- Sección FAQ (Preguntas Frecuentes) -->
-        <section id="faq" class="max-w-4xl mx-auto w-full space-y-8 pt-4">
-            <div class="text-center space-y-3">
-                <span class="text-sm font-bold text-emerald-400 uppercase tracking-widest">Resoluciones y Dudas</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Preguntas Frecuentes (FAQ)</h2>
-                <p class="text-sm sm:text-base text-slate-400">Todo lo que necesitas saber sobre el uso de nuestras herramientas web.</p>
-            </div>
-
-            <div class="space-y-4">
-                <!-- FAQ Item 1 -->
-                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl overflow-hidden transition-all">
-                    <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-base sm:text-lg text-white hover:text-emerald-400 transition-colors">
-                        <span class="flex items-center gap-3.5">
-                            <i class="fa-solid fa-circle-question text-emerald-400 text-xl"></i> ¿Son totalmente gratuitas estas herramientas?
-                        </span>
-                        <i class="fa-solid fa-chevron-down text-sm text-slate-400 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-6 text-sm sm:text-base text-slate-300 leading-relaxed border-t border-slate-800/50 pt-4">
-                        Sí, absolutamente todas las micro-utilidades ofrecidas en UtilidadesPro son 100% gratuitas, ilimitadas y no requieren ningún tipo de registro previo ni suscripción de pago.
-                    </div>
-                </div>
-
-                <!-- FAQ Item 2 -->
-                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl overflow-hidden transition-all">
-                    <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-base sm:text-lg text-white hover:text-emerald-400 transition-colors">
-                        <span class="flex items-center gap-3.5">
-                            <i class="fa-solid fa-shield-halved text-emerald-400 text-xl"></i> ¿Se guardan mis datos o textos en algún servidor?
-                        </span>
-                        <i class="fa-solid fa-chevron-down text-sm text-slate-400 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-6 text-sm sm:text-base text-slate-300 leading-relaxed border-t border-slate-800/50 pt-4">
-                        No. Priorizamos tu privacidad al máximo: la gran mayoría de los procesamientos se ejecutan de forma local directamente en tu navegador web mediante tecnologías seguras (JavaScript), por lo que ningún texto o información privada tuya abandona tu dispositivo.
-                    </div>
-                </div>
-
-                <!-- FAQ Item 3 -->
-                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl overflow-hidden transition-all">
-                    <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-base sm:text-lg text-white hover:text-emerald-400 transition-colors">
-                        <span class="flex items-center gap-3.5">
-                            <i class="fa-solid fa-laptop-code text-emerald-400 text-xl"></i> ¿Necesito instalar alguna aplicación o extensión?
-                        </span>
-                        <i class="fa-solid fa-chevron-down text-sm text-slate-400 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-6 text-sm sm:text-base text-slate-300 leading-relaxed border-t border-slate-800/50 pt-4">
-                        Para nada. Todo funciona desde la nube directamente en tu navegador web (Chrome, Firefox, Safari, Edge, etc.), tanto en ordenadores como en teléfonos móviles o tablets de forma fluida.
-                    </div>
-                </div>
-
-                <!-- FAQ Item 4 -->
-                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl overflow-hidden transition-all">
-                    <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-base sm:text-lg text-white hover:text-emerald-400 transition-colors">
-                        <span class="flex items-center gap-3.5">
-                            <i class="fa-solid fa-bolt text-emerald-400 text-xl"></i> ¿Se añadirán nuevas herramientas próximamente?
-                        </span>
-                        <i class="fa-solid fa-chevron-down text-sm text-slate-400 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-6 text-sm sm:text-base text-slate-300 leading-relaxed border-t border-slate-800/50 pt-4">
-                        ¡Sí! Estamos ampliando constantemente nuestro catálogo con nuevas micro-utilidades prácticas y ligeras enfocadas en agilizar tareas cotidianas para profesionales y estudiantes.
-                    </div>
-                </div>
-            </div>
-        </section>
-
     </main>
 
+    <!-- Notificación Toast Flotante -->
+    <div id="toastNotification" class="fixed bottom-6 right-6 bg-slate-900 border border-emerald-500/50 text-slate-100 px-5 py-3 rounded-2xl shadow-2xl z-50 flex items-center gap-3 transition-all duration-300 transform translate-y-20 opacity-0 pointer-events-none">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
+        <span class="text-sm font-semibold" id="toastText">¡Material generado con éxito!</span>
+    </div>
+
     <!-- Footer Legal -->
-    <footer class="border-t border-slate-800/80 bg-slate-900/30 py-8 px-6 text-base text-slate-400 w-full">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-            <p>&copy; 2026 UtilidadesPro. Todos los derechos reservados.</p>
+    <footer class="border-t border-slate-800/80 bg-slate-900/30 py-8 px-4 sm:px-6 text-sm text-slate-400 w-full mt-12">
+        <div class="w-full flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left max-w-7xl mx-auto">
+            <p>&copy; 2026 EstudioIA / UtilidadesPro. Todos los derechos reservados.</p>
             <div class="flex flex-wrap justify-center gap-6 font-medium">
                 <button onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition-colors">Política de Privacidad</button>
                 <button onclick="openModal('termsModal')" class="hover:text-emerald-400 transition-colors">Aviso Legal</button>
@@ -218,17 +160,17 @@
     </footer>
 
     <!-- Banner de Cookies Legal -->
-    <div id="cookieBanner" class="fixed bottom-4 left-4 right-4 md:left-6 md:right-auto md:max-w-md bg-slate-900 border border-slate-700 p-6 rounded-2xl shadow-2xl z-50 flex flex-col gap-3 hidden">
-        <div class="flex items-start gap-3.5">
-            <i class="fa-solid fa-cookie-bite text-emerald-400 text-2xl mt-1"></i>
+    <div id="cookieBanner" class="fixed bottom-4 left-4 right-4 md:left-6 md:right-auto md:max-w-md bg-slate-900 border border-slate-700 p-5 rounded-2xl shadow-2xl z-50 flex flex-col gap-3 hidden">
+        <div class="flex items-start gap-3">
+            <i class="fa-solid fa-cookie-bite text-emerald-400 text-xl mt-1"></i>
             <div>
-                <h4 class="font-bold text-white text-base">Privacidad y Cookies</h4>
-                <p class="text-sm text-slate-300 mt-1">No recopilamos datos personales ni utilizamos rastreadores externos. Todo se procesa localmente en tu navegador.</p>
+                <h4 class="font-bold text-white text-sm">Privacidad y Cookies</h4>
+                <p class="text-xs text-slate-400 mt-1">No almacenamos tus apuntes. Todo se procesa de forma local en tu navegador web.</p>
             </div>
         </div>
-        <div class="flex gap-2.5 justify-end pt-2">
-            <button onclick="rejectCookies()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm font-semibold rounded-lg transition-colors">Rechazar</button>
-            <button onclick="acceptCookies()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-sm rounded-lg transition-colors">Aceptar</button>
+        <div class="flex gap-2 justify-end pt-1">
+            <button onclick="rejectCookies()" class="px-3.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-lg transition-colors">Rechazar</button>
+            <button onclick="acceptCookies()" class="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-xs rounded-lg transition-colors">Aceptar</button>
         </div>
     </div>
 
@@ -239,9 +181,8 @@
                 <h3 class="text-lg font-bold text-white">Política de Privacidad</h3>
                 <button onclick="closeModal('privacyModal')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
-            <div class="text-sm md:text-base text-slate-300 space-y-3 leading-relaxed">
-                <p><strong>1. Responsable:</strong> Este directorio de micro-utilidades web funciona de manera completamente autónoma y local.</p>
-                <p><strong>2. Tratamiento de datos:</strong> No recopilamos, almacenamos ni procesamos ningún tipo de dato personal de los usuarios. Las operaciones se realizan directamente en el navegador del usuario.</p>
+            <div class="text-xs md:text-sm text-slate-400 space-y-3 leading-relaxed">
+                <p><strong>1. Privacidad de los apuntes:</strong> EstudioIA no almacena, recopila ni transmite a servidores externos ninguno de los textos o temarios introducidos. Todo el procesamiento computacional de flashcards y tests ocurre de manera íntegra y local en tu navegador.</p>
             </div>
         </div>
     </div>
@@ -252,9 +193,8 @@
                 <h3 class="text-lg font-bold text-white">Aviso Legal y Términos de Uso</h3>
                 <button onclick="closeModal('termsModal')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
-            <div class="text-sm md:text-base text-slate-300 space-y-3 leading-relaxed">
-                <p><strong>1. Datos identificativos:</strong> Plataforma web sin ánimo de lucro destinada a ofrecer herramientas de utilidad instantánea.</p>
-                <p><strong>2. Propiedad intelectual:</strong> Los diseños, códigos y estructura pertenecen a sus creadores, ofreciéndose de manera libre y gratuita para su uso personal o profesional.</p>
+            <div class="text-xs md:text-sm text-slate-400 space-y-3 leading-relaxed">
+                <p>Herramienta educativa de libre uso orientada a la creación automática de recursos de estudio. Los creadores no se responsabilizan de posibles errores en la generación sintética de preguntas.</p>
             </div>
         </div>
     </div>
@@ -265,24 +205,252 @@
                 <h3 class="text-lg font-bold text-white">Política de Cookies</h3>
                 <button onclick="closeModal('cookiesModal')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
-            <div class="text-sm md:text-base text-slate-300 space-y-3 leading-relaxed">
-                <p>Este sitio web utiliza únicamente almacenamiento local (LocalStorage) estrictamente necesario para registrar el consentimiento del banner de cookies, sin emplear cookies publicitarias ni de seguimiento analítico.</p>
+            <div class="text-xs md:text-sm text-slate-400 space-y-3 leading-relaxed">
+                <p>Utilizamos almacenamiento local exclusivamente para registrar tu preferencia con el banner técnico de consentimiento de cookies.</p>
             </div>
         </div>
     </div>
 
-    <!-- Script de control de modales, cookies y FAQ -->
+    <!-- Lógica JavaScript avanzada -->
     <script>
-        function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
-        function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
+        let flashcardsData = [];
+        let preguntasTestData = [];
+        let indiceActualFlashcard = 0;
+        let estaMostrandoRespuesta = false;
 
-        // Control de Acordeones FAQ
-        function toggleFaq(button) {
-            const content = button.nextElementSibling;
-            const icon = button.querySelector('.fa-chevron-down');
+        function generarMaterialEstudio() {
+            const texto = document.getElementById('apuntesInput').value.trim();
+            if (texto.length < 30) {
+                alert('Por favor, introduce apuntes o un texto más extenso para poder extraer contenido de estudio válido.');
+                return;
+            }
+
+            let frases = texto.split(/(?<=[.!?])\s+/).filter(f => f.trim().length > 15);
             
-            content.classList.toggle('hidden');
-            icon.classList.toggle('rotate-180');
+            if (frases.length < 2) {
+                frases = texto.split('\n').filter(f => f.trim().length > 15);
+            }
+
+            if (frases.length < 2) {
+                alert('El texto es demasiado corto. Introduce al menos 2 o 3 frases completas.');
+                return;
+            }
+
+            flashcardsData = [];
+            preguntasTestData = [];
+
+            const limite = Math.min(Math.max(frases.length, 3), 8);
+
+            for (let i = 0; i < limite; i++) {
+                const fraseActual = frases[i % frases.length].trim();
+                const palabras = fraseActual.split(' ');
+                const concepto = palabras.slice(0, 3).join(' ');
+
+                flashcardsData.push({
+                    pregunta: `¿Qué explica el texto sobre: "${concepto}..."?`,
+                    respuesta: fraseActual
+                });
+
+                let alternativas = [
+                    fraseActual,
+                    "No guarda relación directa con los objetivos principales del temario.",
+                    "Es una excepción técnica secundaria dentro del proceso estudiado.",
+                    "Carece de validez científica según los fundamentos expuestos."
+                ];
+                
+                alternativas.sort(() => Math.random() - 0.5);
+                const indiceCorrecto = alternativas.indexOf(fraseActual);
+
+                preguntasTestData.push({
+                    enunciado: `En referencia al bloque temático, identifique la afirmación correcta sobre "${concepto}":`,
+                    opciones: alternativas,
+                    respuestaCorrecta: indiceCorrecto
+                });
+            }
+
+            indiceActualFlashcard = 0;
+            actualizarFlashcardUI();
+            construirTestUI();
+
+            document.getElementById('countFlash').textContent = flashcardsData.length;
+            document.getElementById('countTest').textContent = preguntasTestData.length;
+
+            document.getElementById('resultadosEstudio').classList.remove('hidden');
+            document.getElementById('btnCorregir').classList.remove('hidden');
+            document.getElementById('btnReintentar').classList.add('hidden');
+            document.getElementById('resultadosEstudio').scrollIntoView({ behavior: 'smooth' });
+            showToast("¡Material de estudio generado con éxito!");
+        }
+
+        // Lógica de Flashcards
+        function actualizarFlashcardUI() {
+            estaMostrandoRespuesta = false;
+            document.getElementById('flashcardTipo').innerText = "Pregunta";
+            document.getElementById('flashcardTipo').className = "absolute top-4 left-4 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-md";
+            document.getElementById('flashcardTexto').innerText = flashcardsData[indiceActualFlashcard].pregunta;
+            document.getElementById('contadorFlashcard').innerText = `Tarjeta ${indiceActualFlashcard + 1} de ${flashcardsData.length}`;
+        }
+
+        function girarFlashcard() {
+            estaMostrandoRespuesta = !estaMostrandoRespuesta;
+            const tipo = document.getElementById('flashcardTipo');
+            const texto = document.getElementById('flashcardTexto');
+            
+            if (estaMostrandoRespuesta) {
+                tipo.innerText = "Respuesta Correcta";
+                tipo.className = "absolute top-4 left-4 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-amber-400 bg-amber-500/10 px-3 py-1 rounded-md";
+                texto.innerText = flashcardsData[indiceActualFlashcard].respuesta;
+            } else {
+                tipo.innerText = "Pregunta";
+                tipo.className = "absolute top-4 left-4 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-md";
+                texto.innerText = flashcardsData[indiceActualFlashcard].pregunta;
+            }
+        }
+
+        function siguienteFlashcard() {
+            if (indiceActualFlashcard < flashcardsData.length - 1) {
+                indiceActualFlashcard++;
+                actualizarFlashcardUI();
+            } else {
+                indiceActualFlashcard = 0;
+                actualizarFlashcardUI();
+            }
+        }
+
+        function anteriorFlashcard() {
+            if (indiceActualFlashcard > 0) {
+                indiceActualFlashcard--;
+                actualizarFlashcardUI();
+            }
+        }
+
+        // Cambio de Pestañas
+        function cambiarPestana(tipo) {
+            const btnFlash = document.getElementById('tabFlashcards');
+            const btnTest = document.getElementById('tabTest');
+            const secFlash = document.getElementById('seccionFlashcards');
+            const secTest = document.getElementById('seccionTest');
+
+            if (tipo === 'flashcards') {
+                btnFlash.className = "pb-3 px-2 font-bold text-sm sm:text-base border-b-2 border-emerald-400 text-emerald-400 transition-colors flex items-center gap-2";
+                btnTest.className = "pb-3 px-2 font-bold text-sm sm:text-base border-b-2 border-transparent text-slate-400 hover:text-white transition-colors flex items-center gap-2";
+                secFlash.classList.remove('hidden');
+                secTest.classList.add('hidden');
+            } else {
+                btnTest.className = "pb-3 px-2 font-bold text-sm sm:text-base border-b-2 border-emerald-400 text-emerald-400 transition-colors flex items-center gap-2";
+                btnFlash.className = "pb-3 px-2 font-bold text-sm sm:text-base border-b-2 border-transparent text-slate-400 hover:text-white transition-colors flex items-center gap-2";
+                secTest.classList.remove('hidden');
+                secFlash.classList.add('hidden');
+            }
+        }
+
+        // Construir Test de Opción Múltiple
+        function construirTestUI() {
+            const container = document.getElementById('cuestionarioContainer');
+            container.innerHTML = '';
+
+            preguntasTestData.forEach((pregunta, qIndex) => {
+                let htmlOpciones = '';
+                pregunta.opciones.forEach((opcion, oIndex) => {
+                    htmlOpciones += `
+                        <label id="label_q${qIndex}_o${oIndex}" class="flex items-start gap-3.5 p-4 rounded-xl border border-slate-800 bg-slate-950/60 hover:border-slate-700 cursor-pointer transition-all">
+                            <input type="radio" name="pregunta_${qIndex}" value="${oIndex}" class="mt-1 text-emerald-500 focus:ring-emerald-500 w-4 h-4">
+                            <span class="text-sm sm:text-base text-slate-200 leading-snug">${opcion}</span>
+                        </label>
+                    `;
+                });
+
+                container.innerHTML += `
+                    <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 sm:p-7 space-y-4 shadow-xl">
+                        <h4 class="font-bold text-white text-base sm:text-lg"><span class="text-emerald-400 mr-2">${qIndex + 1}.</span>${pregunta.enunciado}</h4>
+                        <div class="space-y-2.5">${htmlOpciones}</div>
+                    </div>
+                `;
+            });
+            document.getElementById('puntuacionActual').innerText = '';
+        }
+
+        function corregirTest() {
+            let aciertos = 0;
+            preguntasTestData.forEach((pregunta, qIndex) => {
+                const seleccionado = document.querySelector(`input[name="pregunta_${qIndex}"]:checked`);
+                
+                pregunta.opciones.forEach((_, oIndex) => {
+                    const label = document.getElementById(`label_q${qIndex}_o${oIndex}`);
+                    const inputRadio = label.querySelector('input');
+                    inputRadio.disabled = true; // Bloquear opciones tras corregir
+
+                    // Limpiar clases previas
+                    label.className = "flex items-start gap-3.5 p-4 rounded-xl border bg-slate-950/60 transition-all opacity-90";
+
+                    if (oIndex === pregunta.respuestaCorrecta) {
+                        // Acierto / Opción correcta en verde
+                        label.classList.add('border-emerald-500', 'bg-emerald-950/30', 'text-emerald-300');
+                    } else if (seleccionado && parseInt(seleccionado.value) === oIndex) {
+                        // Opción seleccionada incorrecta en rojo
+                        label.classList.add('border-rose-500', 'bg-rose-950/35', 'text-rose-300');
+                    } else {
+                        // Opción no seleccionada normal
+                        label.classList.add('border-slate-800', 'text-slate-400');
+                    }
+                });
+
+                if (seleccionado && parseInt(seleccionado.value) === pregunta.respuestaCorrecta) {
+                    aciertos++;
+                }
+            });
+
+            const total = preguntasTestData.length;
+            const porcentaje = Math.round((aciertos / total) * 100);
+            
+            const badgePuntuacion = document.getElementById('puntuacionActual');
+            badgePuntuacion.innerText = `Calificación final: ${aciertos} / ${total} aciertos (${porcentaje}%)`;
+            badgePuntuacion.className = porcentaje >= 50 
+                ? "text-emerald-400 font-bold text-xs sm:text-sm bg-emerald-500/10 px-3.5 py-1.5 rounded-lg border border-emerald-500/20" 
+                : "text-amber-400 font-bold text-xs sm:text-sm bg-amber-500/10 px-3.5 py-1.5 rounded-lg border border-amber-500/20";
+            
+            // Alternar botones de acción
+            document.getElementById('btnCorregir').classList.add('hidden');
+            document.getElementById('btnReintentar').classList.remove('hidden');
+
+            showToast(`¡Test corregido! Nota: ${aciertos}/${total} (${porcentaje}%)`);
+        }
+
+        function reiniciarTest() {
+            // Reorganizar aleatoriamente las opciones del test actual para un nuevo intento rápido
+            preguntasTestData.forEach((pregunta) => {
+                pregunta.opciones.sort(() => Math.random() - 0.5);
+                pregunta.respuestaCorrecta = pregunta.opciones.indexOf(flashcardsData.find(f => f.respuesta === pregunta.opciones[pregunta.respuestaCorrecta])?.respuesta || pregunta.opciones[0]);
+            });
+            
+            construirTestUI();
+            document.getElementById('btnCorregir').classList.remove('hidden');
+            document.getElementById('btnReintentar').classList.add('hidden');
+            document.getElementById('cuestionarioContainer').scrollIntoView({ behavior: 'smooth' });
+            showToast("¡Nuevas combinaciones cargadas en el test!");
+        }
+
+        // Toast de notificaciones
+        function showToast(mensaje) {
+            const toast = document.getElementById('toastNotification');
+            document.getElementById('toastText').textContent = mensaje;
+            toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+            }, 3000);
+        }
+
+        // Controles de Menú Móvil y Modales Legales
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.remove('hidden');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
         }
 
         window.addEventListener('DOMContentLoaded', () => {
