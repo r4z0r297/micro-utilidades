@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador QR | QRForge Pro</title>
+    <meta name="description" content="Genera códigos QR profesionales online y gratis al instante.">
+    <!-- Favicon optimizado -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22%2334d399%22><path d=%22M3 3h8v8H3V3zm2 2v4h4V5H5zm8-2h8v8h-8V3zm2 2v4h4V5h-4zM3 13h8v8H3v-8zm2 2v4h4v-4H5zm13-2h3v2h-3v-2zm-3 3h3v3h-3v-3zm3 3h3v2h-3v-2z%22/></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between font-sans selection:bg-emerald-500 selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="border-b border-slate-800/80 bg-slate-900/70 backdrop-blur-md sticky top-0 z-40 w-full">
+        <div class="w-full px-4 sm:px-6 md:px-10 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center shadow-lg shadow-emerald-500/25 text-slate-950 flex-shrink-0">
+                    <svg class="w-6 h-6 fill-slate-950" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path d="M0 224h192V32H0v192zM64 96h64v64H64V96zm-64 192h192v192H0V288zm64 128h64v-64H64v64zM256 32v192h192V32H256zm128 128h-64V96h64v64zM256 328c0-13.3 10.7-24 24-24h48c13.3 0 24 10.7 24 24s-10.7 24-24 24h-48c-13.3 0-24-10.7-24-24zm128 0c0-13.3 10.7-24 24-24h16c13.3 0 24 10.7 24 24s-10.7 24-24 24h-16c-13.3 0-24-10.7-24-24zM256 440c0-13.3 10.7-24 24-24h16c13.3 0 24 10.7 24 24s-10.7 24-24 24h-16c-13.3 0-24-10.7-24-24zm72-56c0-13.3 10.7-24 24-24h48c13.3 0 24 10.7 24 24s-10.7 24-24 24h-48c-13.3 0-24-10.7-24-24zm48 88c0-13.3 10.7-24 24-24h48c13.3 0 24 10.7 24 24s-10.7 24-24 24h-48c-13.3 0-24-10.7-24-24z"/>
+                    </svg>
+                </div>
+                <div>
+                    <span class="text-lg sm:text-2xl font-black tracking-tight text-white">QRForge<span class="text-emerald-400">Pro</span></span>
+                    <span class="block text-[10px] sm:text-xs text-slate-400 uppercase tracking-widest font-bold">Generador de QR</span>
+                </div>
+            </div>
+            <nav class="hidden md:flex items-center gap-8 text-base font-semibold text-slate-300">
+                <a href="#herramienta" class="hover:text-emerald-400 transition-colors">Herramienta</a>
+                <a href="#info" class="hover:text-emerald-400 transition-colors">Características</a>
+                <button onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition-colors">Privacidad</button>
+            </nav>
+            <button onclick="toggleMobileMenu()" class="md:hidden text-slate-300 hover:text-white text-2xl p-2 focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-6 py-4 flex flex-col gap-4 text-base font-medium">
+            <a href="#herramienta" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-emerald-400">Herramienta</a>
+            <a href="#info" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-emerald-400">Características</a>
+            <button onclick="openModal('privacyModal'); toggleMobileMenu();" class="text-left text-slate-300 hover:text-emerald-400">Privacidad</button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="herramienta" class="w-full px-4 sm:px-6 md:px-10 py-8 flex-grow flex flex-col gap-8">
+        <div class="text-center space-y-3 max-w-4xl mx-auto">
+            <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
+                Generador de Códigos <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">QR Online</span>
+            </h1>
+            <p class="text-slate-400 text-sm sm:text-base md:text-lg">
+                Introduce cualquier enlace web, texto o información para generar un código QR de alta calidad al instante.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full">
+            <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 sm:p-6 shadow-xl flex flex-col gap-5 w-full">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                    <span class="text-xs sm:text-sm font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-pen-to-square text-emerald-400"></i> Contenido del QR
+                    </span>
+                    <span class="text-xs text-slate-400 font-medium">Instantáneo</span>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="text-xs sm:text-sm font-semibold text-slate-300">URL o Texto a codificar:</label>
+                    <textarea id="qrInput" placeholder="Escribe o pega aquí tu enlace web, texto o información..." 
+                        class="w-full h-36 p-3 sm:p-4 bg-slate-950/70 border border-slate-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 text-slate-100 placeholder-slate-500 resize-none text-sm sm:text-base leading-relaxed" oninput="generateQR()"></textarea>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 pt-2">
+                    <div class="space-y-1">
+                        <label class="text-xs font-semibold text-slate-400">Color del QR:</label>
+                        <div class="flex items-center gap-2 bg-slate-950/70 border border-slate-800 p-2 rounded-xl">
+                            <input type="color" id="qrColor" value="#000000" onchange="generateQR()" class="w-8 h-8 rounded border-0 cursor-pointer bg-transparent">
+                            <span class="text-xs font-mono text-slate-300">Oscuro</span>
+                        </div>
+                    </div>
+                    <div class="space-y-1">
+                        <label class="text-xs font-semibold text-slate-400">Color de Fondo:</label>
+                        <div class="flex items-center gap-2 bg-slate-950/70 border border-slate-800 p-2 rounded-xl">
+                            <input type="color" id="qrBgColor" value="#ffffff" onchange="generateQR()" class="w-8 h-8 rounded border-0 cursor-pointer bg-transparent">
+                            <span class="text-xs font-mono text-slate-300">Claro</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="generateQR()" class="w-full mt-2 py-3 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold rounded-xl text-sm transition-all shadow-lg shadow-emerald-600/20 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-rotate"></i> Actualizar Código QR
+                </button>
+            </div>
+
+            <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 sm:p-6 shadow-xl flex flex-col items-center justify-between gap-6 w-full text-center">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-3 w-full">
+                    <span class="text-xs sm:text-sm font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-eye text-teal-400"></i> Vista Previa
+                    </span>
+                    <span class="text-xs text-slate-400 font-medium">Listo para usar</span>
+                </div>
+
+                <div id="qrcodeContainer" class="p-4 bg-white rounded-2xl shadow-inner flex items-center justify-center min-h-[220px] min-w-[220px]"></div>
+
+                <div class="w-full pt-2">
+                    <button onclick="downloadQR()" class="w-full py-3 bg-slate-800 hover:bg-slate-700 text-slate-100 font-bold rounded-xl text-sm transition-all border border-slate-700 flex items-center justify-center gap-2 shadow-md">
+                        <i class="fa-solid fa-download text-emerald-400"></i> Descargar Imagen QR (PNG)
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <section id="info" class="bg-slate-900/50 border border-slate-800/80 rounded-2xl p-6 md:p-8 space-y-4 text-slate-300 w-full">
+            <h2 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+                <i class="fa-solid fa-circle-info text-emerald-400"></i> ¿Por qué utilizar este generador de códigos QR?
+            </h2>
+            <p class="text-xs sm:text-sm leading-relaxed text-slate-400">
+                Nuestros códigos QR se generan directamente en tu navegador web mediante tecnologías seguras y eficientes. No expiran, no tienen límites de escaneos y procesan toda la información de manera local sin almacenar ningún dato en servidores externos.
+            </p>
+        </section>
+    </main>
+
+    <!-- Notificación Toast -->
+    <div id="toastNotification" class="fixed bottom-6 right-6 bg-slate-900 border border-emerald-500/50 text-slate-100 px-5 py-3 rounded-2xl shadow-2xl z-50 flex items-center gap-3 transition-all duration-300 transform translate-y-20 opacity-0 pointer-events-none">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
+        <span class="text-sm font-semibold">¡Código QR descargado con éxito!</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/80 bg-slate-900/30 py-8 px-4 sm:px-6 text-sm text-slate-400 w-full">
+        <div class="w-full flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+            <p>&copy; 2026 QRForge Pro. Todos los derechos reservados.</p>
+            <div class="flex flex-wrap justify-center gap-6 font-medium">
+                <button onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition-colors">Política de Privacidad</button>
+                <button onclick="openModal('termsModal')" class="hover:text-emerald-400 transition-colors">Aviso Legal</button>
+                <button onclick="openModal('cookiesModal')" class="hover:text-emerald-400 transition-colors">Política de Cookies</button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modales -->
+    <div id="privacyModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-slate-900 border border-slate-800 max-w-xl w-full p-6 rounded-2xl space-y-4 max-h-[80vh] overflow-y-auto">
+            <div class="flex justify-between items-center border-b border-slate-800 pb-3">
+                <h3 class="text-lg font-bold text-white">Política de Privacidad</h3>
+                <button onclick="closeModal('privacyModal')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <div class="text-xs md:text-sm text-slate-400 space-y-3 leading-relaxed">
+                <p><strong>1. Privacidad de los datos:</strong> QRForge Pro genera los códigos QR de manera local en tu navegador.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let qrInstance = null;
+
+        function generateQR() {
+            const container = document.getElementById('qrcodeContainer');
+            const text = document.getElementById('qrInput').value.trim() || 'https://qrforge-pro.com';
+            const colorDark = document.getElementById('qrColor').value;
+            const colorLight = document.getElementById('qrBgColor').value;
+
+            container.innerHTML = '';
+            qrInstance = new QRCode(container, {
+                text: text,
+                width: 200,
+                height: 200,
+                colorDark: colorDark,
+                colorLight: colorLight,
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        }
+
+        function downloadQR() {
+            const container = document.getElementById('qrcodeContainer');
+            const img = container.querySelector('img');
+            const canvas = container.querySelector('canvas');
+            let imageUrl = img ? img.src : (canvas ? canvas.toDataURL("image/png") : '');
+            if (!imageUrl) return;
+
+            const link = document.createElement('a');
+            link.href = imageUrl;
+            link.download = 'codigo-qr-pro.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            showToast();
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toastNotification');
+            toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+            setTimeout(() => toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none'), 2000);
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+
+        function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
+        function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('qrInput').value = '';
+            generateQR();
+        });
+    </script>
+</body>
+</html>

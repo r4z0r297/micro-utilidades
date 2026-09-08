@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Contraseñas Seguras Online | SafeKey Pro</title>
+    <meta name="description" content="Genera contraseñas seguras, aleatorias y personalizadas al instante con nuestra herramienta online gratuita. Protege tus cuentas con claves robustas.">
+    <!-- Favicon seguro integrado en base64 para evitar bloqueos en Brave -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 512 512%22><path fill=%22%2334d399%22 d=%22M336 352c97.2 0 176-78.8 176-176S433.2 0 336 0S160 78.8 160 176c0 18.7 2.9 36.8 8.3 53.7L7 391c-4.5 4.5-7 10.6-7 17l0 64c0 13.3 10.7 24 24 24l64 0c6.4 0 12.5-2.5 17-7l33.7-33.7c16.9 5.4 35 8.3 53.7 8.3c97.2 0 176-78.8 176-176zM336 240a64 64 0 1 0 0-128 64 64 0 1 0 0 128z%22/></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between font-sans selection:bg-emerald-500 selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="border-b border-slate-800/80 bg-slate-900/70 backdrop-blur-md sticky top-0 z-40 w-full">
+        <div class="w-full px-6 md:px-10 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center shadow-lg shadow-emerald-500/20 text-slate-950 font-bold text-2xl">
+                    <i class="fa-solid fa-key"></i>
+                </div>
+                <div>
+                    <span class="text-xl md:text-2xl font-black tracking-tight text-white">SafeKey<span class="text-emerald-400">Pro</span></span>
+                    <span class="block text-xs text-slate-400 uppercase tracking-widest font-bold">Generador de Claves</span>
+                </div>
+            </div>
+            <nav class="hidden md:flex items-center gap-8 text-base font-semibold text-slate-300">
+                <a href="#herramienta" class="hover:text-emerald-400 transition-colors">Herramienta</a>
+                <a href="#info" class="hover:text-emerald-400 transition-colors">Seguridad</a>
+                <button onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition-colors">Privacidad</button>
+            </nav>
+            <button onclick="toggleMobileMenu()" class="md:hidden text-slate-300 hover:text-white text-2xl p-2 focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-6 py-4 flex flex-col gap-4 text-base font-medium">
+            <a href="#herramienta" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-emerald-400">Herramienta</a>
+            <a href="#info" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-emerald-400">Seguridad</a>
+            <button onclick="openModal('privacyModal'); toggleMobileMenu();" class="text-left text-slate-300 hover:text-emerald-400">Privacidad</button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="herramienta" class="w-full max-w-3xl mx-auto px-4 py-12 flex-grow flex flex-col gap-8">
+        
+        <!-- Hero Banner -->
+        <div class="text-center space-y-3">
+            <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
+                Generador de <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">Contraseñas</span>
+            </h1>
+            <p class="text-slate-400 text-base md:text-lg">
+                Crea claves seguras e indescifrables para proteger tus cuentas personales y profesionales al instante.
+            </p>
+        </div>
+
+        <!-- Tarjeta de Contraseña -->
+        <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-2xl flex flex-col gap-6">
+            
+            <!-- Campo de Visualización -->
+            <div class="relative flex items-center">
+                <input type="text" id="passwordOutput" readonly 
+                    class="w-full bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-4 text-emerald-400 font-mono text-xl md:text-2xl tracking-wider focus:outline-none shadow-inner">
+                <div class="absolute right-3 flex items-center gap-2">
+                    <button onclick="generatePassword()" class="p-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white rounded-lg transition-colors" title="Generar nueva">
+                        <i class="fa-solid fa-rotate-right"></i>
+                    </button>
+                    <button onclick="copyPassword()" class="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold rounded-lg transition-all shadow-md shadow-emerald-600/20 flex items-center gap-2 text-sm">
+                        <i class="fa-solid fa-copy"></i> Copiar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Indicador de Fortaleza -->
+            <div class="flex items-center justify-between text-xs md:text-sm">
+                <span class="text-slate-400 font-medium">Nivel de seguridad:</span>
+                <span id="strengthText" class="font-bold text-emerald-400">Muy Alta</span>
+            </div>
+
+            <hr class="border-slate-800">
+
+            <!-- Opciones de Configuración -->
+            <div class="space-y-6">
+                <!-- Longitud -->
+                <div class="space-y-2">
+                    <div class="flex justify-between text-sm font-semibold">
+                        <span class="text-slate-300">Longitud de la contraseña</span>
+                        <span id="lengthVal" class="text-emerald-400 font-mono text-base">16</span>
+                    </div>
+                    <input type="range" id="lengthRange" min="8" max="32" value="16" oninput="updateLength()"
+                        class="w-full accent-emerald-500 bg-slate-800 h-2 rounded-lg cursor-pointer">
+                </div>
+
+                <!-- Checkboxes -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                    <label class="flex items-center gap-3 cursor-pointer p-3 bg-slate-950/50 border border-slate-800 rounded-xl hover:border-slate-700 transition-colors">
+                        <input type="checkbox" id="uppercase" checked onchange="generatePassword()" class="w-5 h-5 accent-emerald-500 rounded bg-slate-900 border-slate-700">
+                        <span class="text-sm font-medium text-slate-300">Mayúsculas (A-Z)</span>
+                    </label>
+
+                    <label class="flex items-center gap-3 cursor-pointer p-3 bg-slate-950/50 border border-slate-800 rounded-xl hover:border-slate-700 transition-colors">
+                        <input type="checkbox" id="lowercase" checked onchange="generatePassword()" class="w-5 h-5 accent-emerald-500 rounded bg-slate-900 border-slate-700">
+                        <span class="text-sm font-medium text-slate-300">Minúsculas (a-z)</span>
+                    </label>
+
+                    <label class="flex items-center gap-3 cursor-pointer p-3 bg-slate-950/50 border border-slate-800 rounded-xl hover:border-slate-700 transition-colors">
+                        <input type="checkbox" id="numbers" checked onchange="generatePassword()" class="w-5 h-5 accent-emerald-500 rounded bg-slate-900 border-slate-700">
+                        <span class="text-sm font-medium text-slate-300">Números (0-9)</span>
+                    </label>
+
+                    <label class="flex items-center gap-3 cursor-pointer p-3 bg-slate-950/50 border border-slate-800 rounded-xl hover:border-slate-700 transition-colors">
+                        <input type="checkbox" id="symbols" checked onchange="generatePassword()" class="w-5 h-5 accent-emerald-500 rounded bg-slate-900 border-slate-700">
+                        <span class="text-sm font-medium text-slate-300">Símbolos (!@#$...)</span>
+                    </label>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bloque Informativo -->
+        <section id="info" class="bg-slate-900/50 border border-slate-800/80 rounded-2xl p-6 md:p-8 space-y-4 text-slate-300">
+            <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                <i class="fa-solid fa-shield-halved text-emerald-400"></i> ¿Por qué usar contraseñas robustas?
+            </h2>
+            <p class="text-sm leading-relaxed text-slate-400">
+                Una contraseña segura combina longitud y variedad de caracteres, haciendo que los ataques de fuerza bruta sean prácticamente imposibles de descifrar. Esta herramienta procesa todo localmente en tu dispositivo, garantizando que tu clave nunca se comparte ni se almacena.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Notificación Toast Flotante -->
+    <div id="toastNotification" class="fixed bottom-6 right-6 bg-slate-900 border border-emerald-500/50 text-slate-100 px-5 py-3 rounded-2xl shadow-2xl z-50 flex items-center gap-3 transition-all duration-300 transform translate-y-20 opacity-0 pointer-events-none">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
+        <span class="text-sm font-semibold">¡Contraseña copiada al portapapeles!</span>
+    </div>
+
+    <!-- Footer Legal ampliado -->
+    <footer class="border-t border-slate-800/80 bg-slate-900/30 py-8 px-6 text-sm text-slate-400">
+        <div class="w-full max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+            <p>&copy; 2026 SafeKey Pro. Todos los derechos reservados.</p>
+            <div class="flex flex-wrap justify-center gap-6 font-medium">
+                <button onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition-colors">Política de Privacidad</button>
+                <button onclick="openModal('termsModal')" class="hover:text-emerald-400 transition-colors">Aviso Legal</button>
+                <button onclick="openModal('cookiesModal')" class="hover:text-emerald-400 transition-colors">Política de Cookies</button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Banner de Cookies Legal -->
+    <div id="cookieBanner" class="fixed bottom-4 left-4 right-4 md:left-6 md:right-auto md:max-w-md bg-slate-900 border border-slate-700 p-5 rounded-2xl shadow-2xl z-50 flex flex-col gap-3 hidden">
+        <div class="flex items-start gap-3">
+            <i class="fa-solid fa-cookie-bite text-emerald-400 text-xl mt-1"></i>
+            <div>
+                <h4 class="font-bold text-white text-sm">Protección de Datos y Cookies</h4>
+                <p class="text-xs text-slate-400 mt-1">Este sitio web no almacena datos personales ni contraseñas. Utilizamos cookies técnicas esenciales para el funcionamiento.</p>
+            </div>
+        </div>
+        <div class="flex gap-2 justify-end pt-1">
+            <button onclick="rejectCookies()" class="px-3.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-lg transition-colors">Rechazar</button>
+            <button onclick="acceptCookies()" class="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-xs rounded-lg transition-colors">Aceptar</button>
+        </div>
+    </div>
+
+    <!-- Modales Legales Obligatorios -->
+    <div id="privacyModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-slate-900 border border-slate-800 max-w-xl w-full p-6 rounded-2xl space-y-4 max-h-[80vh] overflow-y-auto">
+            <div class="flex justify-between items-center border-b border-slate-800 pb-3">
+                <h3 class="text-lg font-bold text-white">Política de Privacidad</h3>
+                <button onclick="closeModal('privacyModal')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <div class="text-xs md:text-sm text-slate-400 space-y-3 leading-relaxed">
+                <p><strong>1. Responsable del tratamiento:</strong> SafeKey Pro es una herramienta web de libre acceso orientada a la generación de claves de seguridad de forma local.</p>
+                <p><strong>2. Recopilación de datos:</strong> Este sitio web <strong>no recopila, almacena ni transmite ningún dato personal</strong> ni las contraseñas generadas. Todo el proceso de generación ocurre de manera exclusiva en el navegador web del usuario.</p>
+                <p><strong>3. Derechos del usuario:</strong> Al no recopilarse información ni bases de datos de usuarios, no se requiere registro previo ni tratamiento de datos sensibles de carácter identificativo.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="termsModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-slate-900 border border-slate-800 max-w-xl w-full p-6 rounded-2xl space-y-4 max-h-[80vh] overflow-y-auto">
+            <div class="flex justify-between items-center border-b border-slate-800 pb-3">
+                <h3 class="text-lg font-bold text-white">Aviso Legal y Términos de Uso</h3>
+                <button onclick="closeModal('termsModal')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <div class="text-xs md:text-sm text-slate-400 space-y-3 leading-relaxed">
+                <p><strong>Objeto:</strong> El presente sitio web proporciona una utilidad de software libre para la creación aleatoria de contraseñas de seguridad.</p>
+                <p><strong>Responsabilidad:</strong> El usuario es el único responsable de custodiar y almacenar de forma segura las contraseñas generadas por esta utilidad. Los creadores de la herramienta no asumen ninguna responsabilidad derivada de un mal uso o de la pérdida de credenciales por parte del usuario.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="cookiesModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-slate-900 border border-slate-800 max-w-xl w-full p-6 rounded-2xl space-y-4 max-h-[80vh] overflow-y-auto">
+            <div class="flex justify-between items-center border-b border-slate-800 pb-3">
+                <h3 class="text-lg font-bold text-white">Política de Cookies</h3>
+                <button onclick="closeModal('cookiesModal')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <div class="text-xs md:text-sm text-slate-400 space-y-3 leading-relaxed">
+                <p>Este sitio web únicamente utiliza cookies técnicas estrictamente necesarias para recordar la preferencia del usuario respecto al aviso de cookies (almacenado localmente en su dispositivo mediante `localStorage`). No se emplean cookies de rastreo publicitario intrusivo.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        const passwordOutput = document.getElementById('passwordOutput');
+        const lengthRange = document.getElementById('lengthRange');
+        const lengthVal = document.getElementById('lengthVal');
+        const uppercaseCheck = document.getElementById('uppercase');
+        const lowercaseCheck = document.getElementById('lowercase');
+        const numbersCheck = document.getElementById('numbers');
+        const symbolsCheck = document.getElementById('symbols');
+        const strengthText = document.getElementById('strengthText');
+
+        const upperChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const lowerChars = 'abcdefghijklmnopqrstuvwxyz';
+        const numberChars = '0123456789';
+        const symbolChars = '!@#$%^&*()_+-=[]{}|;:,.<>?';
+
+        function updateLength() {
+            lengthVal.textContent = lengthRange.value;
+            generatePassword();
+        }
+
+        function generatePassword() {
+            let chars = '';
+            if (uppercaseCheck.checked) chars += upperChars;
+            if (lowercaseCheck.checked) chars += lowerChars;
+            if (numbersCheck.checked) chars += numberChars;
+            if (symbolsCheck.checked) chars += symbolChars;
+
+            if (chars === '') {
+                passwordOutput.value = 'Selecciona al menos una opción';
+                strengthText.textContent = 'Inválida';
+                strengthText.className = 'font-bold text-rose-500';
+                return;
+            }
+
+            let password = '';
+            const length = parseInt(lengthRange.value);
+            for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * chars.length);
+                password += chars[randomIndex];
+            }
+
+            passwordOutput.value = password;
+            evaluateStrength(length, uppercaseCheck.checked, numbersCheck.checked, symbolsCheck.checked);
+        }
+
+        function evaluateStrength(length, hasUpper, hasNum, hasSym) {
+            if (length < 12 || (!hasNum && !hasSym)) {
+                strengthText.textContent = 'Débil';
+                strengthText.className = 'font-bold text-amber-400';
+            } else if (length < 16 || (!hasSym && !hasNum)) {
+                strengthText.textContent = 'Buena';
+                strengthText.className = 'font-bold text-sky-400';
+            } else {
+                strengthText.textContent = 'Muy Alta';
+                strengthText.className = 'font-bold text-emerald-400';
+            }
+        }
+
+        function copyPassword() {
+            if (!passwordOutput.value || passwordOutput.value.startsWith('Selecciona')) return;
+            navigator.clipboard.writeText(passwordOutput.value);
+            showToast();
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toastNotification');
+            toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+            }, 2000);
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.remove('hidden');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            generatePassword();
+            if (!localStorage.getItem('cookieConsent')) {
+                document.getElementById('cookieBanner').classList.remove('hidden');
+            }
+        });
+
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookieBanner').classList.add('hidden');
+        }
+
+        function rejectCookies() {
+            localStorage.setItem('cookieConsent', 'rejected');
+            document.getElementById('cookieBanner').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>

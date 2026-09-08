@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumidor de Textos Online y Automático | SmartText Pro</title>
+    <meta name="description" content="Resume textos largos, artículos o ensayos de forma automática al instante. Herramienta online gratuita y 100% privada.">
+    <!-- Favicon seguro integrado en base64 -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 512 512%22><path fill=%22%2334d399%22 d=%22M40 48C26.7 48 16 58.7 16 72l0 48c0 13.3 10.7 24 24 24l432 0c13.3 0 24-10.7 24-24l0-48c0-13.3-10.7-24-24-24L40 48zM192 208c-13.3 0-24 10.7-24 24l0 48c0 13.3 10.7 24 24 24l280 0c13.3 0 24-10.7 24-24l0-48c0-13.3-10.7-24-24-24L192 208zM40 364c-13.3 0-24 10.7-24 24l0 48c0 13.3 10.7 24 24 24l432 0c13.3 0 24-10.7 24-24l0-48c0-13.3-10.7-24-24-24L40 364zM0 232c0-13.3 10.7-24 24-24l88 0c13.3 0 24 10.7 24 24l0 48c0 13.3-10.7 24-24 24L24 304c-13.3 0-24-10.7-24-24l0-48z%22/></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between font-sans selection:bg-emerald-500 selection:text-white">
+
+    <!-- Header / Navbar adaptable de extremo a extremo -->
+    <header class="border-b border-slate-800/80 bg-slate-900/70 backdrop-blur-md sticky top-0 z-40 w-full">
+        <div class="w-full px-4 sm:px-6 md:px-10 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center shadow-lg shadow-emerald-500/20 text-slate-950 font-bold text-xl sm:text-2xl flex-shrink-0">
+                    <i class="fa-solid fa-compress"></i>
+                </div>
+                <div>
+                    <span class="text-lg sm:text-2xl font-black tracking-tight text-white">SmartText<span class="text-emerald-400">Pro</span></span>
+                    <span class="block text-[10px] sm:text-xs text-slate-400 uppercase tracking-widest font-bold">Resumidor Inteligente</span>
+                </div>
+            </div>
+            <nav class="hidden md:flex items-center gap-8 text-base font-semibold text-slate-300">
+                <a href="#herramienta" class="hover:text-emerald-400 transition-colors">Herramienta</a>
+                <a href="#info" class="hover:text-emerald-400 transition-colors">Cómo funciona</a>
+                <button onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition-colors">Privacidad</button>
+            </nav>
+            <button onclick="toggleMobileMenu()" class="md:hidden text-slate-300 hover:text-white text-2xl p-2 focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-6 py-4 flex flex-col gap-4 text-base font-medium">
+            <a href="#herramienta" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-emerald-400">Herramienta</a>
+            <a href="#info" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-emerald-400">Cómo funciona</a>
+            <button onclick="openModal('privacyModal'); toggleMobileMenu();" class="text-left text-slate-300 hover:text-emerald-400">Privacidad</button>
+        </div>
+    </header>
+
+    <!-- Main Content ocupando el ancho máximo de la pantalla con padding fluido -->
+    <main id="herramienta" class="w-full px-4 sm:px-6 md:px-10 py-8 flex-grow flex flex-col gap-8">
+        
+        <!-- Hero Banner -->
+        <div class="text-center space-y-3 max-w-4xl mx-auto">
+            <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
+                Resumidor de Textos <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">Automático</span>
+            </h1>
+            <p class="text-slate-400 text-sm sm:text-base md:text-lg">
+                Pega cualquier artículo, ensayo o documento largo para extraer de forma inteligente sus puntos e ideas principales al instante.
+            </p>
+        </div>
+
+        <!-- Paneles de Entrada y Salida (Diseño fluido a pantalla completa) -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full">
+            
+            <!-- Columna Izquierda: Texto Original -->
+            <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 sm:p-6 shadow-xl flex flex-col gap-4 w-full">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                    <span class="text-xs sm:text-sm font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-file-pen text-emerald-400"></i> Texto Original
+                    </span>
+                    <span id="originalStats" class="text-xs text-slate-400 font-medium">0 palabras</span>
+                </div>
+                <textarea id="textInput" placeholder="Pega aquí tu texto largo (artículos, apuntes, noticias)..." 
+                    class="w-full h-80 sm:h-96 md:h-[450px] p-3 sm:p-4 bg-slate-950/70 border border-slate-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 text-slate-100 placeholder-slate-600 resize-y text-sm sm:text-base leading-relaxed"></textarea>
+                
+                <div class="flex flex-wrap justify-between items-center gap-3 pt-1">
+                    <button onclick="clearText()" class="px-4 py-2 bg-rose-600/20 hover:bg-rose-600/30 text-rose-400 border border-rose-500/30 font-semibold rounded-xl text-xs sm:text-sm transition-all flex items-center gap-1.5 flex-1 sm:flex-initial justify-center">
+                        <i class="fa-solid fa-trash-can"></i> Limpiar
+                    </button>
+                    <button onclick="summarizeText()" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold rounded-xl text-sm transition-all shadow-lg shadow-emerald-600/20 flex items-center gap-2 flex-1 sm:flex-initial justify-center">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> Resumir Texto
+                    </button>
+                </div>
+            </div>
+
+            <!-- Columna Derecha: Resultado Resumido -->
+            <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 sm:p-6 shadow-xl flex flex-col gap-4 w-full">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                    <span class="text-xs sm:text-sm font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-file-lines text-teal-400"></i> Resumen Generado
+                    </span>
+                    <span id="summaryStats" class="text-xs text-slate-400 font-medium">0 palabras</span>
+                </div>
+                <textarea id="textOutput" readonly placeholder="El resumen aparecerá aquí automáticamente..." 
+                    class="w-full h-80 sm:h-96 md:h-[450px] p-3 sm:p-4 bg-slate-950/80 border border-slate-800 rounded-xl focus:outline-none text-teal-300 placeholder-slate-600 resize-y text-sm sm:text-base leading-relaxed"></textarea>
+                
+                <div class="flex flex-wrap justify-between items-center gap-3 pt-1">
+                    <span id="reductionBadge" class="text-xs font-semibold text-slate-400 bg-slate-800/80 px-3 py-2 rounded-lg border border-slate-700 w-full sm:w-auto text-center">Reducción: 0%</span>
+                    <button onclick="copySummary()" class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white font-bold rounded-xl text-sm transition-all border border-slate-700 flex items-center gap-2 w-full sm:w-auto justify-center">
+                        <i class="fa-solid fa-copy"></i> Copiar Resumen
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bloque Informativo -->
+        <section id="info" class="bg-slate-900/50 border border-slate-800/80 rounded-2xl p-6 md:p-8 space-y-4 text-slate-300 w-full">
+            <h2 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+                <i class="fa-solid fa-circle-info text-emerald-400"></i> ¿Cómo funciona este resumidor automático?
+            </h2>
+            <p class="text-xs sm:text-sm leading-relaxed text-slate-400">
+                Esta herramienta analiza la estructura de las frases de tu texto, seleccionando aquellas oraciones que contienen información clave o mayor extensión informativa para condensar el documento sin perder el sentido general. Todo el procesamiento se ejecuta localmente en tu navegador de manera privada y segura.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Notificación Toast Flotante -->
+    <div id="toastNotification" class="fixed bottom-6 right-6 bg-slate-900 border border-emerald-500/50 text-slate-100 px-5 py-3 rounded-2xl shadow-2xl z-50 flex items-center gap-3 transition-all duration-300 transform translate-y-20 opacity-0 pointer-events-none">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
+        <span class="text-sm font-semibold">¡Resumen copiado al portapapeles!</span>
+    </div>
+
+    <!-- Footer Legal -->
+    <footer class="border-t border-slate-800/80 bg-slate-900/30 py-8 px-4 sm:px-6 text-sm text-slate-400 w-full">
+        <div class="w-full flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+            <p>&copy; 2026 SmartText Pro. Todos los derechos reservados.</p>
+            <div class="flex flex-wrap justify-center gap-6 font-medium">
+                <button onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition-colors">Política de Privacidad</button>
+                <button onclick="openModal('termsModal')" class="hover:text-emerald-400 transition-colors">Aviso Legal</button>
+                <button onclick="openModal('cookiesModal')" class="hover:text-emerald-400 transition-colors">Política de Cookies</button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Banner de Cookies Legal -->
+    <div id="cookieBanner" class="fixed bottom-4 left-4 right-4 md:left-6 md:right-auto md:max-w-md bg-slate-900 border border-slate-700 p-5 rounded-2xl shadow-2xl z-50 flex flex-col gap-3 hidden">
+        <div class="flex items-start gap-3">
+            <i class="fa-solid fa-cookie-bite text-emerald-400 text-xl mt-1"></i>
+            <div>
+                <h4 class="font-bold text-white text-sm">Privacidad y Cookies</h4>
+                <p class="text-xs text-slate-400 mt-1">No almacenamos textos ingresados. Usamos solo cookies técnicas estrictamente necesarias.</p>
+            </div>
+        </div>
+        <div class="flex gap-2 justify-end pt-1">
+            <button onclick="rejectCookies()" class="px-3.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-lg transition-colors">Rechazar</button>
+            <button onclick="acceptCookies()" class="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-xs rounded-lg transition-colors">Aceptar</button>
+        </div>
+    </div>
+
+    <!-- Modales Legales -->
+    <div id="privacyModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-slate-900 border border-slate-800 max-w-xl w-full p-6 rounded-2xl space-y-4 max-h-[80vh] overflow-y-auto">
+            <div class="flex justify-between items-center border-b border-slate-800 pb-3">
+                <h3 class="text-lg font-bold text-white">Política de Privacidad</h3>
+                <button onclick="closeModal('privacyModal')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <div class="text-xs md:text-sm text-slate-400 space-y-3 leading-relaxed">
+                <p><strong>1. Privacidad de los textos:</strong> SmartText Pro no almacena, recopila ni transmite a servidores externos ninguno de los textos introducidos para su resumen. Todo el procesamiento computacional ocurre íntegramente en tu navegador web.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="termsModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-slate-900 border border-slate-800 max-w-xl w-full p-6 rounded-2xl space-y-4 max-h-[80vh] overflow-y-auto">
+            <div class="flex justify-between items-center border-b border-slate-800 pb-3">
+                <h3 class="text-lg font-bold text-white">Aviso Legal y Términos de Uso</h3>
+                <button onclick="closeModal('termsModal')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <div class="text-xs md:text-sm text-slate-400 space-y-3 leading-relaxed">
+                <p>Herramienta web de libre uso orientada al resumen extractivo automatizado de textos. Los creadores no se responsabilizan del uso indebido de los resúmenes generados.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="cookiesModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-slate-900 border border-slate-800 max-w-xl w-full p-6 rounded-2xl space-y-4 max-h-[80vh] overflow-y-auto">
+            <div class="flex justify-between items-center border-b border-slate-800 pb-3">
+                <h3 class="text-lg font-bold text-white">Política de Cookies</h3>
+                <button onclick="closeModal('cookiesModal')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <div class="text-xs md:text-sm text-slate-400 space-y-3 leading-relaxed">
+                <p>Utilizamos almacenamiento local exclusivamente para registrar tu preferencia con el banner de cookies técnico.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Lógica de Resumen -->
+    <script>
+        const textInput = document.getElementById('textInput');
+        const textOutput = document.getElementById('textOutput');
+        const originalStats = document.getElementById('originalStats');
+        const summaryStats = document.getElementById('summaryStats');
+        const reductionBadge = document.getElementById('reductionBadge');
+
+        textInput.addEventListener('input', updateInputStats);
+
+        function updateInputStats() {
+            const text = textInput.value.trim();
+            const words = text ? text.split(/\s+/).length : 0;
+            originalStats.textContent = `${words} palabras`;
+        }
+
+        function summarizeText() {
+            const text = textInput.value.trim();
+            if (!text) {
+                textOutput.value = "Por favor, introduce algún texto primero.";
+                return;
+            }
+
+            let sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
+            
+            if (sentences.length <= 2) {
+                textOutput.value = text;
+                updateSummaryStats(text, text);
+                return;
+            }
+
+            let targetCount = Math.max(2, Math.ceil(sentences.length * 0.4));
+            
+            let scoredSentences = sentences.map((s, index) => ({
+                sentence: s.trim(),
+                score: s.length,
+                index: index
+            }));
+
+            scoredSentences.sort((a, b) => b.score - a.score);
+            let selected = scoredSentences.slice(0, targetCount);
+            selected.sort((a, b) => a.index - b.index);
+
+            let summary = selected.map(item => item.sentence).join(' ');
+            textOutput.value = summary;
+
+            updateSummaryStats(text, summary);
+        }
+
+        function updateSummaryStats(original, summary) {
+            const origWords = original.split(/\s+/).length;
+            const sumWords = summary.split(/\s+/).length;
+            summaryStats.textContent = `${sumWords} palabras`;
+
+            let reduction = Math.round((1 - (sumWords / origWords)) * 100);
+            if (isNaN(reduction) || reduction < 0) reduction = 0;
+            reductionBadge.textContent = `Reducción: ${reduction}%`;
+        }
+
+        function clearText() {
+            textInput.value = '';
+            textOutput.value = '';
+            originalStats.textContent = '0 palabras';
+            summaryStats.textContent = '0 palabras';
+            reductionBadge.textContent = 'Reducción: 0%';
+        }
+
+        function copySummary() {
+            if (!textOutput.value.trim() || textOutput.value.startsWith('Por favor')) return;
+            navigator.clipboard.writeText(textOutput.value);
+            showToast();
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toastNotification');
+            toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+            }, 2000);
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.remove('hidden');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            if (!localStorage.getItem('cookieConsent')) {
+                document.getElementById('cookieBanner').classList.remove('hidden');
+            }
+        });
+
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookieBanner').classList.add('hidden');
+        }
+
+        function rejectCookies() {
+            localStorage.setItem('cookieConsent', 'rejected');
+            document.getElementById('cookieBanner').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
