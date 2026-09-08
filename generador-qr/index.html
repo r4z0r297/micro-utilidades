@@ -18,27 +18,29 @@
     <!-- Header / Navbar -->
     <header class="border-b border-slate-800/80 bg-slate-900/70 backdrop-blur-md sticky top-0 z-40 w-full">
         <div class="w-full px-4 sm:px-6 md:px-10 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center shadow-lg shadow-emerald-500/25 text-slate-950 flex-shrink-0">
+            <a href="../" class="flex items-center gap-3 group cursor-pointer">
+                <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center shadow-lg shadow-emerald-500/25 text-slate-950 flex-shrink-0 group-hover:scale-105 transition-transform">
                     <svg class="w-6 h-6 fill-slate-950" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                         <path d="M0 224h192V32H0v192zM64 96h64v64H64V96zm-64 192h192v192H0V288zm64 128h64v-64H64v64zM256 32v192h192V32H256zm128 128h-64V96h64v64zM256 328c0-13.3 10.7-24 24-24h48c13.3 0 24 10.7 24 24s-10.7 24-24 24h-48c-13.3 0-24-10.7-24-24zm128 0c0-13.3 10.7-24 24-24h16c13.3 0 24 10.7 24 24s-10.7 24-24 24h-16c-13.3 0-24-10.7-24-24zM256 440c0-13.3 10.7-24 24-24h16c13.3 0 24 10.7 24 24s-10.7 24-24 24h-16c-13.3 0-24-10.7-24-24zm72-56c0-13.3 10.7-24 24-24h48c13.3 0 24 10.7 24 24s-10.7 24-24 24h-48c-13.3 0-24-10.7-24-24zm48 88c0-13.3 10.7-24 24-24h48c13.3 0 24 10.7 24 24s-10.7 24-24 24h-48c-13.3 0-24-10.7-24-24z"/>
                     </svg>
                 </div>
                 <div>
-                    <span class="text-lg sm:text-2xl font-black tracking-tight text-white">QRForge<span class="text-emerald-400">Pro</span></span>
+                    <span class="text-lg sm:text-2xl font-black tracking-tight text-white group-hover:text-emerald-400 transition-colors">QRForge<span class="text-emerald-400">Pro</span></span>
                     <span class="block text-[10px] sm:text-xs text-slate-400 uppercase tracking-widest font-bold">Generador de QR</span>
                 </div>
-            </div>
+            </a>
             <nav class="hidden md:flex items-center gap-8 text-base font-semibold text-slate-300">
+                <a href="../" class="hover:text-emerald-400 transition-colors">Directorio</a>
                 <a href="#herramienta" class="hover:text-emerald-400 transition-colors">Herramienta</a>
                 <a href="#info" class="hover:text-emerald-400 transition-colors">Características</a>
-                <button onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition-colors">Privacidad</button>
+                <button onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition-colors cursor-pointer">Privacidad</button>
             </nav>
             <button onclick="toggleMobileMenu()" class="md:hidden text-slate-300 hover:text-white text-2xl p-2 focus:outline-none">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
         <div id="mobileMenu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-6 py-4 flex flex-col gap-4 text-base font-medium">
+            <a href="../" class="text-slate-300 hover:text-emerald-400">Directorio</a>
             <a href="#herramienta" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-emerald-400">Herramienta</a>
             <a href="#info" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-emerald-400">Características</a>
             <button onclick="openModal('privacyModal'); toggleMobileMenu();" class="text-left text-slate-300 hover:text-emerald-400">Privacidad</button>
@@ -88,7 +90,7 @@
                     </div>
                 </div>
 
-                <button onclick="generateQR()" class="w-full mt-2 py-3 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold rounded-xl text-sm transition-all shadow-lg shadow-emerald-600/20 flex items-center justify-center gap-2">
+                <button onclick="generateQR()" class="w-full mt-2 py-3 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold rounded-xl text-sm transition-all shadow-lg shadow-emerald-600/20 flex items-center justify-center gap-2 cursor-pointer">
                     <i class="fa-solid fa-rotate"></i> Actualizar Código QR
                 </button>
             </div>
@@ -104,7 +106,7 @@
                 <div id="qrcodeContainer" class="p-4 bg-white rounded-2xl shadow-inner flex items-center justify-center min-h-[220px] min-w-[220px]"></div>
 
                 <div class="w-full pt-2">
-                    <button onclick="downloadQR()" class="w-full py-3 bg-slate-800 hover:bg-slate-700 text-slate-100 font-bold rounded-xl text-sm transition-all border border-slate-700 flex items-center justify-center gap-2 shadow-md">
+                    <button onclick="downloadQR()" class="w-full py-3 bg-slate-800 hover:bg-slate-700 text-slate-100 font-bold rounded-xl text-sm transition-all border border-slate-700 flex items-center justify-center gap-2 shadow-md cursor-pointer">
                         <i class="fa-solid fa-download text-emerald-400"></i> Descargar Imagen QR (PNG)
                     </button>
                 </div>
@@ -132,9 +134,9 @@
         <div class="w-full flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
             <p>&copy; 2026 QRForge Pro. Todos los derechos reservados.</p>
             <div class="flex flex-wrap justify-center gap-6 font-medium">
-                <button onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition-colors">Política de Privacidad</button>
-                <button onclick="openModal('termsModal')" class="hover:text-emerald-400 transition-colors">Aviso Legal</button>
-                <button onclick="openModal('cookiesModal')" class="hover:text-emerald-400 transition-colors">Política de Cookies</button>
+                <button onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition-colors cursor-pointer">Política de Privacidad</button>
+                <button onclick="openModal('termsModal')" class="hover:text-emerald-400 transition-colors cursor-pointer">Aviso Legal</button>
+                <button onclick="openModal('cookiesModal')" class="hover:text-emerald-400 transition-colors cursor-pointer">Política de Cookies</button>
             </div>
         </div>
     </footer>
@@ -144,7 +146,7 @@
         <div class="bg-slate-900 border border-slate-800 max-w-xl w-full p-6 rounded-2xl space-y-4 max-h-[80vh] overflow-y-auto">
             <div class="flex justify-between items-center border-b border-slate-800 pb-3">
                 <h3 class="text-lg font-bold text-white">Política de Privacidad</h3>
-                <button onclick="closeModal('privacyModal')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+                <button onclick="closeModal('privacyModal')" class="text-slate-400 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
             <div class="text-xs md:text-sm text-slate-400 space-y-3 leading-relaxed">
                 <p><strong>1. Privacidad de los datos:</strong> QRForge Pro genera los códigos QR de manera local en tu navegador.</p>
