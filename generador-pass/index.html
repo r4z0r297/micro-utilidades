@@ -17,28 +17,30 @@
     <!-- Header / Navbar -->
     <header class="border-b border-slate-800/80 bg-slate-900/70 backdrop-blur-md sticky top-0 z-40 w-full">
         <div class="w-full px-6 md:px-10 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center shadow-lg shadow-emerald-500/20 text-slate-950 font-bold text-2xl">
+            <a href="../" class="flex items-center gap-3 group cursor-pointer">
+                <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center shadow-lg shadow-emerald-500/20 text-slate-950 font-bold text-2xl group-hover:scale-105 transition-transform">
                     <i class="fa-solid fa-key"></i>
                 </div>
                 <div>
-                    <span class="text-xl md:text-2xl font-black tracking-tight text-white">SafeKey<span class="text-emerald-400">Pro</span></span>
+                    <span class="text-xl md:text-2xl font-black tracking-tight text-white group-hover:text-emerald-400 transition-colors">SafeKey<span class="text-emerald-400">Pro</span></span>
                     <span class="block text-xs text-slate-400 uppercase tracking-widest font-bold">Generador de Claves</span>
                 </div>
-            </div>
+            </a>
             <nav class="hidden md:flex items-center gap-8 text-base font-semibold text-slate-300">
+                <a href="../" class="hover:text-emerald-400 transition-colors">Directorio</a>
                 <a href="#herramienta" class="hover:text-emerald-400 transition-colors">Herramienta</a>
                 <a href="#info" class="hover:text-emerald-400 transition-colors">Seguridad</a>
-                <button onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition-colors">Privacidad</button>
+                <button onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition-colors cursor-pointer">Privacidad</button>
             </nav>
-            <button onclick="toggleMobileMenu()" class="md:hidden text-slate-300 hover:text-white text-2xl p-2 focus:outline-none">
+            <button onclick="toggleMobileMenu()" class="md:hidden text-slate-300 hover:text-white text-2xl p-2 focus:outline-none cursor-pointer">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
         <div id="mobileMenu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-6 py-4 flex flex-col gap-4 text-base font-medium">
+            <a href="../" class="text-slate-300 hover:text-emerald-400">Directorio</a>
             <a href="#herramienta" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-emerald-400">Herramienta</a>
             <a href="#info" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-emerald-400">Seguridad</a>
-            <button onclick="openModal('privacyModal'); toggleMobileMenu();" class="text-left text-slate-300 hover:text-emerald-400">Privacidad</button>
+            <button onclick="openModal('privacyModal'); toggleMobileMenu();" class="text-left text-slate-300 hover:text-emerald-400 cursor-pointer">Privacidad</button>
         </div>
     </header>
 
@@ -63,10 +65,10 @@
                 <input type="text" id="passwordOutput" readonly 
                     class="w-full bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-4 text-emerald-400 font-mono text-xl md:text-2xl tracking-wider focus:outline-none shadow-inner">
                 <div class="absolute right-3 flex items-center gap-2">
-                    <button onclick="generatePassword()" class="p-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white rounded-lg transition-colors" title="Generar nueva">
+                    <button onclick="generatePassword()" class="p-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white rounded-lg transition-colors cursor-pointer" title="Generar nueva">
                         <i class="fa-solid fa-rotate-right"></i>
                     </button>
-                    <button onclick="copyPassword()" class="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold rounded-lg transition-all shadow-md shadow-emerald-600/20 flex items-center gap-2 text-sm">
+                    <button onclick="copyPassword()" class="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold rounded-lg transition-all shadow-md shadow-emerald-600/20 flex items-center gap-2 text-sm cursor-pointer">
                         <i class="fa-solid fa-copy"></i> Copiar
                     </button>
                 </div>
@@ -95,22 +97,22 @@
                 <!-- Checkboxes -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                     <label class="flex items-center gap-3 cursor-pointer p-3 bg-slate-950/50 border border-slate-800 rounded-xl hover:border-slate-700 transition-colors">
-                        <input type="checkbox" id="uppercase" checked onchange="generatePassword()" class="w-5 h-5 accent-emerald-500 rounded bg-slate-900 border-slate-700">
+                        <input type="checkbox" id="uppercase" checked onchange="generatePassword()" class="w-5 h-5 accent-emerald-500 rounded bg-slate-900 border-slate-700 cursor-pointer">
                         <span class="text-sm font-medium text-slate-300">Mayúsculas (A-Z)</span>
                     </label>
 
                     <label class="flex items-center gap-3 cursor-pointer p-3 bg-slate-950/50 border border-slate-800 rounded-xl hover:border-slate-700 transition-colors">
-                        <input type="checkbox" id="lowercase" checked onchange="generatePassword()" class="w-5 h-5 accent-emerald-500 rounded bg-slate-900 border-slate-700">
+                        <input type="checkbox" id="lowercase" checked onchange="generatePassword()" class="w-5 h-5 accent-emerald-500 rounded bg-slate-900 border-slate-700 cursor-pointer">
                         <span class="text-sm font-medium text-slate-300">Minúsculas (a-z)</span>
                     </label>
 
                     <label class="flex items-center gap-3 cursor-pointer p-3 bg-slate-950/50 border border-slate-800 rounded-xl hover:border-slate-700 transition-colors">
-                        <input type="checkbox" id="numbers" checked onchange="generatePassword()" class="w-5 h-5 accent-emerald-500 rounded bg-slate-900 border-slate-700">
+                        <input type="checkbox" id="numbers" checked onchange="generatePassword()" class="w-5 h-5 accent-emerald-500 rounded bg-slate-900 border-slate-700 cursor-pointer">
                         <span class="text-sm font-medium text-slate-300">Números (0-9)</span>
                     </label>
 
                     <label class="flex items-center gap-3 cursor-pointer p-3 bg-slate-950/50 border border-slate-800 rounded-xl hover:border-slate-700 transition-colors">
-                        <input type="checkbox" id="symbols" checked onchange="generatePassword()" class="w-5 h-5 accent-emerald-500 rounded bg-slate-900 border-slate-700">
+                        <input type="checkbox" id="symbols" checked onchange="generatePassword()" class="w-5 h-5 accent-emerald-500 rounded bg-slate-900 border-slate-700 cursor-pointer">
                         <span class="text-sm font-medium text-slate-300">Símbolos (!@#$...)</span>
                     </label>
                 </div>
@@ -141,9 +143,9 @@
         <div class="w-full max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
             <p>&copy; 2026 SafeKey Pro. Todos los derechos reservados.</p>
             <div class="flex flex-wrap justify-center gap-6 font-medium">
-                <button onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition-colors">Política de Privacidad</button>
-                <button onclick="openModal('termsModal')" class="hover:text-emerald-400 transition-colors">Aviso Legal</button>
-                <button onclick="openModal('cookiesModal')" class="hover:text-emerald-400 transition-colors">Política de Cookies</button>
+                <button onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition-colors cursor-pointer">Política de Privacidad</button>
+                <button onclick="openModal('termsModal')" class="hover:text-emerald-400 transition-colors cursor-pointer">Aviso Legal</button>
+                <button onclick="openModal('cookiesModal')" class="hover:text-emerald-400 transition-colors cursor-pointer">Política de Cookies</button>
             </div>
         </div>
     </footer>
@@ -158,8 +160,8 @@
             </div>
         </div>
         <div class="flex gap-2 justify-end pt-1">
-            <button onclick="rejectCookies()" class="px-3.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-lg transition-colors">Rechazar</button>
-            <button onclick="acceptCookies()" class="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-xs rounded-lg transition-colors">Aceptar</button>
+            <button onclick="rejectCookies()" class="px-3.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-lg transition-colors cursor-pointer">Rechazar</button>
+            <button onclick="acceptCookies()" class="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-xs rounded-lg transition-colors cursor-pointer">Aceptar</button>
         </div>
     </div>
 
@@ -168,7 +170,7 @@
         <div class="bg-slate-900 border border-slate-800 max-w-xl w-full p-6 rounded-2xl space-y-4 max-h-[80vh] overflow-y-auto">
             <div class="flex justify-between items-center border-b border-slate-800 pb-3">
                 <h3 class="text-lg font-bold text-white">Política de Privacidad</h3>
-                <button onclick="closeModal('privacyModal')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+                <button onclick="closeModal('privacyModal')" class="text-slate-400 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
             <div class="text-xs md:text-sm text-slate-400 space-y-3 leading-relaxed">
                 <p><strong>1. Responsable del tratamiento:</strong> SafeKey Pro es una herramienta web de libre acceso orientada a la generación de claves de seguridad de forma local.</p>
@@ -182,7 +184,7 @@
         <div class="bg-slate-900 border border-slate-800 max-w-xl w-full p-6 rounded-2xl space-y-4 max-h-[80vh] overflow-y-auto">
             <div class="flex justify-between items-center border-b border-slate-800 pb-3">
                 <h3 class="text-lg font-bold text-white">Aviso Legal y Términos de Uso</h3>
-                <button onclick="closeModal('termsModal')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+                <button onclick="closeModal('termsModal')" class="text-slate-400 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
             <div class="text-xs md:text-sm text-slate-400 space-y-3 leading-relaxed">
                 <p><strong>Objeto:</strong> El presente sitio web proporciona una utilidad de software libre para la creación aleatoria de contraseñas de seguridad.</p>
@@ -195,7 +197,7 @@
         <div class="bg-slate-900 border border-slate-800 max-w-xl w-full p-6 rounded-2xl space-y-4 max-h-[80vh] overflow-y-auto">
             <div class="flex justify-between items-center border-b border-slate-800 pb-3">
                 <h3 class="text-lg font-bold text-white">Política de Cookies</h3>
-                <button onclick="closeModal('cookiesModal')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+                <button onclick="closeModal('cookiesModal')" class="text-slate-400 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
             <div class="text-xs md:text-sm text-slate-400 space-y-3 leading-relaxed">
                 <p>Este sitio web únicamente utiliza cookies técnicas estrictamente necesarias para recordar la preferencia del usuario respecto al aviso de cookies (almacenado localmente en su dispositivo mediante `localStorage`). No se emplean cookies de rastreo publicitario intrusivo.</p>
