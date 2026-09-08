@@ -4,32 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EstudioIA - Generador de Test y Flashcards | UtilidadesPro</title>
-    <meta name="description" content="Crea tarjetas de memoria y tests interactivos a partir de tus apuntes o textos de clase al instante.">
-    <!-- Favicon seguro integrado en base64 -->
+    <meta name="description" content="Crea tarjetas de memoria y tests interactivos avanzados a partir de tus apuntes al instante.">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22%2334d399%22><path d=%22M4 4h6v6H4V4zm10 0h6v6h-6V4zM4 14h6v6H4v-6zm10 0h6v6h-6v-6z%22/></svg>">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8287913649516375"
-     crossorigin="anonymous"></script>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between font-sans selection:bg-emerald-500 selection:text-white">
 
-    <!-- Header / Navbar adaptable de extremo a extremo -->
+    <!-- Header / Navbar -->
     <header class="border-b border-slate-800/80 bg-slate-900/70 backdrop-blur-md sticky top-0 z-40 w-full">
-        <div class="w-full px-4 sm:px-6 md:px-10 h-20 flex items-center justify-between">
+        <div class="w-full px-6 md:px-12 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <a href="../" class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center shadow-lg shadow-emerald-500/20 text-slate-950 font-bold text-xl sm:text-2xl flex-shrink-0 hover:scale-105 transition-transform">
                     <i class="fa-solid fa-graduation-cap"></i>
                 </a>
                 <div>
                     <span class="text-lg sm:text-2xl font-black tracking-tight text-white">Estudio<span class="text-emerald-400">IA</span></span>
-                    <span class="block text-[10px] sm:text-xs text-slate-400 uppercase tracking-widest font-bold">Generador Inteligente</span>
+                    <span class="block text-[10px] sm:text-xs text-slate-400 uppercase tracking-widest font-bold">Motor Pedagógico Avanzado</span>
                 </div>
             </div>
             <nav class="hidden md:flex items-center gap-8 text-base font-semibold text-slate-300">
                 <a href="../" class="hover:text-emerald-400 transition-colors">Directorio</a>
                 <a href="#herramienta" class="hover:text-emerald-400 transition-colors">Herramienta</a>
-                <button onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition-colors">Privacidad</button>
+                <button onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition-colors cursor-pointer">Privacidad</button>
             </nav>
             <button onclick="toggleMobileMenu()" class="md:hidden text-slate-300 hover:text-white text-2xl p-2 focus:outline-none">
                 <i class="fa-solid fa-bars"></i>
@@ -42,97 +39,99 @@
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main id="herramienta" class="w-full px-4 sm:px-6 md:px-10 py-10 flex-grow flex flex-col gap-10 max-w-5xl mx-auto">
+    <!-- Main Content (Ampliado a pantalla completa) -->
+    <main id="herramienta" class="w-full px-6 md:px-12 py-10 flex-grow flex flex-col gap-10">
         
-        <!-- Hero Section -->
-        <div class="text-center space-y-3 max-w-3xl mx-auto">
+        <div class="text-center space-y-3 max-w-4xl mx-auto">
             <span class="px-3.5 py-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold rounded-full uppercase tracking-wider">
-                Utilidad Académica
+                Modo Estudiar & Examen Independiente
             </span>
-            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
+            <h1 class="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight text-white leading-tight">
                 Generador de Test y <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">Flashcards</span>
             </h1>
             <p class="text-slate-400 text-sm sm:text-base md:text-lg">
-                Pega tus apuntes de clase para transformar el texto en tarjetas de memoria interactivas y exámenes de autoevaluación al instante.
+                Pega todo tu temario mezclado. El sistema generará fichas de memoria de conceptos generales y un examen tipo test cruzado independiente.
             </p>
         </div>
 
-        <!-- Panel de Entrada de Apuntes -->
-        <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl space-y-6 w-full">
+        <!-- Panel de Entrada (Ancho completo) -->
+        <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-8 sm:p-10 shadow-2xl space-y-6 w-full">
             <div class="space-y-3">
                 <label for="apuntesInput" class="block text-sm sm:text-base font-bold text-white flex items-center gap-2">
-                    <i class="fa-solid fa-file-pen text-emerald-400"></i> Pega tu temario o apuntes aquí:
+                    <i class="fa-solid fa-file-lines text-emerald-400"></i> Pega tus apuntes, normativas o temario completo aquí:
                 </label>
-                <textarea id="apuntesInput" rows="6" placeholder="Ejemplo: La célula es la unidad morfológica y funcional de todo ser vivo. De hecho, la célula es el elemento de menor tamaño que puede considerarse vivo..." 
-                    class="w-full p-4 bg-slate-950/75 border border-slate-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 text-slate-100 placeholder-slate-600 resize-y text-sm sm:text-base leading-relaxed"></textarea>
+                <textarea id="apuntesInput" rows="8" placeholder="Peatón: Es el que transita a pie por la vía pública...&#10;Conductor: Persona que maneja el mecanismo de dirección...&#10;Las señales de tráfico se dividen en indicaciones prioritarias, señales de advertencia de peligro...&#10;El casco es obligatorio en vías urbanas e interurbanas para motociclistas..." 
+                    class="w-full p-5 bg-slate-950/75 border border-slate-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500 text-slate-100 placeholder-slate-600 resize-y text-sm sm:text-base leading-relaxed"></textarea>
             </div>
 
             <div class="flex flex-wrap items-center justify-between gap-4 pt-1">
                 <span class="text-xs text-slate-400 flex items-center gap-1.5 font-medium">
-                    <i class="fa-solid fa-circle-info text-emerald-400"></i> Cuanto más texto e información contenga, más preguntas detalladas se generarán.
+                    <i class="fa-solid fa-circle-info text-emerald-400"></i> Puedes mezclar definiciones formales y párrafos de teoría libre.
                 </span>
-                <button onclick="generarMaterialEstudio()" class="px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-sm rounded-xl transition-all shadow-lg shadow-emerald-600/20 flex items-center gap-2 w-full sm:w-auto justify-center">
-                    <i class="fa-solid fa-wand-magic-sparkles"></i> Generar Material de Estudio
+                <button onclick="generarMaterialEstudio()" class="px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-extrabold text-base rounded-2xl transition-all shadow-xl shadow-emerald-600/20 flex items-center gap-2.5 cursor-pointer">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Procesar Temario Completo
                 </button>
             </div>
         </div>
 
-        <!-- Resultados (Oculto inicialmente) -->
-        <div id="resultadosEstudio" class="space-y-8 hidden">
+        <!-- Resultados (Ancho Completo) -->
+        <div id="resultadosEstudio" class="space-y-8 hidden w-full">
             
-            <!-- Pestañas de Navegación -->
-            <div class="flex border-b border-slate-800 gap-6">
-                <button onclick="cambiarPestana('flashcards')" id="tabFlashcards" class="pb-3 px-2 font-bold text-sm sm:text-base border-b-2 border-emerald-400 text-emerald-400 transition-colors flex items-center gap-2">
-                    <i class="fa-solid fa-clone"></i> Tarjetas de Memoria (<span id="countFlash">0</span>)
+            <div class="flex border-b border-slate-800 gap-8">
+                <button onclick="cambiarPestana('flashcards')" id="tabFlashcards" class="pb-4 px-3 font-bold text-base sm:text-lg border-b-2 border-emerald-400 text-emerald-400 transition-colors flex items-center gap-2.5 cursor-pointer">
+                    <i class="fa-solid fa-clone"></i> Tarjetas de Memoria Generales (<span id="countFlash">0</span>)
                 </button>
-                <button onclick="cambiarPestana('test')" id="tabTest" class="pb-3 px-2 font-bold text-sm sm:text-base border-b-2 border-transparent text-slate-400 hover:text-white transition-colors flex items-center gap-2">
-                    <i class="fa-solid fa-list-check"></i> Test de Autoevaluación (<span id="countTest">0</span>)
+                <button onclick="cambiarPestana('test')" id="tabTest" class="pb-4 px-3 font-bold text-base sm:text-lg border-b-2 border-transparent text-slate-400 hover:text-white transition-colors flex items-center gap-2.5 cursor-pointer">
+                    <i class="fa-solid fa-list-check"></i> Examen Práctico Independiente (<span id="countTest">0</span>)
                 </button>
             </div>
 
-            <!-- Sección Flashcards -->
-            <div id="seccionFlashcards" class="space-y-6">
+            <!-- Sección Flashcards (Pantalla Ancha) -->
+            <div id="seccionFlashcards" class="space-y-6 w-full">
                 <div class="flex items-center justify-between">
-                    <h3 class="font-bold text-sm sm:text-base text-slate-300">Haz clic en la tarjeta para revelar la respuesta</h3>
-                    <div class="text-xs sm:text-sm text-emerald-400 font-bold bg-emerald-500/10 px-3 py-1 rounded-lg border border-emerald-500/20" id="contadorFlashcard">Tarjeta 1 de 1</div>
+                    <h3 class="font-bold text-sm sm:text-base text-slate-300">Tarjetas de conceptos, definiciones y frases clave de tu temario</h3>
+                    <div class="text-xs sm:text-sm text-emerald-400 font-bold bg-emerald-500/10 px-4 py-1.5 rounded-xl border border-emerald-500/20" id="contadorFlashcard">Tarjeta 1 de 1</div>
                 </div>
 
-                <div class="flex flex-col items-center justify-center gap-6">
-                    <div id="flashcardContainer" onclick="girarFlashcard()" class="w-full max-w-3xl h-72 sm:h-80 bg-slate-900 border border-slate-800 hover:border-emerald-500/50 rounded-2xl p-8 sm:p-10 cursor-pointer flex flex-col items-center justify-center text-center transition-all shadow-2xl relative select-none">
-                        <span class="absolute top-4 left-4 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-md" id="flashcardTipo">Pregunta</span>
-                        <p id="flashcardTexto" class="text-base sm:text-xl font-medium text-white mt-4 leading-relaxed">Aquí aparecerá la pregunta...</p>
-                        <span class="absolute bottom-4 text-xs text-slate-500 flex items-center gap-1.5"><i class="fa-solid fa-rotate"></i> Haz clic para voltear tarjeta</span>
+                <div class="flex flex-col items-center justify-center gap-6 w-full">
+                    <div id="flashcardContainer" onclick="girarFlashcard()" class="w-full min-h-[360px] bg-slate-900 border border-slate-800 hover:border-emerald-500/50 rounded-3xl p-10 sm:p-14 cursor-pointer flex flex-col items-center justify-center text-center transition-all shadow-2xl relative select-none group">
+                        <span id="flashcardSideIndicator" class="absolute top-6 left-6 text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-3.5 py-1.5 rounded-lg">Concepto Clave</span>
+                        
+                        <div id="flashcardContenidoDiv" class="w-full my-auto space-y-4 max-w-4xl mx-auto">
+                            <p id="flashcardTexto" class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">Concepto...</p>
+                        </div>
+
+                        <span class="absolute bottom-6 text-xs text-slate-500 flex items-center gap-1.5 group-hover:text-slate-400 transition-colors">
+                            <i class="fa-solid fa-rotate"></i> Haz clic en cualquier parte para voltear la tarjeta
+                        </span>
                     </div>
 
-                    <div class="flex items-center gap-4 pt-2">
-                        <button onclick="anteriorFlashcard()" class="px-5 py-2.5 bg-slate-900 border border-slate-800 hover:bg-slate-800 text-sm font-semibold rounded-xl transition-colors flex items-center gap-2">
+                    <div class="flex items-center gap-6 pt-2">
+                        <button onclick="anteriorFlashcard()" class="px-6 py-3 bg-slate-900 border border-slate-800 hover:bg-slate-800 text-sm font-bold rounded-xl transition-colors flex items-center gap-2 cursor-pointer">
                             <i class="fa-solid fa-arrow-left"></i> Anterior
                         </button>
-                        <button onclick="siguienteFlashcard()" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-slate-950 text-sm font-bold rounded-xl transition-colors flex items-center gap-2">
+                        <button onclick="siguienteFlashcard()" class="px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-slate-950 text-sm font-extrabold rounded-xl transition-colors flex items-center gap-2 cursor-pointer">
                             Siguiente <i class="fa-solid fa-arrow-right"></i>
                         </button>
                     </div>
                 </div>
             </div>
 
-            <!-- Sección Test -->
-            <div id="seccionTest" class="space-y-6 hidden">
+            <!-- Sección Test Independiente (Pantalla Ancha) -->
+            <div id="seccionTest" class="space-y-6 hidden w-full">
                 <div class="flex flex-wrap items-center justify-between gap-3">
-                    <h3 class="font-bold text-base sm:text-lg text-white">Cuestionario interactivo de opción múltiple</h3>
+                    <h3 class="font-bold text-base sm:text-lg text-white">Evaluación independiente basada en preguntas y opciones cruzadas</h3>
                     <span class="text-xs sm:text-sm font-bold" id="puntuacionActual"></span>
                 </div>
 
-                <div id="cuestionarioContainer" class="space-y-6 w-full">
-                    <!-- Las preguntas generadas se inyectarán aquí -->
-                </div>
+                <div id="cuestionarioContainer" class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full"></div>
 
-                <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
-                    <button onclick="corregirTest()" id="btnCorregir" class="px-8 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-sm sm:text-base rounded-xl transition-all shadow-xl shadow-emerald-600/20 flex items-center gap-2">
-                        <i class="fa-solid fa-check-double"></i> Corregir Test y Ver Nota
+                <div class="flex flex-wrap items-center justify-center gap-4 pt-6">
+                    <button onclick="corregirTest()" id="btnCorregir" class="px-10 py-4 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-extrabold text-base rounded-2xl transition-all shadow-xl shadow-emerald-600/20 flex items-center gap-2.5 cursor-pointer">
+                        <i class="fa-solid fa-check-double"></i> Entregar y Corregir Examen
                     </button>
-                    <button onclick="reiniciarTest()" id="btnReintentar" class="px-8 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-sm sm:text-base rounded-xl transition-all border border-slate-700 flex items-center gap-2 hidden">
-                        <i class="fa-solid fa-rotate-right"></i> Generar Nuevas Preguntas / Reintentar
+                    <button onclick="reiniciarTest()" id="btnReintentar" class="px-10 py-4 bg-slate-800 hover:bg-slate-700 text-slate-200 font-extrabold text-base rounded-2xl transition-all border border-slate-700 flex items-center gap-2.5 hidden cursor-pointer">
+                        <i class="fa-solid fa-rotate-right"></i> Reintentar Examen
                     </button>
                 </div>
             </div>
@@ -141,77 +140,36 @@
 
     </main>
 
-    <!-- Notificación Toast Flotante -->
+    <!-- Toast -->
     <div id="toastNotification" class="fixed bottom-6 right-6 bg-slate-900 border border-emerald-500/50 text-slate-100 px-5 py-3 rounded-2xl shadow-2xl z-50 flex items-center gap-3 transition-all duration-300 transform translate-y-20 opacity-0 pointer-events-none">
         <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
-        <span class="text-sm font-semibold" id="toastText">¡Material generado con éxito!</span>
+        <span class="text-sm font-semibold" id="toastText">¡Proceso completado!</span>
     </div>
 
-    <!-- Footer Legal -->
-    <footer class="border-t border-slate-800/80 bg-slate-900/30 py-8 px-4 sm:px-6 text-sm text-slate-400 w-full mt-12">
-        <div class="w-full flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left max-w-7xl mx-auto">
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/80 bg-slate-900/30 py-8 px-6 md:px-12 text-sm text-slate-400 w-full mt-12">
+        <div class="w-full flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
             <p>&copy; 2026 EstudioIA / UtilidadesPro. Todos los derechos reservados.</p>
             <div class="flex flex-wrap justify-center gap-6 font-medium">
-                <button onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition-colors">Política de Privacidad</button>
-                <button onclick="openModal('termsModal')" class="hover:text-emerald-400 transition-colors">Aviso Legal</button>
-                <button onclick="openModal('cookiesModal')" class="hover:text-emerald-400 transition-colors">Política de Cookies</button>
+                <button onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition-colors cursor-pointer">Política de Privacidad</button>
             </div>
         </div>
     </footer>
 
-    <!-- Banner de Cookies Legal -->
-    <div id="cookieBanner" class="fixed bottom-4 left-4 right-4 md:left-6 md:right-auto md:max-w-md bg-slate-900 border border-slate-700 p-5 rounded-2xl shadow-2xl z-50 flex flex-col gap-3 hidden">
-        <div class="flex items-start gap-3">
-            <i class="fa-solid fa-cookie-bite text-emerald-400 text-xl mt-1"></i>
-            <div>
-                <h4 class="font-bold text-white text-sm">Privacidad y Cookies</h4>
-                <p class="text-xs text-slate-400 mt-1">No almacenamos tus apuntes. Todo se procesa de forma local en tu navegador web.</p>
-            </div>
-        </div>
-        <div class="flex gap-2 justify-end pt-1">
-            <button onclick="rejectCookies()" class="px-3.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-lg transition-colors">Rechazar</button>
-            <button onclick="acceptCookies()" class="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-xs rounded-lg transition-colors">Aceptar</button>
-        </div>
-    </div>
-
-    <!-- Modales Legales -->
+    <!-- Modal Privacidad -->
     <div id="privacyModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-slate-900 border border-slate-800 max-w-xl w-full p-6 rounded-2xl space-y-4 max-h-[80vh] overflow-y-auto">
             <div class="flex justify-between items-center border-b border-slate-800 pb-3">
                 <h3 class="text-lg font-bold text-white">Política de Privacidad</h3>
-                <button onclick="closeModal('privacyModal')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+                <button onclick="closeModal('privacyModal')" class="text-slate-400 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
             <div class="text-xs md:text-sm text-slate-400 space-y-3 leading-relaxed">
-                <p><strong>1. Privacidad de los apuntes:</strong> EstudioIA no almacena, recopila ni transmite a servidores externos ninguno de los textos o temarios introducidos. Todo el procesamiento computacional de flashcards y tests ocurre de manera íntegra y local en tu navegador.</p>
+                <p><strong>Privacidad local:</strong> Tus apuntes se procesan de forma privada directamente en tu navegador.</p>
             </div>
         </div>
     </div>
 
-    <div id="termsModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-        <div class="bg-slate-900 border border-slate-800 max-w-xl w-full p-6 rounded-2xl space-y-4 max-h-[80vh] overflow-y-auto">
-            <div class="flex justify-between items-center border-b border-slate-800 pb-3">
-                <h3 class="text-lg font-bold text-white">Aviso Legal y Términos de Uso</h3>
-                <button onclick="closeModal('termsModal')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
-            </div>
-            <div class="text-xs md:text-sm text-slate-400 space-y-3 leading-relaxed">
-                <p>Herramienta educativa de libre uso orientada a la creación automática de recursos de estudio. Los creadores no se responsabilizan de posibles errores en la generación sintética de preguntas.</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="cookiesModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-        <div class="bg-slate-900 border border-slate-800 max-w-xl w-full p-6 rounded-2xl space-y-4 max-h-[80vh] overflow-y-auto">
-            <div class="flex justify-between items-center border-b border-slate-800 pb-3">
-                <h3 class="text-lg font-bold text-white">Política de Cookies</h3>
-                <button onclick="closeModal('cookiesModal')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
-            </div>
-            <div class="text-xs md:text-sm text-slate-400 space-y-3 leading-relaxed">
-                <p>Utilizamos almacenamiento local exclusivamente para registrar tu preferencia con el banner técnico de consentimiento de cookies.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Lógica JavaScript avanzada -->
+    <!-- Script con separación de Flashcards generales y Test independiente en Grid Amplio -->
     <script>
         let flashcardsData = [];
         let preguntasTestData = [];
@@ -220,53 +178,98 @@
 
         function generarMaterialEstudio() {
             const texto = document.getElementById('apuntesInput').value.trim();
-            if (texto.length < 30) {
-                alert('Por favor, introduce apuntes o un texto más extenso para poder extraer contenido de estudio válido.');
+            if (texto.length < 20) {
+                alert('Introduce un texto de apuntes más completo.');
                 return;
             }
 
-            let frases = texto.split(/(?<=[.!?])\s+/).filter(f => f.trim().length > 15);
-            
-            if (frases.length < 2) {
-                frases = texto.split('\n').filter(f => f.trim().length > 15);
+            // Separar líneas o párrafos con contenido útil
+            let lineas = texto.split('\n').map(l => l.trim()).filter(l => l.length > 8);
+            if (lineas.length < 3) {
+                lineas = texto.split(/(?<=[.!?])\s+/).map(l => l.trim()).filter(l => l.length > 8);
             }
 
-            if (frases.length < 2) {
-                alert('El texto es demasiado corto. Introduce al menos 2 o 3 frases completas.');
+            if (lineas.length < 3) {
+                alert('Introduce al menos 3 líneas o fragmentos de teoría para generar buen material.');
                 return;
             }
 
             flashcardsData = [];
             preguntasTestData = [];
 
-            const limite = Math.min(Math.max(frases.length, 3), 8);
+            let conceptosDetectados = [];
 
-            for (let i = 0; i < limite; i++) {
-                const fraseActual = frases[i % frases.length].trim();
-                const palabras = fraseActual.split(' ');
-                const concepto = palabras.slice(0, 3).join(' ');
+            // 1. Procesar elementos (detectando definiciones formales o frases de estudio general)
+            lineas.forEach(linea => {
+                let partes = linea.split(':');
+                if (partes.length >= 2) {
+                    let termino = partes[0].trim();
+                    let definicion = partes.slice(1).join(':').trim();
+                    if (termino.length > 1 && definicion.length > 5) {
+                        conceptosDetectados.push({ tipo: 'def', titulo: termino, detalle: definicion });
+                    }
+                } else {
+                    conceptosDetectados.push({ tipo: 'teoria', titulo: "Concepto / Párrafo clave", detalle: linea });
+                }
+            });
 
-                flashcardsData.push({
-                    pregunta: `¿Qué explica el texto sobre: "${concepto}..."?`,
-                    respuesta: fraseActual
-                });
+            if (conceptosDetectados.length < 2) {
+                alert('No se han podido extraer suficientes elementos. Asegúrate de incluir más oraciones o definiciones.');
+                return;
+            }
 
-                let alternativas = [
-                    fraseActual,
-                    "No guarda relación directa con los objetivos principales del temario.",
-                    "Es una excepción técnica secundaria dentro del proceso estudiado.",
-                    "Carece de validez científica según los fundamentos expuestos."
-                ];
+            // 2. Crear las Flashcards (de TODO en general: tanto definiciones como apuntes libres)
+            conceptosDetectados.forEach((item, idx) => {
+                if (item.tipo === 'def') {
+                    flashcardsData.push({
+                        frente: `¿Qué es o a qué se refiere: "${item.titulo}"?`,
+                        reverso: item.detalle,
+                        categoria: "Definición Formal"
+                    });
+                } else {
+                    // Extraer palabras clave para la tarjeta de teoría general
+                    let palabras = item.detalle.split(' ');
+                    let conceptoCorto = palabras.slice(0, 5).join(' ') + "...";
+                    flashcardsData.push({
+                        frente: `Analiza y recuerda este principio del temario:\n"${conceptoCorto}"`,
+                        reverso: item.detalle,
+                        categoria: "Principio Teórico"
+                    });
+                }
+            });
+
+            // 3. Crear el Test de forma INDEPENDIENTE (preguntas estilo examen con opciones cruzadas)
+            // Mezclamos el array de conceptos para que el test no guarde el mismo orden exacto de las flashcards
+            let conceptosTest = [...conceptosDetectados].sort(() => Math.random() - 0.5);
+
+            conceptosTest.forEach((item, index) => {
+                let distractoresPool = conceptosDetectados.filter((_, idxOriginal) => idxOriginal !== index);
                 
-                alternativas.sort(() => Math.random() - 0.5);
-                const indiceCorrecto = alternativas.indexOf(fraseActual);
+                let distractor1 = distractoresPool.length > 0 ? distractoresPool[Math.floor(Math.random() * distractoresPool.length)].detalle : "Normativa o principio complementario no aplicable.";
+                let distractor2 = "Excepción específica regulada por decretos ministeriales ajenos a este bloque.";
+                let distractor3 = "Ninguna de las opciones anteriores cumple con el supuesto indicado.";
+
+                let opciones = [item.detalle, distractor1, distractor2, distractor3];
+                opciones = [...new Set(opciones)];
+                while(opciones.length < 4) {
+                    opciones.push("Supuesto no contemplado en el temario actual.");
+                }
+                opciones.sort(() => Math.random() - 0.5);
+
+                let enunciadoPregunta = "";
+                if (item.tipo === 'def') {
+                    enunciadoPregunta = `¿Cuál es la descripción exacta correspondiente al término <strong class="text-emerald-400">${item.titulo}</strong>?`;
+                } else {
+                    enunciadoPregunta = `En relación con los principios de estudio, indica cuál de las siguientes afirmaciones es correcta:`;
+                }
 
                 preguntasTestData.push({
-                    enunciado: `En referencia al bloque temático, identifique la afirmación correcta sobre "${concepto}":`,
-                    opciones: alternativas,
-                    respuestaCorrecta: indiceCorrecto
+                    enunciado: enunciadoPregunta,
+                    opciones: opciones,
+                    respuestaCorrectaTexto: item.detalle,
+                    retroalimentacion: `<strong>Explicación oficial:</strong> ${item.tipo === 'def' ? item.titulo + ':' : ''} "${item.detalle}"`
                 });
-            }
+            });
 
             indiceActualFlashcard = 0;
             actualizarFlashcardUI();
@@ -279,31 +282,41 @@
             document.getElementById('btnCorregir').classList.remove('hidden');
             document.getElementById('btnReintentar').classList.add('hidden');
             document.getElementById('resultadosEstudio').scrollIntoView({ behavior: 'smooth' });
-            showToast("¡Material de estudio generado con éxito!");
+            showToast("¡Tarjetas y examen independiente generados con éxito!");
         }
 
-        // Lógica de Flashcards
         function actualizarFlashcardUI() {
             estaMostrandoRespuesta = false;
-            document.getElementById('flashcardTipo').innerText = "Pregunta";
-            document.getElementById('flashcardTipo').className = "absolute top-4 left-4 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-md";
-            document.getElementById('flashcardTexto').innerText = flashcardsData[indiceActualFlashcard].pregunta;
+            const tarjeta = flashcardsData[indiceActualFlashcard];
+            
+            const indicador = document.getElementById('flashcardSideIndicator');
+            indicador.innerText = tarjeta.categoria;
+            indicador.className = "absolute top-6 left-6 text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-3.5 py-1.5 rounded-lg";
+            
+            document.getElementById('flashcardContenidoDiv').innerHTML = `
+                <p class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-relaxed whitespace-pre-line">${tarjeta.frente}</p>
+            `;
             document.getElementById('contadorFlashcard').innerText = `Tarjeta ${indiceActualFlashcard + 1} de ${flashcardsData.length}`;
         }
 
         function girarFlashcard() {
             estaMostrandoRespuesta = !estaMostrandoRespuesta;
-            const tipo = document.getElementById('flashcardTipo');
-            const texto = document.getElementById('flashcardTexto');
+            const indicador = document.getElementById('flashcardSideIndicator');
+            const contenidoDiv = document.getElementById('flashcardContenidoDiv');
+            const tarjeta = flashcardsData[indiceActualFlashcard];
             
             if (estaMostrandoRespuesta) {
-                tipo.innerText = "Respuesta Correcta";
-                tipo.className = "absolute top-4 left-4 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-amber-400 bg-amber-500/10 px-3 py-1 rounded-md";
-                texto.innerText = flashcardsData[indiceActualFlashcard].respuesta;
+                indicador.innerText = "Respuesta / Explicación";
+                indicador.className = "absolute top-6 left-6 text-xs font-bold uppercase tracking-widest text-amber-400 bg-amber-500/10 px-3.5 py-1.5 rounded-lg";
+                
+                contenidoDiv.innerHTML = `
+                    <div class="space-y-3 text-left bg-slate-950/80 p-8 rounded-2xl border border-slate-800 max-w-4xl mx-auto shadow-inner">
+                        <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Solución Oficial</span>
+                        <p class="text-lg sm:text-xl text-slate-100 font-medium leading-relaxed">${tarjeta.reverso}</p>
+                    </div>
+                `;
             } else {
-                tipo.innerText = "Pregunta";
-                tipo.className = "absolute top-4 left-4 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-md";
-                texto.innerText = flashcardsData[indiceActualFlashcard].pregunta;
+                actualizarFlashcardUI();
             }
         }
 
@@ -324,7 +337,6 @@
             }
         }
 
-        // Cambio de Pestañas
         function cambiarPestana(tipo) {
             const btnFlash = document.getElementById('tabFlashcards');
             const btnTest = document.getElementById('tabTest');
@@ -332,19 +344,18 @@
             const secTest = document.getElementById('seccionTest');
 
             if (tipo === 'flashcards') {
-                btnFlash.className = "pb-3 px-2 font-bold text-sm sm:text-base border-b-2 border-emerald-400 text-emerald-400 transition-colors flex items-center gap-2";
-                btnTest.className = "pb-3 px-2 font-bold text-sm sm:text-base border-b-2 border-transparent text-slate-400 hover:text-white transition-colors flex items-center gap-2";
+                btnFlash.className = "pb-4 px-3 font-bold text-base sm:text-lg border-b-2 border-emerald-400 text-emerald-400 transition-colors flex items-center gap-2.5 cursor-pointer";
+                btnTest.className = "pb-4 px-3 font-bold text-base sm:text-lg border-b-2 border-transparent text-slate-400 hover:text-white transition-colors flex items-center gap-2.5 cursor-pointer";
                 secFlash.classList.remove('hidden');
                 secTest.classList.add('hidden');
             } else {
-                btnTest.className = "pb-3 px-2 font-bold text-sm sm:text-base border-b-2 border-emerald-400 text-emerald-400 transition-colors flex items-center gap-2";
-                btnFlash.className = "pb-3 px-2 font-bold text-sm sm:text-base border-b-2 border-transparent text-slate-400 hover:text-white transition-colors flex items-center gap-2";
+                btnTest.className = "pb-4 px-3 font-bold text-base sm:text-lg border-b-2 border-emerald-400 text-emerald-400 transition-colors flex items-center gap-2.5 cursor-pointer";
+                btnFlash.className = "pb-4 px-3 font-bold text-base sm:text-lg border-b-2 border-transparent text-slate-400 hover:text-white transition-colors flex items-center gap-2.5 cursor-pointer";
                 secTest.classList.remove('hidden');
                 secFlash.classList.add('hidden');
             }
         }
 
-        // Construir Test de Opción Múltiple
         function construirTestUI() {
             const container = document.getElementById('cuestionarioContainer');
             container.innerHTML = '';
@@ -361,9 +372,12 @@
                 });
 
                 container.innerHTML += `
-                    <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 sm:p-7 space-y-4 shadow-xl">
-                        <h4 class="font-bold text-white text-base sm:text-lg"><span class="text-emerald-400 mr-2">${qIndex + 1}.</span>${pregunta.enunciado}</h4>
-                        <div class="space-y-2.5">${htmlOpciones}</div>
+                    <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-7 sm:p-8 space-y-5 shadow-xl flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-white text-base sm:text-lg leading-snug"><span class="text-emerald-400 mr-2">Pregunta ${qIndex + 1}.</span>${pregunta.enunciado}</h4>
+                            <div class="space-y-2.5">${htmlOpciones}</div>
+                        </div>
+                        <div id="retro_q${qIndex}" class="hidden mt-3 p-4 rounded-xl bg-slate-950 border border-slate-800 text-xs sm:text-sm text-slate-300 leading-relaxed"></div>
                     </div>
                 `;
             });
@@ -374,28 +388,39 @@
             let aciertos = 0;
             preguntasTestData.forEach((pregunta, qIndex) => {
                 const seleccionado = document.querySelector(`input[name="pregunta_${qIndex}"]:checked`);
-                
+                const indiceRealCorrecto = pregunta.opciones.indexOf(pregunta.respuestaCorrectaTexto);
+
                 pregunta.opciones.forEach((_, oIndex) => {
                     const label = document.getElementById(`label_q${qIndex}_o${oIndex}`);
+                    if (!label) return;
                     const inputRadio = label.querySelector('input');
-                    inputRadio.disabled = true; // Bloquear opciones tras corregir
+                    inputRadio.disabled = true;
 
-                    // Limpiar clases previas
                     label.className = "flex items-start gap-3.5 p-4 rounded-xl border bg-slate-950/60 transition-all opacity-90";
 
-                    if (oIndex === pregunta.respuestaCorrecta) {
-                        // Acierto / Opción correcta en verde
+                    if (oIndex === indiceRealCorrecto) {
                         label.classList.add('border-emerald-500', 'bg-emerald-950/30', 'text-emerald-300');
                     } else if (seleccionado && parseInt(seleccionado.value) === oIndex) {
-                        // Opción seleccionada incorrecta en rojo
                         label.classList.add('border-rose-500', 'bg-rose-950/35', 'text-rose-300');
                     } else {
-                        // Opción no seleccionada normal
                         label.classList.add('border-slate-800', 'text-slate-400');
                     }
                 });
 
-                if (seleccionado && parseInt(seleccionado.value) === pregunta.respuestaCorrecta) {
+                const retroDiv = document.getElementById(`retro_q${qIndex}`);
+                if (retroDiv) {
+                    retroDiv.classList.remove('hidden');
+                    const esAcertada = seleccionado && parseInt(seleccionado.value) === indiceRealCorrecto;
+                    retroDiv.innerHTML = `
+                        <p class="font-bold mb-1 ${esAcertada ? 'text-emerald-400' : 'text-amber-400'}">
+                            <i class="fa-solid ${esAcertada ? 'fa-circle-check' : 'fa-triangle-exclamation'} mr-1.5"></i> 
+                            ${esAcertada ? '¡Correcto!' : 'Incorrecto.'}
+                        </p>
+                        <p class="text-slate-300">${pregunta.retroalimentacion}</p>
+                    `;
+                }
+
+                if (seleccionado && parseInt(seleccionado.value) === indiceRealCorrecto) {
                     aciertos++;
                 }
             });
@@ -404,33 +429,29 @@
             const porcentaje = Math.round((aciertos / total) * 100);
             
             const badgePuntuacion = document.getElementById('puntuacionActual');
-            badgePuntuacion.innerText = `Calificación final: ${aciertos} / ${total} aciertos (${porcentaje}%)`;
+            badgePuntuacion.innerText = `Calificación Final: ${aciertos} / ${total} aciertos (${porcentaje}%)`;
             badgePuntuacion.className = porcentaje >= 50 
-                ? "text-emerald-400 font-bold text-xs sm:text-sm bg-emerald-500/10 px-3.5 py-1.5 rounded-lg border border-emerald-500/20" 
-                : "text-amber-400 font-bold text-xs sm:text-sm bg-amber-500/10 px-3.5 py-1.5 rounded-lg border border-amber-500/20";
+                ? "text-emerald-400 font-bold text-xs sm:text-sm bg-emerald-500/10 px-4 py-2 rounded-xl border border-emerald-500/20" 
+                : "text-amber-400 font-bold text-xs sm:text-sm bg-amber-500/10 px-4 py-2 rounded-xl border border-amber-500/20";
             
-            // Alternar botones de acción
             document.getElementById('btnCorregir').classList.add('hidden');
             document.getElementById('btnReintentar').classList.remove('hidden');
 
-            showToast(`¡Test corregido! Nota: ${aciertos}/${total} (${porcentaje}%)`);
+            showToast(`Examen corregido. Nota: ${aciertos}/${total}`);
         }
 
         function reiniciarTest() {
-            // Reorganizar aleatoriamente las opciones del test actual para un nuevo intento rápido
             preguntasTestData.forEach((pregunta) => {
                 pregunta.opciones.sort(() => Math.random() - 0.5);
-                pregunta.respuestaCorrecta = pregunta.opciones.indexOf(flashcardsData.find(f => f.respuesta === pregunta.opciones[pregunta.respuestaCorrecta])?.respuesta || pregunta.opciones[0]);
             });
             
             construirTestUI();
             document.getElementById('btnCorregir').classList.remove('hidden');
             document.getElementById('btnReintentar').classList.add('hidden');
             document.getElementById('cuestionarioContainer').scrollIntoView({ behavior: 'smooth' });
-            showToast("¡Nuevas combinaciones cargadas en el test!");
+            showToast("¡Examen reiniciado y opciones mezcladas!");
         }
 
-        // Toast de notificaciones
         function showToast(mensaje) {
             const toast = document.getElementById('toastNotification');
             document.getElementById('toastText').textContent = mensaje;
@@ -440,7 +461,6 @@
             }, 3000);
         }
 
-        // Controles de Menú Móvil y Modales Legales
         function toggleMobileMenu() {
             document.getElementById('mobileMenu').classList.toggle('hidden');
         }
@@ -451,22 +471,6 @@
 
         function closeModal(modalId) {
             document.getElementById(modalId).classList.add('hidden');
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            if (!localStorage.getItem('cookieConsent')) {
-                document.getElementById('cookieBanner').classList.remove('hidden');
-            }
-        });
-
-        function acceptCookies() {
-            localStorage.setItem('cookieConsent', 'accepted');
-            document.getElementById('cookieBanner').classList.add('hidden');
-        }
-
-        function rejectCookies() {
-            localStorage.setItem('cookieConsent', 'rejected');
-            document.getElementById('cookieBanner').classList.add('hidden');
         }
     </script>
 </body>
