@@ -16,14 +16,14 @@
 
     <!-- Header / Navbar -->
     <header class="border-b border-slate-800/80 bg-slate-900/70 backdrop-blur-md sticky top-0 z-40 w-full">
-        <div class="w-full px-6 md:px-10 h-20 flex items-center justify-between">
+        <div class="w-full px-4 sm:px-6 md:px-10 h-20 flex items-center justify-between">
             <a href="../" class="flex items-center gap-3 group cursor-pointer">
-                <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center shadow-lg shadow-emerald-500/20 text-slate-950 font-bold text-2xl group-hover:scale-105 transition-transform">
+                <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center shadow-lg shadow-emerald-500/20 text-slate-950 font-bold text-xl sm:text-2xl group-hover:scale-105 transition-transform">
                     <i class="fa-solid fa-key"></i>
                 </div>
                 <div>
-                    <span class="text-xl md:text-2xl font-black tracking-tight text-white group-hover:text-emerald-400 transition-colors">SafeKey<span class="text-emerald-400">Pro</span></span>
-                    <span class="block text-xs text-slate-400 uppercase tracking-widest font-bold">Generador de Claves</span>
+                    <span class="text-lg sm:text-xl md:text-2xl font-black tracking-tight text-white group-hover:text-emerald-400 transition-colors">SafeKey<span class="text-emerald-400">Pro</span></span>
+                    <span class="block text-[10px] sm:text-xs text-slate-400 uppercase tracking-widest font-bold">Generador de Claves</span>
                 </div>
             </a>
             <nav class="hidden md:flex items-center gap-8 text-base font-semibold text-slate-300">
@@ -45,37 +45,37 @@
     </header>
 
     <!-- Main Content -->
-    <main id="herramienta" class="w-full max-w-3xl mx-auto px-4 py-12 flex-grow flex flex-col gap-8">
+    <main id="herramienta" class="w-full max-w-5xl mx-auto px-3 sm:px-6 py-6 sm:py-12 flex-grow flex flex-col gap-6 sm:gap-8">
         
         <!-- Hero Banner -->
-        <div class="text-center space-y-3">
-            <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
+        <div class="text-center space-y-2 sm:space-y-3">
+            <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
                 Generador de <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">Contraseñas</span>
             </h1>
-            <p class="text-slate-400 text-base md:text-lg">
+            <p class="text-slate-400 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
                 Crea claves seguras e indescifrables para proteger tus cuentas personales y profesionales al instante.
             </p>
         </div>
 
         <!-- Tarjeta de Contraseña -->
-        <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-2xl flex flex-col gap-6">
+        <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 sm:p-6 md:p-8 shadow-2xl flex flex-col gap-5 sm:gap-6 w-full">
             
             <!-- Campo de Visualización -->
-            <div class="relative flex items-center">
+            <div class="relative flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                 <input type="text" id="passwordOutput" readonly 
-                    class="w-full bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-4 text-emerald-400 font-mono text-xl md:text-2xl tracking-wider focus:outline-none shadow-inner">
-                <div class="absolute right-3 flex items-center gap-2">
-                    <button onclick="generatePassword()" class="p-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white rounded-lg transition-colors cursor-pointer" title="Generar nueva">
-                        <i class="fa-solid fa-rotate-right"></i>
+                    class="w-full bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-3 sm:py-4 text-emerald-400 font-mono text-base sm:text-xl md:text-2xl tracking-wider focus:outline-none shadow-inner break-all">
+                <div class="flex items-center gap-2 self-end sm:self-auto sm:absolute sm:right-3">
+                    <button onclick="generatePassword()" class="p-3 sm:p-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white rounded-lg transition-colors cursor-pointer flex-1 sm:flex-none justify-center flex items-center" title="Generar nueva">
+                        <i class="fa-solid fa-rotate-right text-base"></i>
                     </button>
-                    <button onclick="copyPassword()" class="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold rounded-lg transition-all shadow-md shadow-emerald-600/20 flex items-center gap-2 text-sm cursor-pointer">
+                    <button onclick="copyPassword()" class="px-5 py-3 sm:py-2.5 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold rounded-lg transition-all shadow-md shadow-emerald-600/20 flex items-center justify-center gap-2 text-sm cursor-pointer flex-1 sm:flex-none">
                         <i class="fa-solid fa-copy"></i> Copiar
                     </button>
                 </div>
             </div>
 
             <!-- Indicador de Fortaleza -->
-            <div class="flex items-center justify-between text-xs md:text-sm">
+            <div class="flex items-center justify-between text-xs sm:text-sm">
                 <span class="text-slate-400 font-medium">Nivel de seguridad:</span>
                 <span id="strengthText" class="font-bold text-emerald-400">Muy Alta</span>
             </div>
@@ -95,23 +95,23 @@
                 </div>
 
                 <!-- Checkboxes -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                    <label class="flex items-center gap-3 cursor-pointer p-3 bg-slate-950/50 border border-slate-800 rounded-xl hover:border-slate-700 transition-colors">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-2">
+                    <label class="flex items-center gap-3 cursor-pointer p-3.5 sm:p-3 bg-slate-950/50 border border-slate-800 rounded-xl hover:border-slate-700 transition-colors">
                         <input type="checkbox" id="uppercase" checked onchange="generatePassword()" class="w-5 h-5 accent-emerald-500 rounded bg-slate-900 border-slate-700 cursor-pointer">
                         <span class="text-sm font-medium text-slate-300">Mayúsculas (A-Z)</span>
                     </label>
 
-                    <label class="flex items-center gap-3 cursor-pointer p-3 bg-slate-950/50 border border-slate-800 rounded-xl hover:border-slate-700 transition-colors">
+                    <label class="flex items-center gap-3 cursor-pointer p-3.5 sm:p-3 bg-slate-950/50 border border-slate-800 rounded-xl hover:border-slate-700 transition-colors">
                         <input type="checkbox" id="lowercase" checked onchange="generatePassword()" class="w-5 h-5 accent-emerald-500 rounded bg-slate-900 border-slate-700 cursor-pointer">
                         <span class="text-sm font-medium text-slate-300">Minúsculas (a-z)</span>
                     </label>
 
-                    <label class="flex items-center gap-3 cursor-pointer p-3 bg-slate-950/50 border border-slate-800 rounded-xl hover:border-slate-700 transition-colors">
+                    <label class="flex items-center gap-3 cursor-pointer p-3.5 sm:p-3 bg-slate-950/50 border border-slate-800 rounded-xl hover:border-slate-700 transition-colors">
                         <input type="checkbox" id="numbers" checked onchange="generatePassword()" class="w-5 h-5 accent-emerald-500 rounded bg-slate-900 border-slate-700 cursor-pointer">
                         <span class="text-sm font-medium text-slate-300">Números (0-9)</span>
                     </label>
 
-                    <label class="flex items-center gap-3 cursor-pointer p-3 bg-slate-950/50 border border-slate-800 rounded-xl hover:border-slate-700 transition-colors">
+                    <label class="flex items-center gap-3 cursor-pointer p-3.5 sm:p-3 bg-slate-950/50 border border-slate-800 rounded-xl hover:border-slate-700 transition-colors">
                         <input type="checkbox" id="symbols" checked onchange="generatePassword()" class="w-5 h-5 accent-emerald-500 rounded bg-slate-900 border-slate-700 cursor-pointer">
                         <span class="text-sm font-medium text-slate-300">Símbolos (!@#$...)</span>
                     </label>
@@ -121,11 +121,11 @@
         </div>
 
         <!-- Bloque Informativo -->
-        <section id="info" class="bg-slate-900/50 border border-slate-800/80 rounded-2xl p-6 md:p-8 space-y-4 text-slate-300">
-            <h2 class="text-xl font-bold text-white flex items-center gap-2">
+        <section id="info" class="bg-slate-900/50 border border-slate-800/80 rounded-2xl p-5 sm:p-6 md:p-8 space-y-3 sm:space-y-4 text-slate-300 w-full">
+            <h2 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
                 <i class="fa-solid fa-shield-halved text-emerald-400"></i> ¿Por qué usar contraseñas robustas?
             </h2>
-            <p class="text-sm leading-relaxed text-slate-400">
+            <p class="text-xs sm:text-sm leading-relaxed text-slate-400">
                 Una contraseña segura combina longitud y variedad de caracteres, haciendo que los ataques de fuerza bruta sean prácticamente imposibles de descifrar. Esta herramienta procesa todo localmente en tu dispositivo, garantizando que tu clave nunca se comparte ni se almacena.
             </p>
         </section>
@@ -133,14 +133,14 @@
     </main>
 
     <!-- Notificación Toast Flotante -->
-    <div id="toastNotification" class="fixed bottom-6 right-6 bg-slate-900 border border-emerald-500/50 text-slate-100 px-5 py-3 rounded-2xl shadow-2xl z-50 flex items-center gap-3 transition-all duration-300 transform translate-y-20 opacity-0 pointer-events-none">
+    <div id="toastNotification" class="fixed bottom-6 right-4 left-4 sm:left-auto sm:right-6 bg-slate-900 border border-emerald-500/50 text-slate-100 px-5 py-3 rounded-2xl shadow-2xl z-50 flex items-center justify-center sm:justify-start gap-3 transition-all duration-300 transform translate-y-20 opacity-0 pointer-events-none">
         <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
         <span class="text-sm font-semibold">¡Contraseña copiada al portapapeles!</span>
     </div>
 
-    <!-- Footer Legal ampliado -->
-    <footer class="border-t border-slate-800/80 bg-slate-900/30 py-8 px-6 text-sm text-slate-400">
-        <div class="w-full max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+    <!-- Footer Estirado a todo el ancho -->
+    <footer class="border-t border-slate-800/80 bg-slate-900/30 py-8 px-4 sm:px-10 text-sm text-slate-400 w-full">
+        <div class="w-full flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
             <p>&copy; 2026 SafeKey Pro. Todos los derechos reservados.</p>
             <div class="flex flex-wrap justify-center gap-6 font-medium">
                 <button onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition-colors cursor-pointer">Política de Privacidad</button>
