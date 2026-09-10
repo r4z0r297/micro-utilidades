@@ -11,22 +11,21 @@
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between font-sans selection:bg-emerald-500 selection:text-white">
 
-    <!-- Header / Navbar -->
+    <!-- Header / Navbar (Modificado para quitar cookies, privacidad y aviso legal de arriba) -->
     <header class="border-b border-slate-800/80 bg-slate-900/70 backdrop-blur-md sticky top-0 z-40 w-full">
         <div class="w-full px-6 md:px-12 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <a href="../" class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center shadow-lg shadow-emerald-500/20 text-slate-950 font-bold text-xl sm:text-2xl flex-shrink-0 hover:scale-105 transition-transform">
                     <i class="fa-solid fa-graduation-cap"></i>
                 </a>
-                <div>
-                    <span class="text-lg sm:text-2xl font-black tracking-tight text-white">Estudio<span class="text-emerald-400">IA</span></span>
+                <a href="../" class="group text-left cursor-pointer">
+                    <span class="text-lg sm:text-2xl font-black tracking-tight text-white group-hover:text-emerald-400 transition-colors">Estudio<span class="text-emerald-400">IA</span></span>
                     <span class="block text-[10px] sm:text-xs text-slate-400 uppercase tracking-widest font-bold">Motor Pedagógico Avanzado</span>
-                </div>
+                </a>
             </div>
             <nav class="hidden md:flex items-center gap-8 text-base font-semibold text-slate-300">
                 <a href="../" class="hover:text-emerald-400 transition-colors">Directorio</a>
                 <a href="#herramienta" class="hover:text-emerald-400 transition-colors">Herramienta</a>
-                <button onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition-colors cursor-pointer">Privacidad</button>
             </nav>
             <button onclick="toggleMobileMenu()" class="md:hidden text-slate-300 hover:text-white text-2xl p-2 focus:outline-none">
                 <i class="fa-solid fa-bars"></i>
@@ -35,11 +34,10 @@
         <div id="mobileMenu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-6 py-4 flex flex-col gap-4 text-base font-medium">
             <a href="../" class="text-slate-300 hover:text-emerald-400">Directorio</a>
             <a href="#herramienta" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-emerald-400">Herramienta</a>
-            <button onclick="openModal('privacyModal'); toggleMobileMenu();" class="text-left text-slate-300 hover:text-emerald-400">Privacidad</button>
         </div>
     </header>
 
-    <!-- Main Content (Ampliado a pantalla completa) -->
+    <!-- Main Content -->
     <main id="herramienta" class="w-full px-6 md:px-12 py-10 flex-grow flex flex-col gap-10">
         
         <div class="text-center space-y-3 max-w-4xl mx-auto">
@@ -54,7 +52,7 @@
             </p>
         </div>
 
-        <!-- Panel de Entrada (Ancho completo) -->
+        <!-- Panel de Entrada -->
         <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-8 sm:p-10 shadow-2xl space-y-6 w-full">
             <div class="space-y-3">
                 <label for="apuntesInput" class="block text-sm sm:text-base font-bold text-white flex items-center gap-2">
@@ -74,7 +72,7 @@
             </div>
         </div>
 
-        <!-- Resultados (Ancho Completo) -->
+        <!-- Resultados -->
         <div id="resultadosEstudio" class="space-y-8 hidden w-full">
             
             <div class="flex border-b border-slate-800 gap-8">
@@ -86,7 +84,7 @@
                 </button>
             </div>
 
-            <!-- Sección Flashcards (Pantalla Ancha) -->
+            <!-- Sección Flashcards -->
             <div id="seccionFlashcards" class="space-y-6 w-full">
                 <div class="flex items-center justify-between">
                     <h3 class="font-bold text-sm sm:text-base text-slate-300">Tarjetas de conceptos, definiciones y frases clave de tu temario</h3>
@@ -117,7 +115,7 @@
                 </div>
             </div>
 
-            <!-- Sección Test Independiente (Pantalla Ancha) -->
+            <!-- Sección Test Independiente -->
             <div id="seccionTest" class="space-y-6 hidden w-full">
                 <div class="flex flex-wrap items-center justify-between gap-3">
                     <h3 class="font-bold text-base sm:text-lg text-white">Evaluación independiente basada en preguntas y opciones cruzadas</h3>
@@ -146,17 +144,30 @@
         <span class="text-sm font-semibold" id="toastText">¡Proceso completado!</span>
     </div>
 
-    <!-- Footer -->
-    <footer class="border-t border-slate-800/80 bg-slate-900/30 py-8 px-6 md:px-12 text-sm text-slate-400 w-full mt-12">
+    <!-- Banner de Cookies Legal -->
+    <div id="cookieBanner" class="fixed bottom-0 left-0 right-0 bg-slate-900 border-t border-slate-800 p-4 sm:p-6 z-50 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-2xl">
+        <div class="text-xs sm:text-sm text-slate-300 max-w-3xl text-center sm:text-left">
+            <p>Utilizamos cookies propias y de terceros para el análisis de tráfico y medición de uso de la web. Puedes aceptar todas las cookies o configurar tus preferencias. Más información en nuestra <button onclick="openModal('cookiesModal')" class="text-emerald-400 underline cursor-pointer font-semibold">Política de Cookies</button>.</p>
+        </div>
+        <div class="flex items-center gap-3 flex-shrink-0">
+            <button onclick="aceptarCookies()" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-xs sm:text-sm rounded-xl transition-colors cursor-pointer">Aceptar Todas</button>
+            <button onclick="rechazarCookies()" class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs sm:text-sm rounded-xl transition-colors cursor-pointer">Rechazar</button>
+        </div>
+    </div>
+
+    <!-- Footer (Aquí se concentran todos los enlaces legales) -->
+    <footer class="border-t border-slate-800/80 bg-slate-900/30 py-8 px-6 md:px-12 text-sm text-slate-400 w-full mt-12 mb-20 sm:mb-0">
         <div class="w-full flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
             <p>&copy; 2026 EstudioIA / UtilidadesPro. Todos los derechos reservados.</p>
             <div class="flex flex-wrap justify-center gap-6 font-medium">
                 <button onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition-colors cursor-pointer">Política de Privacidad</button>
+                <button onclick="openModal('cookiesModal')" class="hover:text-emerald-400 transition-colors cursor-pointer">Política de Cookies</button>
+                <button onclick="openModal('legalModal')" class="hover:text-emerald-400 transition-colors cursor-pointer">Aviso Legal</button>
             </div>
         </div>
     </footer>
 
-    <!-- Modal Privacidad -->
+    <!-- Modales Legales -->
     <div id="privacyModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-slate-900 border border-slate-800 max-w-xl w-full p-6 rounded-2xl space-y-4 max-h-[80vh] overflow-y-auto">
             <div class="flex justify-between items-center border-b border-slate-800 pb-3">
@@ -164,17 +175,65 @@
                 <button onclick="closeModal('privacyModal')" class="text-slate-400 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
             <div class="text-xs md:text-sm text-slate-400 space-y-3 leading-relaxed">
-                <p><strong>Privacidad local:</strong> Tus apuntes se procesan de forma privada directamente en tu navegador.</p>
+                <p><strong>1. Responsable del tratamiento:</strong> EstudioIA / UtilidadesPro.</p>
+                <p><strong>2. Privacidad local:</strong> Tus apuntes y textos introducidos se procesan exclusivamente de forma privada en tu propio navegador web. No se almacenan ni se envían a bases de datos externas.</p>
+                <p><strong>3. Finalidad:</strong> Recopilar métricas de uso anónimas mediante herramientas de análisis web para mejorar la experiencia de navegación de los usuarios.</p>
             </div>
         </div>
     </div>
 
-    <!-- Script con separación de Flashcards generales y Test independiente en Grid Amplio -->
+    <div id="cookiesModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-slate-900 border border-slate-800 max-w-xl w-full p-6 rounded-2xl space-y-4 max-h-[80vh] overflow-y-auto">
+            <div class="flex justify-between items-center border-b border-slate-800 pb-3">
+                <h3 class="text-lg font-bold text-white">Política de Cookies</h3>
+                <button onclick="closeModal('cookiesModal')" class="text-slate-400 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <div class="text-xs md:text-sm text-slate-400 space-y-3 leading-relaxed">
+                <p><strong>¿Qué son las cookies?</strong> Son pequeños ficheros de texto que se almacenan en tu dispositivo al visitar una página web.</p>
+                <p><strong>Cookies utilizadas:</strong> Utilizamos cookies analíticas de Google Analytics para medir de forma estadística el tráfico y las páginas visitadas con el fin de optimizar el rendimiento de la aplicación.</p>
+                <p>Puedes configurar o rechazar el uso de las mismas en cualquier momento desde las opciones de tu navegador o mediante el banner de consentimiento.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="legalModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-slate-900 border border-slate-800 max-w-xl w-full p-6 rounded-2xl space-y-4 max-h-[80vh] overflow-y-auto">
+            <div class="flex justify-between items-center border-b border-slate-800 pb-3">
+                <h3 class="text-lg font-bold text-white">Aviso Legal</h3>
+                <button onclick="closeModal('legalModal')" class="text-slate-400 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <div class="text-xs md:text-sm text-slate-400 space-y-3 leading-relaxed">
+                <p><strong>Objeto:</strong> El presente sitio web proporciona micro-utilidades y herramientas educativas de procesamiento local destinadas al apoyo en el estudio y productividad general.</p>
+                <p><strong>Propiedad intelectual:</strong> Todos los contenidos visuales, código fuente y estructura de la plataforma están protegidos por las normativas vigentes en materia de propiedad intelectual.</p>
+                <p><strong>Limitación de responsabilidad:</strong> Los tests y flashcards se generan algorítmicamente a partir de los apuntes introducidos por el usuario, por lo que este último es el único responsable de la validación académica de los resultados obtenidos.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Principal -->
     <script>
         let flashcardsData = [];
         let preguntasTestData = [];
         let indiceActualFlashcard = 0;
         let estaMostrandoRespuesta = false;
+
+        window.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('cookiesAceptadas')) {
+                document.getElementById('cookieBanner').style.display = 'none';
+            }
+        });
+
+        function aceptarCookies() {
+            localStorage.setItem('cookiesAceptadas', 'true');
+            document.getElementById('cookieBanner').style.display = 'none';
+            showToast("Preferencias de cookies guardadas con éxito.");
+        }
+
+        function rechazarCookies() {
+            localStorage.setItem('cookiesAceptadas', 'false');
+            document.getElementById('cookieBanner').style.display = 'none';
+            showToast("Cookies analíticas rechazadas.");
+        }
 
         function generarMaterialEstudio() {
             const texto = document.getElementById('apuntesInput').value.trim();
@@ -183,7 +242,6 @@
                 return;
             }
 
-            // Separar líneas o párrafos con contenido útil
             let lineas = texto.split('\n').map(l => l.trim()).filter(l => l.length > 8);
             if (lineas.length < 3) {
                 lineas = texto.split(/(?<=[.!?])\s+/).map(l => l.trim()).filter(l => l.length > 8);
@@ -196,10 +254,8 @@
 
             flashcardsData = [];
             preguntasTestData = [];
-
             let conceptosDetectados = [];
 
-            // 1. Procesar elementos (detectando definiciones formales o frases de estudio general)
             lineas.forEach(linea => {
                 let partes = linea.split(':');
                 if (partes.length >= 2) {
@@ -218,8 +274,7 @@
                 return;
             }
 
-            // 2. Crear las Flashcards (de TODO en general: tanto definiciones como apuntes libres)
-            conceptosDetectados.forEach((item, idx) => {
+            conceptosDetectados.forEach((item) => {
                 if (item.tipo === 'def') {
                     flashcardsData.push({
                         frente: `¿Qué es o a qué se refiere: "${item.titulo}"?`,
@@ -227,7 +282,6 @@
                         categoria: "Definición Formal"
                     });
                 } else {
-                    // Extraer palabras clave para la tarjeta de teoría general
                     let palabras = item.detalle.split(' ');
                     let conceptoCorto = palabras.slice(0, 5).join(' ') + "...";
                     flashcardsData.push({
@@ -238,8 +292,6 @@
                 }
             });
 
-            // 3. Crear el Test de forma INDEPENDIENTE (preguntas estilo examen con opciones cruzadas)
-            // Mezclamos el array de conceptos para que el test no guarde el mismo orden exacto de las flashcards
             let conceptosTest = [...conceptosDetectados].sort(() => Math.random() - 0.5);
 
             conceptosTest.forEach((item, index) => {
@@ -256,12 +308,9 @@
                 }
                 opciones.sort(() => Math.random() - 0.5);
 
-                let enunciadoPregunta = "";
-                if (item.tipo === 'def') {
-                    enunciadoPregunta = `¿Cuál es la descripción exacta correspondiente al término <strong class="text-emerald-400">${item.titulo}</strong>?`;
-                } else {
-                    enunciadoPregunta = `En relación con los principios de estudio, indica cuál de las siguientes afirmaciones es correcta:`;
-                }
+                let enunciadoPregunta = item.tipo === 'def' 
+                    ? `¿Cuál es la descripción exacta correspondiente al término <strong class="text-emerald-400">${item.titulo}</strong>?`
+                    : `En relación con los principios de estudio, indica cuál de las siguientes afirmaciones es correcta:`;
 
                 preguntasTestData.push({
                     enunciado: enunciadoPregunta,
