@@ -11,7 +11,7 @@
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between font-sans selection:bg-emerald-500 selection:text-white">
 
-    <!-- Header / Navbar (Modificado para quitar cookies, privacidad y aviso legal de arriba) -->
+    <!-- Header / Navbar -->
     <header class="border-b border-slate-800/80 bg-slate-900/70 backdrop-blur-md sticky top-0 z-40 w-full">
         <div class="w-full px-6 md:px-12 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
@@ -27,7 +27,7 @@
                 <a href="../" class="hover:text-emerald-400 transition-colors">Directorio</a>
                 <a href="#herramienta" class="hover:text-emerald-400 transition-colors">Herramienta</a>
             </nav>
-            <button onclick="toggleMobileMenu()" class="md:hidden text-slate-300 hover:text-white text-2xl p-2 focus:outline-none">
+            <button onclick="toggleMobileMenu()" class="md:hidden text-slate-300 hover:text-white text-2xl p-2 focus:outline-none cursor-pointer">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
@@ -155,7 +155,7 @@
         </div>
     </div>
 
-    <!-- Footer (Aquí se concentran todos los enlaces legales) -->
+    <!-- Footer -->
     <footer class="border-t border-slate-800/80 bg-slate-900/30 py-8 px-6 md:px-12 text-sm text-slate-400 w-full mt-12 mb-20 sm:mb-0">
         <div class="w-full flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
             <p>&copy; 2026 EstudioIA / UtilidadesPro. Todos los derechos reservados.</p>
@@ -210,7 +210,7 @@
         </div>
     </div>
 
-    <!-- Script Principal -->
+    <!-- Script Principal Completo -->
     <script>
         let flashcardsData = [];
         let preguntasTestData = [];
@@ -233,6 +233,29 @@
             localStorage.setItem('cookiesAceptadas', 'false');
             document.getElementById('cookieBanner').style.display = 'none';
             showToast("Cookies analíticas rechazadas.");
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.remove('hidden');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+        }
+
+        function showToast(mensaje) {
+            const toast = document.getElementById('toastNotification');
+            const toastText = document.getElementById('toastText');
+            toastText.innerText = mensaje;
+            toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+            }, 3500);
         }
 
         function generarMaterialEstudio() {
@@ -485,41 +508,14 @@
             
             document.getElementById('btnCorregir').classList.add('hidden');
             document.getElementById('btnReintentar').classList.remove('hidden');
-
-            showToast(`Examen corregido. Nota: ${aciertos}/${total}`);
+            showToast("Examen corregido. Revisa los resultados.");
         }
 
         function reiniciarTest() {
-            preguntasTestData.forEach((pregunta) => {
-                pregunta.opciones.sort(() => Math.random() - 0.5);
-            });
-            
             construirTestUI();
             document.getElementById('btnCorregir').classList.remove('hidden');
             document.getElementById('btnReintentar').classList.add('hidden');
-            document.getElementById('cuestionarioContainer').scrollIntoView({ behavior: 'smooth' });
-            showToast("¡Examen reiniciado y opciones mezcladas!");
-        }
-
-        function showToast(mensaje) {
-            const toast = document.getElementById('toastNotification');
-            document.getElementById('toastText').textContent = mensaje;
-            toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
-            setTimeout(() => {
-                toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
-            }, 3000);
-        }
-
-        function toggleMobileMenu() {
-            document.getElementById('mobileMenu').classList.toggle('hidden');
-        }
-
-        function openModal(modalId) {
-            document.getElementById(modalId).classList.remove('hidden');
-        }
-
-        function closeModal(modalId) {
-            document.getElementById(modalId).classList.add('hidden');
+            showToast("Examen reiniciado. ¡A por un nuevo intento!");
         }
     </script>
 </body>
