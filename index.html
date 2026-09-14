@@ -2,14 +2,14 @@
 <html lang="es">
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6Q9YQXQQRV"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Q9YQXQQRV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-6Q9YQXQQRV');
-</script>
+      gtag('config', 'G-6Q9YQXQQRV');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UtilidadesPro | Directorio de Herramientas</title>
@@ -25,7 +25,7 @@
 
     <!-- Header / Navbar Principal -->
     <header class="border-b border-slate-800/80 bg-slate-900/70 backdrop-blur-md sticky top-0 z-40 w-full">
-        <div class="w-full px-6 md:px-12 h-20 flex items-center justify-between">
+        <div class="w-full px-6 sm:px-8 md:px-12 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center shadow-lg shadow-emerald-500/25 text-slate-950 font-black text-xl">
                     <i class="fa-solid fa-layer-group"></i>
@@ -38,13 +38,13 @@
             <nav class="hidden md:flex items-center gap-6 text-base font-semibold text-slate-300">
                 <a href="#herramientas" class="hover:text-emerald-400 transition-colors">Herramientas</a>
                 <a href="#faq" class="hover:text-emerald-400 transition-colors">FAQ</a>
-                <button onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition-colors">Privacidad</button>
+                <button onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition-colors cursor-pointer">Privacidad</button>
             </nav>
         </div>
     </header>
 
     <!-- Contenido Principal -->
-    <main class="w-full px-6 md:px-12 py-12 flex-grow flex flex-col gap-16 max-w-7xl mx-auto">
+    <main class="w-full px-6 sm:px-8 md:px-12 py-12 flex-grow flex flex-col gap-16 max-w-7xl mx-auto">
         
         <!-- Hero Section -->
         <div class="text-center space-y-4 max-w-3xl mx-auto">
@@ -147,6 +147,23 @@
                 </div>
             </a>
 
+            <!-- Tarjeta 6: JSON Pro (Nueva) -->
+            <a href="json-pro/" class="group bg-slate-900/80 border border-slate-800 hover:border-violet-500/50 rounded-2xl p-7 transition-all duration-300 hover:shadow-xl hover:shadow-violet-500/5 flex flex-col justify-between gap-6">
+                <div class="space-y-4">
+                    <div class="w-14 h-14 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-violet-400 text-2xl group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-xl font-bold text-white group-hover:text-violet-400 transition-colors">JSON Pro</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed">Formatea, valida, minifica e inspecciona estructuras JSON al instante.</p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between text-sm font-bold text-violet-400 pt-4 border-t border-slate-800/60">
+                    <span>Abrir herramienta</span>
+                    <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </div>
+            </a>
+
         </div>
 
         <!-- Sección FAQ (Preguntas Frecuentes) -->
@@ -160,7 +177,7 @@
             <div class="space-y-4">
                 <!-- FAQ Item 1 -->
                 <div class="bg-slate-900/80 border border-slate-800 rounded-2xl overflow-hidden transition-all">
-                    <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-base sm:text-lg text-white hover:text-emerald-400 transition-colors">
+                    <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-base sm:text-lg text-white hover:text-emerald-400 transition-colors cursor-pointer">
                         <span class="flex items-center gap-3.5">
                             <i class="fa-solid fa-circle-question text-emerald-400 text-xl"></i> ¿Son totalmente gratuitas estas herramientas?
                         </span>
@@ -173,7 +190,7 @@
 
                 <!-- FAQ Item 2 -->
                 <div class="bg-slate-900/80 border border-slate-800 rounded-2xl overflow-hidden transition-all">
-                    <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-base sm:text-lg text-white hover:text-emerald-400 transition-colors">
+                    <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-base sm:text-lg text-white hover:text-emerald-400 transition-colors cursor-pointer">
                         <span class="flex items-center gap-3.5">
                             <i class="fa-solid fa-shield-halved text-emerald-400 text-xl"></i> ¿Se guardan mis datos o textos en algún servidor?
                         </span>
@@ -186,7 +203,7 @@
 
                 <!-- FAQ Item 3 -->
                 <div class="bg-slate-900/80 border border-slate-800 rounded-2xl overflow-hidden transition-all">
-                    <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-base sm:text-lg text-white hover:text-emerald-400 transition-colors">
+                    <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-base sm:text-lg text-white hover:text-emerald-400 transition-colors cursor-pointer">
                         <span class="flex items-center gap-3.5">
                             <i class="fa-solid fa-laptop-code text-emerald-400 text-xl"></i> ¿Necesito instalar alguna aplicación o extensión?
                         </span>
@@ -199,7 +216,7 @@
 
                 <!-- FAQ Item 4 -->
                 <div class="bg-slate-900/80 border border-slate-800 rounded-2xl overflow-hidden transition-all">
-                    <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-base sm:text-lg text-white hover:text-emerald-400 transition-colors">
+                    <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-base sm:text-lg text-white hover:text-emerald-400 transition-colors cursor-pointer">
                         <span class="flex items-center gap-3.5">
                             <i class="fa-solid fa-bolt text-emerald-400 text-xl"></i> ¿Se añadirán nuevas herramientas próximamente?
                         </span>
@@ -214,14 +231,14 @@
 
     </main>
 
-    <!-- Footer Legal -->
-    <footer class="border-t border-slate-800/80 bg-slate-900/30 py-8 px-6 text-base text-slate-400 w-full">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+    <!-- Footer Legal Estirado a Ancho Total -->
+    <footer class="border-t border-slate-800/80 bg-slate-900/30 py-8 px-6 sm:px-8 md:px-12 text-base text-slate-400 w-full">
+        <div class="w-full flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
             <p>&copy; 2026 UtilidadesPro. Todos los derechos reservados.</p>
             <div class="flex flex-wrap justify-center gap-6 font-medium">
-                <button onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition-colors">Política de Privacidad</button>
-                <button onclick="openModal('termsModal')" class="hover:text-emerald-400 transition-colors">Aviso Legal</button>
-                <button onclick="openModal('cookiesModal')" class="hover:text-emerald-400 transition-colors">Política de Cookies</button>
+                <button onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition-colors cursor-pointer">Política de Privacidad</button>
+                <button onclick="openModal('termsModal')" class="hover:text-emerald-400 transition-colors cursor-pointer">Aviso Legal</button>
+                <button onclick="openModal('cookiesModal')" class="hover:text-emerald-400 transition-colors cursor-pointer">Política de Cookies</button>
             </div>
         </div>
     </footer>
@@ -236,8 +253,8 @@
             </div>
         </div>
         <div class="flex gap-2.5 justify-end pt-2">
-            <button onclick="rejectCookies()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm font-semibold rounded-lg transition-colors">Rechazar</button>
-            <button onclick="acceptCookies()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-sm rounded-lg transition-colors">Aceptar</button>
+            <button onclick="rejectCookies()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm font-semibold rounded-lg transition-colors cursor-pointer">Rechazar</button>
+            <button onclick="acceptCookies()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-sm rounded-lg transition-colors cursor-pointer">Aceptar</button>
         </div>
     </div>
 
@@ -246,7 +263,7 @@
         <div class="bg-slate-900 border border-slate-800 max-w-xl w-full p-6 rounded-2xl space-y-4 max-h-[80vh] overflow-y-auto">
             <div class="flex justify-between items-center border-b border-slate-800 pb-3">
                 <h3 class="text-lg font-bold text-white">Política de Privacidad</h3>
-                <button onclick="closeModal('privacyModal')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+                <button onclick="closeModal('privacyModal')" class="text-slate-400 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
             <div class="text-sm md:text-base text-slate-300 space-y-3 leading-relaxed">
                 <p><strong>1. Responsable:</strong> Este directorio de micro-utilidades web funciona de manera completamente autónoma y local.</p>
@@ -259,7 +276,7 @@
         <div class="bg-slate-900 border border-slate-800 max-w-xl w-full p-6 rounded-2xl space-y-4 max-h-[80vh] overflow-y-auto">
             <div class="flex justify-between items-center border-b border-slate-800 pb-3">
                 <h3 class="text-lg font-bold text-white">Aviso Legal y Términos de Uso</h3>
-                <button onclick="closeModal('termsModal')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+                <button onclick="closeModal('termsModal')" class="text-slate-400 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
             <div class="text-sm md:text-base text-slate-300 space-y-3 leading-relaxed">
                 <p><strong>1. Datos identificativos:</strong> Plataforma web sin ánimo de lucro destinada a ofrecer herramientas de utilidad instantánea.</p>
@@ -272,7 +289,7 @@
         <div class="bg-slate-900 border border-slate-800 max-w-xl w-full p-6 rounded-2xl space-y-4 max-h-[80vh] overflow-y-auto">
             <div class="flex justify-between items-center border-b border-slate-800 pb-3">
                 <h3 class="text-lg font-bold text-white">Política de Cookies</h3>
-                <button onclick="closeModal('cookiesModal')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+                <button onclick="closeModal('cookiesModal')" class="text-slate-400 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
             <div class="text-sm md:text-base text-slate-300 space-y-3 leading-relaxed">
                 <p>Este sitio web utiliza únicamente almacenamiento local (LocalStorage) estrictamente necesario para registrar el consentimiento del banner de cookies, sin emplear cookies publicitarias ni de seguimiento analítico.</p>
