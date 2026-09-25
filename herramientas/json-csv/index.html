@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Conversor JSON → CSV | AppQuickUtils</title><meta content="Convierte una lista de objetos JSON en un archivo CSV que puedes abrir con Excel o Google Sheets." name="description"/><link href="https://appquickutils.com/herramientas/json-csv/" rel="canonical"/><meta content="website" property="og:type"/><meta content="JSON a CSV | AppQuickUtils" property="og:title"/><meta content="Convierte arrays JSON a CSV descargable." property="og:description"/><meta content="https://appquickutils.com/herramientas/json-csv/" property="og:url"/><meta content="AppQuickUtils" property="og:site_name"/><link href="https://cdn.tailwindcss.com" rel="preconnect"/><link href="https://cdnjs.cloudflare.com" rel="preconnect"/><script src="https://cdn.tailwindcss.com"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/><script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8287913649516375"></script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"JSON a CSV","url":"https://appquickutils.com/herramientas/json-csv/","applicationCategory":"UtilitiesApplication","isAccessibleForFree":true,"inLanguage":["es","en"]}</script><style id="aq-v15-style">
+html{scroll-behavior:smooth}body{overflow-x:hidden}.aq-page{width:100%}
+@media (min-width:1280px){main{max-width:none!important;width:100%!important;padding-left:clamp(28px,4vw,72px)!important;padding-right:clamp(28px,4vw,72px)!important}.toolcard{min-height:92px}}
+@media (min-width:768px){#tool-app>section{max-width:none!important;width:100%!important}.aq-tool-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1200px){.aq-tool-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.aq-logo-mark{box-shadow:0 0 24px rgba(16,185,129,.12)}
+.aq-category-bar{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1rem}.aq-cat-chip{border:1px solid rgb(51 65 85);background:rgb(15 23 42/.8);color:rgb(148 163 184);border-radius:999px;padding:.55rem .85rem;font-size:.82rem;font-weight:700;transition:.2s}.aq-cat-chip:hover,.aq-cat-chip.active{border-color:rgb(52 211 153/.65);color:rgb(110 231 183);background:rgb(16 185 129/.08)}
+.aq-file-name{overflow-wrap:anywhere}.aq-dropzone{min-height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer}.aq-dropzone.dragging{transform:scale(1.01);box-shadow:0 0 0 4px rgb(16 185 129/.08)}
+.toolcard{position:relative;overflow:hidden}.toolcard:before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:transparent;transition:.2s}.toolcard:hover:before{background:rgb(52 211 153)}.aq-tool-icon{width:40px;height:40px;flex:0 0 40px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;background:rgb(16 185 129/.08);border:1px solid rgb(52 211 153/.14);font-size:1.05rem}.aq-section-head{display:flex;align-items:center;gap:.75rem}.aq-count{font-size:.72rem;padding:.28rem .55rem;border-radius:999px;background:rgb(51 65 85/.7);color:rgb(148 163 184)}
+@media(max-width:767px){header>div{padding-left:16px!important;padding-right:16px!important;height:68px!important}main{padding:28px 16px!important}.toolcard{min-height:78px}.aq-tool-icon{width:36px;height:36px;flex-basis:36px}.aq-category-bar{gap:.4rem}.aq-cat-chip{padding:.48rem .68rem;font-size:.76rem}.aq-dropzone{min-height:165px;padding:1.25rem}.aq-dropzone button{width:100%}#tool-app>section{padding:16px!important}.text-4xl{font-size:2rem!important}.text-5xl{font-size:2.35rem!important}.text-6xl{font-size:2.65rem!important}}
+</style><link href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22%230f172a%22&gt;&lt;rect x=%223%22 y=%223%22 width=%227%22 height=%227%22 rx=%221.2%22/&gt;&lt;rect x=%2214%22 y=%223%22 width=%227%22 height=%227%22 rx=%221.2%22/&gt;&lt;rect x=%223%22 y=%2214%22 width=%227%22 height=%227%22 rx=%221.2%22/&gt;&lt;rect x=%2214%22 y=%2214%22 width=%227%22 height=%227%22 rx=%221.2%22/&gt;&lt;/svg&gt;" rel="icon"/>
+<style id="aq-global-nav-fix">
+.aq-brand-mark{width:42px;height:42px;flex:0 0 42px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0f766e,#14b8a6);color:#031311;box-shadow:0 8px 28px rgba(20,184,166,.18);font-size:18px}.aq-brand-mark-sm{width:36px;height:36px;flex-basis:36px;border-radius:10px;font-size:15px}.aq-menu-btn{width:42px;height:42px;border:1px solid rgba(51,65,85,.9);border-radius:11px;background:rgba(15,23,42,.9);color:#e2e8f0;font-size:17px}.aq-menu-btn:hover{border-color:#10b981;color:#34d399}.aq-mobile-link{display:block;padding:12px 10px;border-radius:10px;color:#cbd5e1}.aq-mobile-link:hover{background:rgba(16,185,129,.08);color:#34d399}.aq-header a{text-decoration:none}
+</style>
+<style id="aq-final-polish">html,body{max-width:100%;overflow-x:hidden}.aq-tool-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.toolcard{display:block!important}.toolcard .text-xs{display:block!important;margin-top:.35rem!important;line-height:1.35!important}.aq-cat-chip{cursor:pointer;white-space:nowrap}.aq-category-bar{align-items:center}.aq-legal-main{width:100%!important;max-width:none!important}@media(max-width:1199px){.aq-tool-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:767px){.aq-tool-grid{grid-template-columns:1fr}.aq-cat-chip{white-space:normal;font-size:.75rem;padding:.5rem .65rem}.aq-legal-main{padding:28px 16px!important}.prose{font-size:.95rem;line-height:1.7}.aq-dropzone{min-height:165px}.aq-brand span{min-width:0}} </style><style id="aq-v11-mobile-nav">
+/* V11 mobile navigation fix */
+.aq-header{position:sticky;top:0;z-index:1000!important;overflow:visible!important}
+.aq-nav-wrap{position:relative;z-index:1001}
+.aq-mobile-menu{position:static!important;width:100%!important;box-sizing:border-box!important;z-index:1002!important;box-shadow:0 14px 30px rgba(0,0,0,.28);max-height:calc(100vh - 66px);overflow-y:auto}
+.aq-mobile-menu nav{width:100%;box-sizing:border-box}
+.aq-mobile-link{width:100%;box-sizing:border-box;display:block!important}
+@media(max-width:1023px){
+  .aq-header .aq-nav-wrap{min-height:66px;height:auto!important;padding-top:10px!important;padding-bottom:10px!important}
+  .aq-header .aq-brand{min-width:0;max-width:calc(100% - 54px)}
+  .aq-header .aq-menu-btn{display:inline-flex!important;align-items:center;justify-content:center;flex:0 0 42px;position:relative;z-index:1003}
+  .aq-mobile-menu:not(.hidden){display:block!important}
+}
+@media(max-width:480px){
+  .aq-header .aq-nav-wrap{padding-left:12px!important;padding-right:12px!important}
+  .aq-header .aq-brand{gap:8px!important}
+  .aq-header .aq-brand-mark{width:38px!important;height:38px!important;flex-basis:38px!important}
+  .aq-header .aq-brand .text-lg{font-size:.95rem!important}
+}
+</style><link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style id="aq-unified-typography">
+:root{--aq-font:"Inter","Segoe UI",Arial,Helvetica,sans-serif;--aq-body-size:16px;--aq-body-leading:1.55}
+html{font-size:16px!important}
+html,body{font-family:var(--aq-font)!important;font-size:var(--aq-body-size)!important;line-height:var(--aq-body-leading)!important}
+body *:not(.fa):not(.fas):not(.far):not(.fab):not(.fa-solid):not(.fa-regular):not(.fa-brands):not(.fa-light):not(.fa-thin):not(.fa-duotone){font-family:var(--aq-font)!important}
+button,input,textarea,select{font-family:var(--aq-font)!important;font-size:inherit}
+nav,header,footer{font-family:var(--aq-font)!important}
+body h1,body h2,body h3,body h4,body h5,body h6{font-family:var(--aq-font)!important}
+body h1{letter-spacing:-.025em}
+body p,body li,body label,body small,body a,body button,body input,body textarea,body select{font-weight:inherit}
+.aq-unified-text{font-family:var(--aq-font)!important}
+.fa,.fas,.far,.fab,.fa-solid,.fa-regular,.fa-brands,.fa-light,.fa-thin,.fa-duotone{font-family:"Font Awesome 6 Free","Font Awesome 6 Brands"!important}
+.fa-brands,.fab{font-family:"Font Awesome 6 Brands"!important}
+</style><style id="aq-v27-layout">html,body{min-height:100%;}body{min-height:100vh!important;display:flex!important;flex-direction:column!important;}body>main{flex:1 0 auto!important;}body>footer{margin-top:auto!important;}@media(min-width:1200px){body>main{min-height:calc(100vh - 72px - 260px);}}</style><style id="aq-site-layout">html,body{min-height:100%;}body{min-height:100vh;display:flex;flex-direction:column;}body>main,body main{flex:1;}footer{margin-top:auto!important;}@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important;}}</style><style id="aq-quality-v31">.aq-quality{max-width:1180px;margin:0 auto;padding:0 22px}.aq-article{max-width:980px;margin:0 auto}.aq-article h1{font-size:clamp(2.2rem,5vw,4.2rem);line-height:1.02;letter-spacing:-.045em;color:#f8fafc}.aq-article h2{font-size:1.55rem;margin-top:2.3rem;color:#f8fafc}.aq-article h3{font-size:1.08rem;margin-top:1.45rem;color:#e2e8f0}.aq-article p,.aq-article li{color:#a7b4c5;line-height:1.82}.aq-article a{color:#6ee7b7}.aq-callout{padding:1.15rem 1.25rem;border:1px solid rgba(52,211,153,.24);background:rgba(16,185,129,.06);border-radius:14px;margin:1.2rem 0}.aq-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.aq-card{background:#0b1627;border:1px solid #1d3046;border-radius:16px;padding:18px;text-decoration:none}.aq-card:hover{border-color:#34d399;transform:translateY(-2px)}.aq-card h3{margin:.1rem 0 .45rem;color:#f8fafc}.aq-card p{margin:0;color:#94a3b8;line-height:1.65}.aq-kicker{color:#6ee7b7;text-transform:uppercase;letter-spacing:.14em;font-weight:800;font-size:.75rem}.aq-check{display:grid;gap:10px;margin:1rem 0}.aq-check div{padding:12px 14px;background:#0b1627;border:1px solid #1d3046;border-radius:12px;color:#cbd5e1}.aq-badge{display:inline-flex;padding:.28rem .55rem;border-radius:999px;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.18);color:#67e8f9;font-size:.75rem;font-weight:800}.aq-tool-guide{margin-top:24px;padding:26px;border:1px solid #1d3046;background:#0b1627;border-radius:18px}.aq-tool-guide h2{margin-top:0}.aq-tool-guide .aq-grid{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:16px}.aq-tool-guide strong{color:#e2e8f0}.aq-tool-guide p{color:#a7b4c5;line-height:1.75}.aq-update{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid #26384e}.aq-update time{min-width:105px;color:#6ee7b7;font-weight:800}.aq-update p{margin:0;color:#a7b4c5}.aq-track{border-left:3px solid #34d399;padding-left:16px;margin:18px 0}.aq-track h3{margin:0 0 4px}.aq-track p{margin:0}.aq-hero-quality{padding:70px 0 45px}.aq-hero-quality h1{font-size:clamp(2.8rem,7vw,6.4rem);line-height:.98;letter-spacing:-.065em;margin:14px 0}.aq-hero-quality p{max-width:800px;color:#a7b4c5;font-size:1.12rem;line-height:1.75}.aq-hero-quality .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.aq-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:11px;text-decoration:none;font-weight:800}.aq-btn-primary{background:#34d399;color:#031311!important}.aq-btn-secondary{border:1px solid #33465d;color:#e2e8f0!important;background:#0b1627}.aq-mini-note{color:#718096;font-size:.86rem;line-height:1.6}.aq-guide-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.aq-guide-list a{display:block;padding:18px;background:#0b1627;border:1px solid #1d3046;border-radius:16px;text-decoration:none}.aq-guide-list a:hover{border-color:#34d399}.aq-guide-list h2{font-size:1.05rem;margin:0 0 6px;color:#f8fafc}.aq-guide-list p{margin:0;color:#94a3b8;line-height:1.65}@media(max-width:850px){.aq-grid,.aq-tool-guide .aq-grid{grid-template-columns:1fr 1fr}}@media(max-width:600px){.aq-grid,.aq-tool-guide .aq-grid,.aq-guide-list{grid-template-columns:1fr}.aq-quality{padding:0 16px}.aq-hero-quality{padding:44px 0 28px}.aq-update{display:block}.aq-update time{display:block;margin-bottom:5px}}</style><style id="aq-v31-layout-polish">
+/* V31.1 layout + navigation polish */
+:root{--aq-max:1600px}
+.aq-header{position:sticky!important;top:0!important;z-index:1000!important;width:100%!important;background:rgba(7,17,31,.97)!important;border-bottom:1px solid rgba(51,65,85,.72)!important;backdrop-filter:blur(14px)}
+.aq-nav-wrap{width:100%!important;max-width:none!important;min-height:72px!important;height:72px!important;padding:0 clamp(20px,3vw,52px)!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:28px!important;box-sizing:border-box!important}
+.aq-brand{display:inline-flex!important;align-items:center!important;gap:11px!important;min-width:max-content!important;text-decoration:none!important;color:#fff!important}
+.aq-brand-mark{width:42px!important;height:42px!important;min-width:42px!important;flex:0 0 42px!important;border-radius:12px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;background:linear-gradient(135deg,#0f766e,#14b8a6)!important;color:#031311!important;box-shadow:0 8px 28px rgba(20,184,166,.18)!important;font-size:17px!important;line-height:1!important}
+.aq-brand-mark i{font-size:17px!important;line-height:1!important}
+.aq-brand-text{font-size:1.08rem!important;font-weight:900!important;letter-spacing:-.02em!important;line-height:1!important;color:#fff!important}
+.aq-brand-text span{color:#34d399!important}
+.aq-brand-sub{display:block!important;margin-top:4px!important;font-size:8px!important;line-height:1!important;letter-spacing:.16em!important;text-transform:uppercase!important;color:#64748b!important;font-weight:800!important}
+.aq-header nav{display:flex;align-items:center;gap:clamp(14px,2vw,30px)!important;margin-left:auto}
+.aq-header nav a{color:#cbd5e1!important;text-decoration:none!important;font-size:.86rem!important;font-weight:700!important;transition:color .18s ease}
+.aq-header nav a:hover,.aq-header nav a[aria-current="page"]{color:#34d399!important}
+.aq-menu-btn{width:42px!important;height:42px!important;display:none!important;align-items:center!important;justify-content:center!important;border:1px solid #334155!important;border-radius:11px!important;background:#0b1627!important;color:#e2e8f0!important}
+.aq-mobile-menu{width:100%!important;box-sizing:border-box!important;border-top:1px solid rgba(51,65,85,.7)!important;background:#07111f!important;padding:12px clamp(16px,3vw,40px) 16px!important}
+.aq-mobile-menu nav{display:flex!important;flex-direction:column!important;gap:4px!important;margin:0!important}
+.aq-mobile-link{display:block!important;width:100%!important;box-sizing:border-box!important;padding:11px 12px!important;border-radius:10px!important;color:#cbd5e1!important;text-decoration:none!important}
+.aq-mobile-link:hover{background:rgba(16,185,129,.08)!important;color:#34d399!important}
+/* Wide content on information/list pages */
+.aq-quality,.aq-article{width:100%!important;max-width:none!important;margin:0!important;padding-left:clamp(22px,4vw,72px)!important;padding-right:clamp(22px,4vw,72px)!important;box-sizing:border-box!important}
+.aq-hero-quality{width:100%!important;max-width:var(--aq-max)!important;margin:0 auto!important;padding-top:72px!important;padding-bottom:44px!important}
+.aq-hero-quality p{max-width:920px!important}
+.aq-guide-list{width:100%!important;max-width:var(--aq-max)!important;margin:0 auto!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:18px!important}
+.aq-guide-list a{min-height:150px!important;display:flex!important;flex-direction:column!important;justify-content:flex-start!important}
+.aq-grid{width:100%!important;max-width:var(--aq-max)!important;margin-left:auto!important;margin-right:auto!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:18px!important}
+.aq-check{width:100%!important;max-width:var(--aq-max)!important;margin-left:auto!important;margin-right:auto!important;grid-template-columns:repeat(4,minmax(0,1fr))!important}
+.aq-quality>h2,.aq-quality>p,.aq-quality>.aq-callout,.aq-quality>.aq-track{max-width:var(--aq-max)!important;margin-left:auto!important;margin-right:auto!important}
+.aq-update{max-width:var(--aq-max)!important;margin-left:auto!important;margin-right:auto!important}
+/* Make long guide articles breathe without creating a narrow central column */
+.aq-article>h1,.aq-article>h2,.aq-article>h3,.aq-article>p,.aq-article>ul,.aq-article>ol,.aq-article>pre,.aq-article>.aq-callout,.aq-article>.aq-track{max-width:1280px!important;margin-left:auto!important;margin-right:auto!important}
+.aq-article .aq-guide-list,.aq-article .aq-grid{max-width:var(--aq-max)!important}
+/* Homepage: one clear tool entry route */
+.aq-v29-hero{grid-template-columns:1fr!important}
+.aq-v29-hero-main{max-width:1100px!important}
+.aq-v29-side{display:none!important}
+.aq-v29-chips{display:none!important}
+.aq-v29-hero .aq-v29-container{max-width:none!important}
+.aq-v29-hero .aq-v29-search{max-width:920px!important}
+.aq-v29-hero-main:after{content:"Explora todo el catálogo desde Herramientas";display:block;margin-top:16px;color:#64748b;font-size:.86rem}
+/* Remove duplicate direct tool/category sections from the homepage; the catalog is the single destination. */
+.aq-home-v29>section:nth-of-type(2),.aq-home-v29>section:nth-of-type(3){display:none!important}
+/* Footer and page width */
+footer{width:100%!important}
+@media(max-width:1199px){.aq-guide-list{grid-template-columns:repeat(3,minmax(0,1fr))!important}.aq-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}.aq-check{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:1023px){.aq-nav-wrap{height:auto!important;min-height:66px!important;padding-top:10px!important;padding-bottom:10px!important}.aq-header nav{display:none!important}.aq-menu-btn{display:inline-flex!important}.aq-guide-list{grid-template-columns:repeat(2,minmax(0,1fr))!important}.aq-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:640px){.aq-brand-mark{width:38px!important;height:38px!important;min-width:38px!important;flex-basis:38px!important}.aq-brand-text{font-size:.98rem!important}.aq-brand-sub{display:none!important}.aq-quality,.aq-article{padding-left:16px!important;padding-right:16px!important}.aq-hero-quality{padding-top:46px!important;padding-bottom:30px!important}.aq-guide-list,.aq-grid,.aq-check{grid-template-columns:1fr!important}.aq-v29-hero{padding-left:16px!important;padding-right:16px!important}.aq-v29-hero-main h1{font-size:clamp(2.5rem,13vw,4.2rem)!important}.aq-v29-search{width:100%!important}.aq-v29-search button{padding-left:14px!important;padding-right:14px!important}}
+</style>
+<link href="../../assets/site-final-v37.css" rel="stylesheet"/><style>.aq-tool-info{margin:42px 0 10px;padding:30px;border:1px solid #20364e;background:#0b1828;border-radius:20px}.aq-info-grid,.aq-info-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.aq-info-row{margin-top:18px}.aq-tool-info article{padding:22px;border:1px solid #1d3045;background:#091625;border-radius:16px}.aq-tool-info h2{margin:6px 0 9px;color:#f8fafc;font-size:1.25rem}.aq-tool-info p{margin:0;color:#91a6ba;line-height:1.75}.aq-info-kicker{color:#63e6c7;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.12em}.aq-related-wrap{margin-top:26px}.aq-related-wrap>div:first-child{margin-bottom:14px}.aq-related-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.aq-related{display:block;padding:16px;border:1px solid #20364e;background:#0a1625;border-radius:14px;text-decoration:none}.aq-related:hover{border-color:#36d7b4}.aq-related strong{display:block;color:#f8fafc}.aq-related span{display:block;color:#7f94a9;font-size:.8rem;line-height:1.5;margin-top:6px}@media(max-width:900px){.aq-info-grid,.aq-info-row{grid-template-columns:1fr}.aq-related-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:600px){.aq-tool-info{padding:18px}.aq-related-grid{grid-template-columns:1fr}}
+</style>
+<style id="aq-mobile-nav-final-fix">
+@media (max-width: 1023px){
+  .aq-header .aq-menu-btn{display:inline-flex!important;align-items:center!important;justify-content:center!important;cursor:pointer!important;position:relative!important;z-index:1100!important;}
+  .aq-header .aq-mobile-menu{display:none!important;position:relative!important;width:100%!important;z-index:1099!important;}
+  .aq-header .aq-mobile-menu.aq-menu-open{display:block!important;}
+  .aq-header .aq-mobile-menu nav{display:flex!important;flex-direction:column!important;width:100%!important;}
+}
+@media (min-width:1024px){.aq-header .aq-menu-btn{display:none!important}.aq-header .aq-mobile-menu{display:none!important}}
+</style>
+</head><body class="bg-slate-950 text-slate-100 min-h-screen"><header class="aq-header" role="banner">
+<div class="aq-nav-wrap">
+<a aria-label="AppQuickUtils - Inicio" class="aq-brand" href="../../"><span aria-hidden="true" class="aq-brand-mark"><i class="fa-solid fa-layer-group"></i></span><span><span class="aq-brand-text">AppQuick<span>Utils</span></span><span class="aq-brand-sub">Herramientas online</span></span></a>
+<nav aria-label="Navegación principal"><a href="../../">Inicio</a><a href="../../herramientas/">Herramientas</a><a href="../../privacidad/">Privacidad</a><a href="../../cookies/">Cookies</a><a href="../../terminos/">Términos</a></nav>
+<button aria-expanded="false" aria-label="Abrir menú" class="aq-menu-btn" type="button"><i class="fa-solid fa-bars"></i></button>
+</div>
+<div class="aq-mobile-menu hidden" id="aq-mobile-menu"><nav aria-label="Navegación móvil"><a class="aq-mobile-link" href="../../">Inicio</a><a class="aq-mobile-link" href="../../herramientas/">Herramientas</a><a class="aq-mobile-link" href="../../privacidad/">Privacidad</a><a class="aq-mobile-link" href="../../cookies/">Cookies</a><a class="aq-mobile-link" href="../../terminos/">Términos</a></nav></div>
+</header><main class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-10 lg:py-14"><div class="mb-8"><p class="text-emerald-400 text-sm font-bold">Desarrolladores / Developer</p><h1 class="text-4xl md:text-5xl font-black mt-2">Conversor JSON → CSV</h1><p class="text-slate-400 text-lg mt-3">Convierte una lista de objetos JSON en un archivo CSV que puedes abrir con Excel o Google Sheets.</p><p class="text-slate-500 mt-2">English: <strong>JSON to CSV Converter</strong> · Free online tool · Sin registro.</p></div><div id="tool-app"></div><section class="aq-tool-info"><div class="aq-info-grid"><article><span class="aq-info-kicker">Qué resuelve</span><h2>Conversor JSON → CSV</h2><p>Convierte una lista de objetos JSON en un archivo CSV que puedes abrir con Excel o Google Sheets.</p></article><article><span class="aq-info-kicker">Trabajo de desarrollo</span><h2>Cómo usarla con criterio</h2><p>Usa un ejemplo pequeño antes de procesar un archivo o bloque grande. En formatos como JSON, XML, SQL o Base64, revisa la sintaxis y conserva una copia del contenido original.</p></article></div><div class="aq-info-row"><article><h2>Comprobación</h2><p>Prueba primero un caso sencillo y compara el resultado con un cálculo, formato o referencia que puedas verificar. Si el resultado depende de una norma o estándar, utiliza la documentación oficial como comprobación final.</p></article><article><h2>Privacidad</h2><p>Evita introducir información sensible cuando no sea necesaria. Si la herramienta trabaja localmente, el procesamiento puede realizarse en tu navegador; aun así, revisa el tipo de dato antes de pegarlo.</p></article></div><div class="aq-related-wrap"><div><span class="aq-info-kicker">Dentro de la misma categoría</span><h2>Herramientas relacionadas</h2></div><div class="aq-related-grid"><a class="aq-related" href="../formateador-json/"><strong>Formateador JSON JSON Formatter</strong><span>formateador json json formatter</span></a><a class="aq-related" href="../validador-json/"><strong>Validador JSON JSON Validator</strong><span>validador json json validator</span></a><a class="aq-related" href="../minificador-json/"><strong>Minificador JSON JSON Minifier</strong><span>minificador json json minifier</span></a><a class="aq-related" href="../validador-xml/"><strong>Validador XML XML Validator</strong><span>validador xml xml validator</span></a></div></div></section></main><footer class="aq-footer"><div class="aq-footer-inner"><div><a class="aq-footer-brand" href="../../"><span class="aq-brand-mark aq-brand-mark-sm"><i class="fa-solid fa-layer-group"></i></span><span>AppQuick<span>Utils</span></span></a><p>Utilidades web prácticas para resolver tareas concretas de texto, programación, redes, archivos, cálculos y productividad. Cada herramienta está pensada para hacer una tarea clara desde el navegador.</p></div><div><h2>En la web</h2><a href="../../herramientas/">Todas las herramientas</a><a href="../../herramientas/?cat=redes">Redes · FP</a></div><div><h2>Información</h2><a href="../../privacidad/">Privacidad</a><a href="../../cookies/">Cookies</a><a href="../../terminos/">Términos</a></div></div><div class="aq-footer-bottom">© 2026 AppQuickUtils</div></footer><script>window.TOOL_CONFIG={"type": "jsoncsv", "inputLabel": "Entrada / Input", "placeholder": "Introduce los datos..."};</script><script src="../../assets/tool.js"></script><script src="../../assets/enhance.js"></script>
+<script>
+function aqToggleMenu(btn){
+  const m=document.getElementById('aq-mobile-menu');
+  if(!m)return;
+  const opening=m.classList.contains('hidden');
+  m.classList.toggle('hidden',!opening);
+  btn.setAttribute('aria-expanded',String(opening));
+  btn.setAttribute('aria-label',opening?'Cerrar menú':'Abrir menú');
+  btn.innerHTML=opening?'<i class="fa-solid fa-xmark"></i>':'<i class="fa-solid fa-bars"></i>';
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  const m=document.getElementById('aq-mobile-menu');
+  if(!m)return;
+  m.classList.add('aq-mobile-menu');
+  m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+    m.classList.add('hidden');
+    const b=document.querySelector('.aq-menu-btn');
+    if(b){b.setAttribute('aria-expanded','false');b.setAttribute('aria-label','Abrir menú');b.innerHTML='<i class="fa-solid fa-bars"></i>';}
+  }));
+});
+</script>
+<script id="aq-tool-recovery-v37">
+(function(){
+  var retried=false;
+  function recover(){
+    if(retried)return;
+    var app=document.getElementById('tool-app'),cfg=window.TOOL_CONFIG;
+    if(!app||!cfg||!cfg.type)return;
+    var bad=app.textContent.indexOf('No se ha podido cargar la herramienta')!==-1 || !app.children.length;
+    if(!bad)return;
+    retried=true;
+    if(typeof setup==='function'){try{setup();}catch(e){console.error('AppQuickUtils tool retry:',e);}}
+  }
+  setTimeout(recover,180);
+})();
+</script><script id="aq-mobile-nav-final-script">
+(function(){
+  function toggleMenu(btn){
+    var m=document.getElementById('aq-mobile-menu');
+    if(!m)return;
+    var open=m.classList.toggle('aq-menu-open');
+    m.classList.toggle('hidden',false);
+    btn.setAttribute('aria-expanded',open?'true':'false');
+    btn.setAttribute('aria-label',open?'Cerrar menú':'Abrir menú');
+    btn.innerHTML=open?'<i class="fa-solid fa-xmark"></i>':'<i class="fa-solid fa-bars"></i>';
+  }
+  window.aqToggleMenu=toggleMenu;
+  document.addEventListener('DOMContentLoaded',function(){
+    var btn=document.querySelector('.aq-menu-btn');
+    var m=document.getElementById('aq-mobile-menu');
+    if(!btn||!m)return;
+    btn.addEventListener('click',function(){toggleMenu(btn);});
+    m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.classList.remove('aq-menu-open');btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-label','Abrir menú');btn.innerHTML='<i class="fa-solid fa-bars"></i>';});});
+  });
+})();
+</script>
+</body></html>

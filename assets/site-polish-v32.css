@@ -1,0 +1,50 @@
+/* AppQuickUtils V31.2 — layout refinement */
+:root{--aq-max-wide:1680px;--aq-max-copy:1480px;--aq-accent:#34d399;--aq-cyan:#22d3ee;--aq-bg:#020817;--aq-panel:#081525;--aq-border:#20364e}
+html,body{width:100%;min-width:0;overflow-x:hidden}
+.aq-header{width:100%!important}
+.aq-nav-wrap{padding-left:clamp(24px,3.5vw,64px)!important;padding-right:clamp(24px,3.5vw,64px)!important}
+.aq-brand-mark{width:44px!important;height:44px!important;min-width:44px!important;flex-basis:44px!important;border-radius:13px!important}
+.aq-brand-text{font-size:1.12rem!important}
+/* Information pages: true full-width canvas, centered content hierarchy */
+.aq-quality,.aq-article{width:100%!important;max-width:none!important;padding-left:clamp(24px,3.2vw,58px)!important;padding-right:clamp(24px,3.2vw,58px)!important}
+.aq-hero-quality{max-width:var(--aq-max-wide)!important;padding:82px 0 48px!important}
+.aq-hero-quality h1{max-width:1350px!important;margin-left:auto!important;margin-right:auto!important;font-size:clamp(3.2rem,6.2vw,6.8rem)!important}
+.aq-hero-quality p{max-width:1200px!important;margin-left:auto!important;margin-right:auto!important}
+.aq-guide-list{max-width:var(--aq-max-wide)!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:20px!important}
+.aq-guide-list a{position:relative;min-height:190px!important;padding:28px 28px 24px 76px!important;border-radius:20px!important;background:linear-gradient(145deg,#0b192b,#071322)!important;border:1px solid #1f3852!important;box-shadow:0 14px 34px rgba(0,0,0,.13)!important;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease!important}
+.aq-guide-list a:before{content:counter(aq-guide);counter-increment:aq-guide;position:absolute;left:24px;top:27px;width:36px;height:36px;border-radius:11px;display:grid;place-items:center;background:rgba(52,211,153,.11);border:1px solid rgba(52,211,153,.3);color:#6ee7b7;font-weight:900;font-size:.78rem}
+.aq-guide-list{counter-reset:aq-guide}
+.aq-guide-list a:hover{transform:translateY(-4px)!important;border-color:rgba(52,211,153,.65)!important;box-shadow:0 20px 44px rgba(0,0,0,.22)!important}
+.aq-guide-list h2{font-size:1.18rem!important;line-height:1.3!important;margin:0 0 9px!important}
+.aq-guide-list p{font-size:.95rem!important;line-height:1.7!important}
+/* Cards used by resources / project */
+.aq-grid{max-width:var(--aq-max-wide)!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:20px!important}
+.aq-card{min-height:190px!important;padding:26px!important;border-radius:20px!important;background:linear-gradient(145deg,#0b192b,#071322)!important;border:1px solid #1f3852!important;display:flex!important;flex-direction:column!important;justify-content:flex-start!important;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease!important}
+.aq-card:hover{transform:translateY(-4px)!important;border-color:rgba(52,211,153,.65)!important;box-shadow:0 20px 44px rgba(0,0,0,.2)!important}
+.aq-card h3{font-size:1.25rem!important;margin-top:.3rem!important}
+.aq-card p{font-size:.96rem!important;line-height:1.72!important}
+.aq-check{max-width:var(--aq-max-wide)!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:16px!important}
+.aq-check div{min-height:82px!important;display:flex;align-items:center;padding:18px 20px!important;border-radius:16px!important;background:#081525!important;border:1px solid #1f3852!important}
+.aq-track{max-width:var(--aq-max-wide)!important;margin:20px auto!important;padding:24px 28px!important;border-left:4px solid #34d399!important;background:linear-gradient(90deg,rgba(52,211,153,.06),transparent)!important;border-radius:0 16px 16px 0!important}
+.aq-update{max-width:var(--aq-max-wide)!important;padding:22px 0!important}
+/* Make article/tool explanatory sections use the screen instead of a narrow column */
+.aq-article>h1,.aq-article>h2,.aq-article>h3,.aq-article>p,.aq-article>ul,.aq-article>ol,.aq-article>pre,.aq-article>.aq-callout,.aq-article>.aq-track{max-width:var(--aq-max-copy)!important}
+.aq-tool-guide{max-width:var(--aq-max-wide)!important;margin-left:auto!important;margin-right:auto!important;padding:34px!important;border-radius:22px!important}
+.aq-tool-guide .aq-grid{max-width:none!important;grid-template-columns:repeat(3,minmax(0,1fr))!important}
+/* Homepage: one clean path to tools, hero uses the whole width */
+.aq-home-v29{width:100%!important;padding-left:clamp(18px,2.6vw,48px)!important;padding-right:clamp(18px,2.6vw,48px)!important}
+.aq-v29-hero{width:100%!important;max-width:none!important;display:block!important}
+.aq-v29-hero-main{width:100%!important;max-width:none!important;padding:clamp(36px,5vw,72px)!important;box-sizing:border-box!important;border-radius:28px!important}
+.aq-v29-hero h1,.aq-v29-lead{max-width:1180px!important}
+.aq-v29-search{max-width:1100px!important}
+.aq-v29-hero-main:after{display:none!important}
+/* Remove the redundant homepage editorial card block; keep hero, how-it-works and FAQ. */
+body:has(.aq-home-v29)>section.aq-v29-container:not(.aq-v29-hero){display:none!important}
+/* Keep the actual main sections except the external block after main */
+.aq-home-v29>section:nth-child(2),.aq-home-v29>section:nth-child(3),.aq-home-v29>section:nth-child(4),.aq-home-v29>section:nth-child(5){display:block!important}
+body:has(.aq-home-v29)>main.aq-home-v29+section{display:none!important}
+/* Home section heads centered within the wide canvas */
+.aq-v29-container{max-width:var(--aq-max-wide)!important;margin-left:auto!important;margin-right:auto!important}
+.aq-v29-story,.aq-v29-steps,.aq-v29-faq,.aq-v29-cta{width:100%!important}
+@media(max-width:1100px){.aq-guide-list,.aq-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.aq-tool-guide .aq-grid{grid-template-columns:1fr 1fr!important}.aq-check{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:700px){.aq-quality,.aq-article{padding-left:16px!important;padding-right:16px!important}.aq-hero-quality{padding:52px 0 34px!important}.aq-hero-quality h1{font-size:clamp(2.7rem,13vw,4.4rem)!important}.aq-guide-list,.aq-grid,.aq-tool-guide .aq-grid,.aq-check{grid-template-columns:1fr!important}.aq-guide-list a{min-height:0!important;padding:24px 22px 24px 70px!important}.aq-v29-hero-main{padding:28px 22px!important;border-radius:20px!important}}

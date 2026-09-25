@@ -1,0 +1,79 @@
+/* AppQuickUtils V31.3 — content pages refinement */
+:root{
+  --aq-max-wide:1720px;
+  --aq-max-copy:1500px;
+  --aq-panel-strong:#0b192b;
+  --aq-panel-soft:#081525;
+  --aq-border-strong:#25425f;
+}
+
+/* Shared information-page canvas */
+.aq-quality,.aq-article{padding-left:clamp(28px,4vw,72px)!important;padding-right:clamp(28px,4vw,72px)!important}
+.aq-hero-quality{max-width:1450px!important;margin:0 auto!important;padding:78px 0 52px!important}
+.aq-hero-quality h1{font-size:clamp(3.1rem,5.8vw,6.1rem)!important;max-width:1450px!important;letter-spacing:-.06em!important}
+.aq-hero-quality p{max-width:1050px!important;font-size:1.08rem!important;line-height:1.8!important}
+
+/* Guides: editorial cards with enough information */
+.aq-guide-list{max-width:var(--aq-max-wide)!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:22px!important}
+.aq-guide-list a{min-height:210px!important;padding:30px 30px 28px 78px!important;border-radius:20px!important;background:linear-gradient(145deg,#0b1a2d,#071322)!important;border:1px solid #24415e!important;box-shadow:0 16px 38px rgba(0,0,0,.14)!important}
+.aq-guide-list a:before{left:24px!important;top:29px!important}
+.aq-guide-list h2{font-size:1.24rem!important;line-height:1.3!important;margin:0 0 10px!important;color:#f8fafc!important}
+.aq-guide-list p{font-size:.97rem!important;line-height:1.75!important;color:#9fb1c4!important}
+
+/* Resource / FP cards: richer and more readable */
+.aq-grid{max-width:var(--aq-max-wide)!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:22px!important}
+.aq-card{min-height:230px!important;padding:28px!important;border-radius:20px!important;background:linear-gradient(145deg,#0b1a2d,#071322)!important;border:1px solid #24415e!important;box-shadow:0 16px 38px rgba(0,0,0,.14)!important}
+.aq-card .aq-badge{margin-bottom:8px!important;width:max-content!important}
+.aq-card h3{font-size:1.35rem!important;line-height:1.25!important;margin:8px 0 10px!important;color:#f8fafc!important}
+.aq-card p{font-size:.98rem!important;line-height:1.78!important;color:#9fb1c4!important}
+.aq-card:after{content:"Ver contenido relacionado  →";display:block;margin-top:auto;padding-top:20px;color:#5eead4;font-size:.78rem;font-weight:850}
+.aq-check{max-width:var(--aq-max-wide)!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:18px!important}
+.aq-check div{min-height:110px!important;align-items:flex-start!important;flex-direction:column!important;justify-content:center!important;padding:22px 24px!important;border-radius:17px!important;background:linear-gradient(145deg,#0b1a2d,#071322)!important;border:1px solid #24415e!important;line-height:1.65!important;color:#a9bacb!important}
+.aq-check div strong{color:#f8fafc!important;margin-bottom:7px!important}
+
+/* Redes FP: turn the route into a real study dashboard */
+.aq-article .aq-grid + h2{max-width:var(--aq-max-wide)!important;margin:46px auto 18px!important;font-size:2rem!important;letter-spacing:-.03em!important}
+.aq-track{max-width:var(--aq-max-wide)!important;min-height:120px!important;margin:0 auto 16px!important;padding:25px 30px 25px 34px!important;border-left:4px solid #34d399!important;border-top:1px solid #1d3852!important;border-right:1px solid #1d3852!important;border-bottom:1px solid #1d3852!important;background:linear-gradient(90deg,rgba(52,211,153,.075),rgba(8,21,37,.9) 35%,rgba(8,21,37,.72))!important;border-radius:0 18px 18px 0!important;display:flex!important;flex-direction:column!important;justify-content:center!important}
+.aq-track h3{font-size:1.1rem!important;margin:0 0 8px!important;color:#f8fafc!important}
+.aq-track p{margin:0!important;color:#9fb1c4!important;line-height:1.7!important}
+
+/* Project page: prevent inline overlap and make the page feel intentional */
+.aq-project-intro{max-width:1500px!important;margin:0 auto!important}
+.aq-project-intro p{max-width:1120px!important}
+.aq-project-section{max-width:var(--aq-max-wide)!important;margin:46px auto 0!important}
+.aq-project-section h2{font-size:clamp(1.8rem,2.6vw,2.5rem)!important;letter-spacing:-.04em!important;margin:0 0 12px!important}
+.aq-project-section>p{max-width:1120px!important;color:#9fb1c4!important;line-height:1.8!important}
+.aq-project-grid{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:18px!important;margin-top:22px!important}
+.aq-project-card{min-height:170px!important;padding:24px!important;border-radius:18px!important;border:1px solid #24415e!important;background:linear-gradient(145deg,#0b1a2d,#071322)!important;display:flex!important;flex-direction:column!important;justify-content:flex-start!important;box-sizing:border-box!important}
+.aq-project-card .project-number{display:inline-flex!important;width:34px!important;height:34px!important;align-items:center!important;justify-content:center!important;border-radius:10px!important;background:rgba(52,211,153,.1)!important;border:1px solid rgba(52,211,153,.28)!important;color:#6ee7b7!important;font-size:.75rem!important;font-weight:900!important;margin-bottom:18px!important}
+.aq-project-card strong{display:block!important;color:#f8fafc!important;font-size:1rem!important;line-height:1.35!important;margin-bottom:8px!important}
+.aq-project-card span:last-child{display:block!important;color:#9fb1c4!important;font-size:.88rem!important;line-height:1.65!important}
+.aq-maintenance{max-width:var(--aq-max-wide)!important;margin:42px auto 0!important;padding:28px 30px!important;border:1px solid #24415e!important;border-radius:20px!important;background:linear-gradient(90deg,rgba(34,211,238,.06),rgba(52,211,153,.035),rgba(8,21,37,.8))!important}
+.aq-maintenance h2{margin:0 0 9px!important;font-size:1.7rem!important}
+.aq-maintenance p{margin:0!important;max-width:1250px!important;color:#9fb1c4!important;line-height:1.8!important}
+
+/* Homepage final CTA: remove the giant empty area and make it a useful destination */
+.aq-home-v29>.aq-v29-cta{width:100%!important;max-width:var(--aq-max-wide)!important;margin:0 auto!important;padding:30px 34px!important;box-sizing:border-box!important;min-height:0!important;display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;align-items:center!important;gap:28px!important;border:1px solid #24415e!important;border-radius:22px!important;background:linear-gradient(110deg,#0b1a2d,#081525)!important}
+.aq-home-v29>.aq-v29-cta>div{min-width:0!important}
+.aq-home-v29>.aq-v29-cta h2{font-size:clamp(1.5rem,2.4vw,2.2rem)!important;line-height:1.12!important;margin:0 0 8px!important}
+.aq-home-v29>.aq-v29-cta p{margin:0!important;max-width:760px!important;color:#9fb1c4!important;line-height:1.7!important}
+.aq-home-v29>.aq-v29-cta>a{white-space:nowrap!important;padding:13px 18px!important;border-radius:12px!important;background:linear-gradient(135deg,#34d399,#22d3ee)!important;color:#04131a!important;font-weight:900!important;text-decoration:none!important}
+
+/* More breathing room on headings without pushing everything left */
+.aq-quality>h2,.aq-quality>p{max-width:var(--aq-max-copy)!important}
+
+@media(max-width:1150px){
+ .aq-guide-list,.aq-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .aq-project-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .aq-check{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:700px){
+ .aq-quality,.aq-article{padding-left:16px!important;padding-right:16px!important}
+ .aq-hero-quality{padding:50px 0 34px!important}
+ .aq-guide-list,.aq-grid,.aq-project-grid,.aq-check{grid-template-columns:1fr!important}
+ .aq-guide-list a{min-height:0!important;padding:24px 22px 24px 70px!important}
+ .aq-card{min-height:0!important}
+ .aq-track{padding:22px 20px 22px 24px!important}
+ .aq-home-v29>.aq-v29-cta{grid-template-columns:1fr!important;padding:24px!important}
+ .aq-home-v29>.aq-v29-cta>a{width:max-content!important}
+}
