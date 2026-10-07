@@ -33,3 +33,54 @@ main.max-w-7xl{max-width:var(--aq-max)!important}.aq-calc-shell{width:100%!impor
 @media(max-width:820px){.aq-header nav{display:none!important}.aq-menu-btn{display:grid!important}.aq-guide-index .aq-index-intro{grid-template-columns:1fr!important}.aq-guide-stats{max-width:500px!important}.aq-guide-article .aq-article-hero{grid-template-columns:1fr!important}.aq-guide-article .aq-method{grid-template-columns:repeat(2,1fr)!important}.aq-calc-fields{grid-template-columns:1fr!important}}
 @media(max-width:620px){.aq-nav-wrap{height:66px!important}.aq-home-v29{padding:22px 14px 54px!important;gap:46px!important}.aq-v29-hero-main{min-height:0!important;padding:28px 20px!important;border-radius:20px!important}.aq-v29-hero-main h1{font-size:clamp(2.8rem,13vw,4.5rem)!important}.aq-v29-search{width:100%!important}.aq-v29-cta-final{display:grid!important;grid-template-columns:1fr!important;padding:23px!important}.aq-v29-cta-final>a{width:max-content!important}.aq-guide-index .aq-hero-quality,.aq-guide-index .aq-index-intro,.aq-guide-list,.aq-guide-article .aq-article-hero,.aq-guide-article .aq-method,.aq-guide-article .aq-content,.aq-resource-page .aq-resource-hero,.aq-project-page .aq-project-hero,.aq-net-page .aq-net-hero,.aq-resource-grid,.aq-project-grid,.aq-net-tools{padding-left:15px!important;padding-right:15px!important}.aq-guide-list,.aq-tool-grid,.aq-resource-grid,.aq-project-grid,.aq-net-tools,.aq-tool-guide .aq-grid{grid-template-columns:1fr!important}.aq-guide-list>a{min-height:0!important}.aq-guide-article .aq-method,.aq-guide-article .aq-check{grid-template-columns:1fr!important}.aq-resource-page .aq-resource-hero,.aq-project-page .aq-project-hero,.aq-net-page .aq-net-hero{padding-top:50px!important}.aq-resource-page .aq-resource-hero h1,.aq-project-page .aq-project-hero h1,.aq-net-page .aq-net-hero h1{font-size:clamp(2.8rem,14vw,4.4rem)!important}.aq-calc-form,.aq-calc-result{padding:18px!important}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+/* V22.1 — mobile menu + full-width information pages */
+.aq-mobile-menu.hidden{display:none!important}
+.aq-about{width:100%!important;max-width:none!important;margin:0!important;padding:clamp(54px,6vw,96px) clamp(28px,5vw,88px) 90px!important;box-sizing:border-box!important}
+.aq-about .aq-info-kicker{display:inline-flex!important;align-items:center!important;padding:7px 11px!important;border:1px solid #185f52!important;border-radius:999px!important;background:#06251f!important;color:#5eead4!important;font-size:.72rem!important;font-weight:900!important;letter-spacing:.1em!important;text-transform:uppercase!important}
+.aq-about h1{font-size:clamp(3.2rem,6.5vw,7rem)!important;line-height:.94!important;letter-spacing:-.065em!important;margin:18px 0 22px!important;max-width:1250px!important}
+.aq-about .lead{max-width:1150px!important;font-size:clamp(1.05rem,1.5vw,1.3rem)!important;line-height:1.8!important;color:#9eb2c6!important;margin:0!important}
+.aq-about-grid{width:100%!important;max-width:none!important;display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:18px!important;margin:48px 0 0!important}
+.aq-about article{min-width:0!important;padding:28px!important;border:1px solid #20364e!important;background:linear-gradient(155deg,#0b1828,#071321)!important;border-radius:18px!important;box-sizing:border-box!important}
+.aq-about article h2{font-size:1.18rem!important;line-height:1.25!important;margin:0 0 12px!important;color:#f8fafc!important}
+.aq-about article p,.aq-about article li{color:#94a9bc!important;line-height:1.78!important}
+.aq-about article p+p{margin-top:13px!important}
+.aq-about .note{width:100%!important;box-sizing:border-box!important;margin:22px 0 0!important;padding:22px 24px!important;border:1px solid #1d4c43!important;border-left:3px solid #34d399!important;border-radius:14px!important;background:linear-gradient(90deg,rgba(52,211,153,.07),rgba(9,22,37,.8))!important;color:#9db2c4!important;line-height:1.7!important}
+@media(max-width:1200px){.aq-about-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:620px){.aq-about{padding:42px 16px 60px!important}.aq-about h1{font-size:clamp(2.7rem,13vw,4.4rem)!important}.aq-about-grid{grid-template-columns:1fr!important;margin-top:32px!important}.aq-about article{padding:22px!important}}
+
+/* V22.2 — true full-width layout across the whole site */
+:root{--aq-max:none!important}
+.wrap,.aq-nav-wrap,.aq-v29-container,.aq-hero-quality,.aq-index-intro,.aq-guide-list,.aq-grid,.aq-check,.aq-update,.aq-article-hero{max-width:none!important;width:100%!important}
+.aq-home-v29,.aq-guide-index,.aq-guide-article,.aq-quality,.aq-article{max-width:none!important;width:100%!important}
+.aq-home-v29,.aq-quality,.aq-article{padding-left:clamp(18px,3.2vw,64px)!important;padding-right:clamp(18px,3.2vw,64px)!important}
+/* Tool pages use Tailwind max-w-7xl by default; remove that artificial central column. */
+main.max-w-7xl,.aq-tool-page main,.tool-page main{max-width:none!important;width:100%!important;margin-left:0!important;margin-right:0!important}
+main.max-w-7xl{padding-left:clamp(18px,3.2vw,64px)!important;padding-right:clamp(18px,3.2vw,64px)!important}
+.aq-tool-title,.aq-tool-info,.aq-rich-content{width:100%!important;max-width:none!important;box-sizing:border-box!important}
+.aq-rich-head,.aq-rich-grid,.aq-rich-faq,.aq-rich-note{max-width:1500px!important}
+.aq-about{width:100%!important;max-width:none!important;margin:0!important;padding:64px clamp(22px,4vw,72px)!important;box-sizing:border-box!important}
+.aq-about .lead{max-width:1100px!important}
+.aq-about-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:20px!important}
+.aq-about article{min-height:100%;box-sizing:border-box!important}
+@media(max-width:1199px){.aq-about-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:640px){.aq-home-v29,.aq-quality,.aq-article{padding-left:16px!important;padding-right:16px!important}.aq-about{padding:46px 16px!important}.aq-about-grid{grid-template-columns:1fr!important}}
+
+/* V22.4 — footer equilibrado y centrado */
+.aq-footer-inner{
+  width:calc(100% - 64px)!important;
+  max-width:1680px!important;
+  margin:0 auto!important;
+  padding-left:0!important;
+  padding-right:0!important;
+}
+.aq-footer-bottom{
+  width:calc(100% - 64px)!important;
+  max-width:1680px!important;
+  margin:0 auto!important;
+  padding-left:0!important;
+  padding-right:0!important;
+}
+@media(max-width:700px){
+  .aq-footer-inner,.aq-footer-bottom{width:calc(100% - 32px)!important}
+}

@@ -1,7 +1,7 @@
-# AppQuickUtils — versión simplificada
+# AppQuickUtils — V23 quality pass
 
-Esta versión centra el sitio en tres áreas: inicio, catálogo de herramientas y páginas legales. Se han retirado del menú y del sitemap las secciones de guías, recursos, proyecto y páginas antiguas duplicadas.
+Esta versión mantiene el catálogo y el diseño de AppQuickUtils y añade una capa editorial para que las herramientas no sean páginas aisladas: 10 guías prácticas, navegación hacia las guías, ejemplos, preguntas frecuentes y referencias técnicas.
 
-El catálogo conserva la categoría Redes · FP dentro de Herramientas.
+El objetivo es aportar contexto real al visitante. El número de palabras no es una garantía de aprobación de AdSense: la prioridad es que el contenido sea útil, claro y específico.
 
-La simplificación busca una navegación clara y evita mantener páginas secundarias con contenido repetitivo o de poco valor. Google recomienda contenido único y relevante, navegación clara y evitar grandes volúmenes de páginas sin valor añadido.
+Antes de solicitar otra revisión conviene comprobar la configuración de consentimiento de AdSense, el funcionamiento de las herramientas, los enlaces, Search Console y la experiencia móvil.

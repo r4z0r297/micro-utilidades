@@ -1,0 +1,31 @@
+/* AppQuickUtils — navegación unificada V25 */
+.aq-header{position:sticky!important;top:0!important;z-index:10000!important;width:100%!important;background:rgba(7,13,23,.96)!important;border-bottom:1px solid rgba(29,48,68,.9)!important;backdrop-filter:blur(16px)!important}
+.aq-nav-wrap{width:100%!important;min-height:68px!important;height:auto!important;padding:10px clamp(14px,3vw,52px)!important;display:flex!important;align-items:center!important;gap:28px!important;box-sizing:border-box!important}
+.aq-brand{display:flex!important;align-items:center!important;gap:10px!important;min-width:0!important;text-decoration:none!important;color:#fff!important}
+.aq-brand-mark{width:40px!important;height:40px!important;min-width:40px!important;flex:0 0 40px!important;border-radius:11px!important;display:grid!important;place-items:center!important;background:linear-gradient(135deg,#34d399,#22d3ee)!important;color:#031411!important;box-shadow:0 8px 25px rgba(34,211,153,.12)!important}
+.aq-brand-mark i{font-size:16px!important}
+.aq-brand-text{font-size:1.08rem!important;font-weight:900!important;letter-spacing:-.03em!important;line-height:1!important;color:#fff!important}
+.aq-brand-text span{color:#34d399!important}
+.aq-brand-sub{display:block!important;margin-top:4px!important;font-size:8px!important;text-transform:uppercase!important;letter-spacing:.15em!important;color:#62758a!important;font-weight:800!important;line-height:1!important}
+.aq-header> .aq-nav-wrap>nav{display:flex!important;align-items:center!important;gap:clamp(14px,2vw,29px)!important;margin-left:auto!important}
+.aq-header> .aq-nav-wrap>nav a{font-size:.84rem!important;font-weight:700!important;color:#aebdcd!important;text-decoration:none!important;white-space:nowrap!important;transition:color .16s ease!important}
+.aq-header> .aq-nav-wrap>nav a:hover,.aq-header> .aq-nav-wrap>nav a[aria-current="page"]{color:#63e6c7!important}
+.aq-menu-btn{display:none!important;margin-left:auto!important;width:42px!important;height:42px!important;min-width:42px!important;border:1px solid #304257!important;border-radius:11px!important;background:#0b1625!important;color:#e5edf4!important;align-items:center!important;justify-content:center!important;cursor:pointer!important}
+.aq-menu-btn:hover{border-color:#34d399!important;color:#34d399!important}
+.aq-mobile-menu{display:none!important;position:relative!important;width:100%!important;box-sizing:border-box!important;border-top:1px solid #1d3044!important;padding:10px clamp(14px,3vw,52px) 15px!important;background:#07101b!important;box-shadow:0 12px 28px rgba(0,0,0,.24)!important}
+.aq-mobile-menu.aq-menu-open{display:block!important}
+.aq-mobile-menu nav{display:flex!important;flex-direction:column!important;width:100%!important;gap:3px!important;margin:0!important}
+.aq-mobile-link{display:flex!important;align-items:center!important;width:100%!important;min-height:46px!important;padding:11px 12px!important;border-radius:10px!important;color:#c7d3df!important;font-size:.92rem!important;font-weight:700!important;text-decoration:none!important;box-sizing:border-box!important}
+.aq-mobile-link:hover,.aq-mobile-link:focus{background:#0d1b2b!important;color:#5eead4!important}
+@media(max-width:760px){
+  .aq-header .aq-nav-wrap{min-height:66px!important;padding:10px 14px!important;gap:12px!important}
+  .aq-header> .aq-nav-wrap>nav{display:none!important}
+  .aq-menu-btn{display:inline-flex!important}
+  .aq-mobile-menu{padding-left:14px!important;padding-right:14px!important}
+}
+@media(min-width:761px){.aq-mobile-menu{display:none!important}}
+@media(max-width:420px){
+  .aq-brand-text{font-size:1rem!important}
+  .aq-brand-sub{font-size:7px!important}
+  .aq-brand-mark{width:38px!important;height:38px!important;min-width:38px!important;flex-basis:38px!important}
+}

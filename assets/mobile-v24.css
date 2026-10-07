@@ -1,0 +1,60 @@
+/* AppQuickUtils V24 — mobile-first polish */
+@media (max-width: 1023px){
+  html,body{width:100%;max-width:100%;overflow-x:hidden}
+  .aq-header{width:100%;position:sticky;top:0;z-index:1000}
+  .aq-nav-wrap{width:100%!important;min-height:66px!important;height:auto!important;padding:10px 16px!important;gap:12px!important}
+  .aq-header nav:not(.aq-mobile-menu nav){display:none!important}
+  .aq-menu-btn{display:inline-flex!important;align-items:center!important;justify-content:center!important;flex:0 0 42px!important;width:42px!important;height:42px!important;cursor:pointer!important}
+  .aq-mobile-menu{display:none!important;position:relative!important;width:100%!important;max-height:calc(100vh - 66px)!important;overflow-y:auto!important;padding:10px 16px 14px!important;background:#071426!important;border-top:1px solid #20374e!important;box-shadow:0 12px 28px rgba(0,0,0,.24)!important}
+  .aq-mobile-menu.aq-menu-open{display:block!important}
+  .aq-mobile-menu nav{display:flex!important;flex-direction:column!important;width:100%!important;gap:3px!important}
+  .aq-mobile-link{display:flex!important;align-items:center!important;min-height:46px!important;padding:11px 12px!important;border-radius:10px!important;color:#d2dce6!important;font-size:.92rem!important;font-weight:700!important}
+  .aq-mobile-link:hover,.aq-mobile-link:focus{background:#0d1c2e!important;color:#5eead4!important}
+  main{width:100%!important;max-width:100%!important;overflow:visible!important}
+  .aq-tool-page, .tool-page, .aq-rich-content, .aq-tool-info, .aq-tool-title{max-width:none!important;width:100%!important}
+  .aq-tool-title h1,.aq-rich-head h1{font-size:clamp(2.25rem,10vw,4rem)!important;line-height:.98!important;overflow-wrap:anywhere!important}
+  .aq-tool-title p,.aq-rich-head p{max-width:100%!important}
+  .aq-calc-shell,.aq-calc-form,.aq-calc-result{width:100%!important;max-width:100%!important}
+  .aq-calc-fields,.aq-grid,.aq-tool-guide .aq-grid,.aq-resource-grid,.aq-project-grid,.aq-net-tools,.aq-method,.aq-check{grid-template-columns:1fr!important}
+  .aq-calc-form input,.aq-calc-form select,.aq-calc-form textarea,.aq-calc-result textarea,.aq-tool-page input,.aq-tool-page select,.aq-tool-page textarea{width:100%!important;max-width:100%!important;min-width:0!important}
+  .aq-calc-actions,.actions{display:flex!important;flex-wrap:wrap!important;gap:9px!important}
+  .aq-calc-actions>*{min-width:0!important}
+  .aq-result-value{min-height:150px!important;max-width:100%!important;overflow:auto!important}
+  .aq-tool-guide{padding:18px!important}
+  .aq-tool-guide>*,.aq-rich-content>*{max-width:100%!important}
+  table{display:block!important;width:100%!important;max-width:100%!important;overflow-x:auto!important;-webkit-overflow-scrolling:touch!important}
+  img,video,iframe,canvas,svg{max-width:100%;height:auto}
+  pre{max-width:100%!important;overflow-x:auto!important;-webkit-overflow-scrolling:touch!important}
+  code{overflow-wrap:anywhere}
+  .aq-about,.aq-guide-index,.aq-guide-article{padding-left:16px!important;padding-right:16px!important}
+  .aq-about-grid,.aq-guide-list{grid-template-columns:1fr!important}
+  .aq-footer-inner{width:calc(100% - 32px)!important;grid-template-columns:1fr!important;gap:22px!important;padding:30px 0!important}
+  .aq-footer-bottom{width:calc(100% - 32px)!important;padding:13px 0!important}
+}
+@media (max-width:620px){
+  .aq-brand-text{font-size:1rem!important}
+  .aq-brand-sub{font-size:7px!important}
+  .aq-brand-mark{width:38px!important;height:38px!important;min-width:38px!important}
+  .aq-nav-wrap{padding-left:14px!important;padding-right:14px!important}
+  .aq-mobile-menu{padding-left:14px!important;padding-right:14px!important}
+  .aq-tool-title,.aq-rich-head{padding-left:0!important;padding-right:0!important}
+  .aq-calc-form,.aq-calc-result{padding:16px!important}
+  .aq-calc-actions{display:grid!important;grid-template-columns:1fr 1fr!important}
+  .aq-calc-actions .primary{grid-column:1/-1!important}
+  .aq-calc-actions button,.aq-calc-actions a{width:100%!important;justify-content:center!important}
+  .aq-tool-guide{border-radius:14px!important}
+  .aq-guide-index .aq-hero-quality,.aq-guide-index .aq-index-intro,.aq-guide-list,.aq-guide-article .aq-article-hero,.aq-guide-article .aq-content{padding-left:0!important;padding-right:0!important}
+  .aq-guide-index .aq-hero-quality h1,.aq-guide-article .aq-article-hero h1{font-size:clamp(2.5rem,13vw,4rem)!important}
+  .aq-v29-hero-main h1{font-size:clamp(2.8rem,13vw,4.5rem)!important}
+  .aq-v29-cta-final{grid-template-columns:1fr!important}
+  .aq-v29-cta-final>a{width:100%!important;justify-content:center!important}
+}
+/* Homepage uses its own navigation; keep the same mobile behaviour. */
+@media (max-width:760px){
+  .header .nav{min-height:66px!important;height:auto!important;padding-left:16px!important;padding-right:16px!important}
+  .header .mobile{display:none!important;position:relative!important;width:100%!important;box-sizing:border-box!important;background:#071426!important;border-top:1px solid #20374e!important;padding:10px 16px 14px!important;box-shadow:0 12px 28px rgba(0,0,0,.24)!important}
+  .header .mobile.open{display:block!important}
+  .header .mobile nav{display:flex!important;flex-direction:column!important;gap:3px!important}
+  .header .mobile a{min-height:46px!important;display:flex!important;align-items:center!important;padding:11px 12px!important;border-radius:10px!important;color:#d2dce6!important;font-size:.92rem!important;font-weight:700!important}
+  .header .mobile a:hover{background:#0d1c2e!important;color:#5eead4!important}
+}
